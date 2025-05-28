@@ -26,7 +26,7 @@ Detta GitHub-repo innehåller dokumentation och resurser kopplade till GDP-proje
   - [GDP-standard Begrepp v2-0  250423](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Information/GDP-standard%20Begrepp%20v2-0%20%20250423.xlsx)
   - [GDP-standard Begrepp v2-0  250423 - eng](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Information/GDP-standard%20Begrepp%20v2-0%20%20250423%20-%20eng.xlsx)
 - Underlag för klassificering av organisationer
-  - [Organisationsklass  241023](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Information/Organisationsklass%20%20241023.xlsx)
+  - [Organisationsklass  241023](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Information/Organisationsklass%20%20241023.xlsx "download")
 - [Tekniska specifikationer](https://github.com/Gemensamma-data-GDP/Dokumentation/tree/main/Tekniska%20specifikationer)
 
 ## Målgrupper
