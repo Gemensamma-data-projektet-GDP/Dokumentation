@@ -1,0 +1,2201 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GDP OpenApi",
+    "description": "Denna tjänst ger information om utlysningar, ansökningar och finansierade aktiviteter. För att få en detaljerad guide om hur man använder detta verktyg, vänligen besök följande [länk](https://proud-bay-0a32ebf03.5.azurestaticapps.net/documentation.html).",
+    "contact": {
+      "email": "kontakt@organisation.se"
+    },
+    "license": {
+      "name": "CC0 1.0 Universal (CC0 1.0) Public Domain Dedication",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    },
+    "version": "2.0"
+  },
+  "tags": [
+    {
+      "name": "Metadata"
+    },
+    {
+      "name": "Ansokningar"
+    },
+    {
+      "name": "FinansieradeAktiviteter"
+    },
+    {
+      "name": "Utlysningar"
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.vinnova.se/gdp",
+      "description": "Vinnovas webbtjänster för GDP."
+    }
+  ],
+  "paths": {
+    "/v2/metadata": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "Hämta information om API:et",
+        "description": "Hämta information om API:et",
+        "operationId": "hamtaMetadata",
+        "responses": {
+          "200": {
+            "description": "Förväntat svar på en fråga",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Metadata"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v2/ansokningar": {
+      "get": {
+        "tags": [
+          "Ansokningar"
+        ],
+        "summary": "Hämta lista av ansökningar.",
+        "description": "Hämta en lista med ansökningar genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning”.",
+        "operationId": "listaAnsokan",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit och offset anges tillsammans för att ge en begränsad del av sökresultatet i svaret. Limit anger max antal poster som ska returneras samtidigt.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Limit och offset anges tillsammans för att ge en begränsad del av sökresultatet i svaret. Offset anger första positionen i sökresultatet som ska returneras och är 0-indexerat.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "programDiarienummer",
+            "in": "query",
+            "description": "Returnerar endast ansökningar som tillhör angivet program.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "utlysningDiarienummer",
+            "in": "query",
+            "description": "Returnerar endast ansökningar som tillhör angiven utlysning.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "organisationsnummer",
+            "in": "query",
+            "description": "Returnerar endast ansökningar som organisation med angivet organisationsnummer är kopplad till.",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "franBeslutDatum",
+            "in": "query",
+            "description": "Returnerar endast ansökningar med beslut efter angivet beslutsdatum enligt ISO 8601.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "string",
+              "format": "date",
+              "example": "2021-08-29"
+            }
+          },
+          {
+            "name": "tillBeslutDatum",
+            "in": "query",
+            "description": "Returnerar endast ansökningar med beslut före angivet beslutsdatum enligt ISO 8601.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "string",
+              "format": "date",
+              "example": "2021-08-29"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Returnerar endast ansökningar med angiven status.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Avslagen",
+                "Beviljad",
+                "Ej beslutad"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginerad lista med ansökningar som matchar givna parametrar.",
+            "headers": {
+              "x-next": {
+                "description": "Länk till nästa sida med ansökningar.",
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-totalrecords": {
+                "description": "Totalt antal objekt som sökning resulterade i.",
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ansokningar"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Felaktig parameter."
+          }
+        }
+      }
+    },
+    "/v2/ansokningar/{diarienummer}": {
+      "get": {
+        "tags": [
+          "Ansokningar"
+        ],
+        "summary": "Hämtar information om en specifik ansökan.",
+        "description": "Hämtar information om en specifik ansökan för ett diarienummer.",
+        "operationId": "hamtaAnsokan",
+        "parameters": [
+          {
+            "name": "diarienummer",
+            "in": "path",
+            "description": "Diarienummer för ansökan som ska hämtas.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Förväntat svar på en fråga.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Ansokan"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Felaktig parameter."
+          },
+          "404": {
+            "description": "Ansökan kunde inte hittas."
+          }
+        }
+      }
+    },
+    "/v2/finansieradeaktiviteter": {
+      "get": {
+        "tags": [
+          "FinansieradeAktiviteter"
+        ],
+        "summary": "Hämtar lista med finansierade aktiviteter.",
+        "description": "Hämtar en lista med finansierade aktiviteter genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning.",
+        "operationId": "listaAktiviteter",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit och offset anges tillsammans för att ge en begränsad del av sökresultatet i svaret. Limit anger max antal poster som ska returneras samtidigt.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Limit och offset anges tillsammans för att ge en begränsad del av sökresultatet i svaret. Offset anger första posten som ska returneras i sökresultatet.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "programDiarienummer",
+            "in": "query",
+            "description": "Returnerar endast finansierade aktiviteter som tillhör angivet program.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "utlysningDiarienummer",
+            "in": "query",
+            "description": "Returnerar endast finansierade aktiviteter som tillhör angiven utlysning.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "organisationsnummer",
+            "in": "query",
+            "description": "Returnerar alla finansierade aktiviteter som organisation med angivet organisationsnummer är kopplad till i rollen som finansierad organisation och/eller koordinator.",
+            "required": false,
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "minBeslutadFinansieringsBelopp",
+            "in": "query",
+            "description": "Returnerar alla finansierade aktiviteter med belopp beslutad finansiering (per finansierad organisation och år för planerad utbetalning) som överskrider angivet belopp.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "maxBeslutadFinansieringsBelopp",
+            "in": "query",
+            "description": "Returnerar alla finansierade aktiviteter med belopp beslutad finansiering (per finansierad organisation och år för planerad utbetalning) som underskrider angivet belopp.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "franBeslutDatum",
+            "in": "query",
+            "description": "Returnerar endast finansierade aktiviteter med beslut efter angivet beslutsdatum enligt ISO 8601",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "string",
+              "format": "date",
+              "example": "2021-08-29"
+            }
+          },
+          {
+            "name": "tillBeslutDatum",
+            "in": "query",
+            "description": "Returnerar endast finansierade aktiviteter med beslut före angivet beslutsdatum enligt ISO 8601",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "string",
+              "format": "date",
+              "example": "2021-08-29"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Returnera endast finansierade aktiviteter med angiven status.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Ej påbörjad",
+                "Pågående",
+                "Avslutad"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginerad lista med finansierade aktiviteter som matchar givna parametrar.",
+            "headers": {
+              "x-next": {
+                "description": "Länk till nästa sida med finansierade aktiviteter.",
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-totalrecords": {
+                "description": "Totalt antal objekt som sökningen resulterade i.",
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinansieradeAktiviteter"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Felaktig parameter."
+          }
+        }
+      }
+    },
+    "/v2/finansieradeaktiviteter/{diarienummer}": {
+      "get": {
+        "tags": [
+          "FinansieradeAktiviteter"
+        ],
+        "description": "Hämtar information om en specifik finansierad aktivitet för ett diarienummer.",
+        "summary": "Hämtar information om en specifik finansierad aktivitet.",
+        "operationId": "hamtaFinansieradAktivtet",
+        "parameters": [
+          {
+            "name": "diarienummer",
+            "in": "path",
+            "description": "diarienummer för finansierad aktivitet som ska hämtas.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Förväntat svar på en fråga.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FinansieradAktivitet"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Felaktig parameter"
+          },
+          "404": {
+            "description": "Finansierad aktivitet kunde inte hittas."
+          }
+        }
+      }
+    },
+    "/v2/utlysningar": {
+      "get": {
+        "tags": [
+          "Utlysningar"
+        ],
+        "summary": "Hämtar en lista med utlysningar.",
+        "description": "Hämtar en lista med utlysningar genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning.",
+        "operationId": "listaUtlysningar",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Limit och offset anges tillsammans för att ge en begränsad del av ett sökresultatet i svaret. Limit anger max antal poster som ska returneras samtidigt.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Limit och offset anges tillsammans för att ge en begränsad del av ett sökresultatet i svaret. Offset anger första posten som ska returneras i sökresultatet.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "programDiarienummer",
+            "in": "query",
+            "description": "Returnerar endast utlysningar som tillhör angivet program.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Returnerar endast utlysningar med angiven status.",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "Kommande",
+                "Pågående",
+                "Avslutad"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginerad lista med utlysningar som matchar givna parametrar.",
+            "headers": {
+              "x-next": {
+                "description": "Länk till nästa sida med utlysningar.",
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "x-totalrecords": {
+                "description": "Totalt antal objekt som sökningen resulterade i.",
+                "style": "simple",
+                "explode": false,
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Utlysningar"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Felaktig parameter."
+          }
+        }
+      }
+    },
+    "/v2/utlysningar/{diarienummer}": {
+      "get": {
+        "tags": [
+          "Utlysningar"
+        ],
+        "description": "Hämtar information om en specifik utlysning för ett diarienummer.",
+        "summary": "Hämtar information om en specifik utlysning.",
+        "operationId": "hamtaUtlysning",
+        "parameters": [
+          {
+            "name": "diarienummer",
+            "in": "path",
+            "description": "Diarienummer för utlysning som ska hämtas.",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Förväntat svar på en fråga.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Utlysning"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Felaktig parameter."
+          },
+          "404": {
+            "description": "Utlysning kunde inte hittas."
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKeyAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "apiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    },
+    "schemas": {
+      "Metadata": {
+        "type": "object",
+        "description": "Hämtar information om API:et.",
+        "properties": {
+          "apiName": {
+            "type": "string",
+            "description": "Namn på API"
+          },
+          "apiVersion": {
+            "type": "string",
+            "description": "API version med MAJOR och MINOR versioner."
+          },
+          "apiReleased": {
+            "type": "string",
+            "description": "Datum när denna API-version publicerades.",
+            "format": "date-time",
+            "example": "2025-02-10 08:25:22 +01:00"
+          },
+          "apiDocumentation": {
+            "type": "string",
+            "description": "Länk till aktuell API-dokumentation."
+          },
+          "apiStatus": {
+            "type": "string",
+            "description": "Anger om APIet är i bruk. Giltiga värden är alpha, beta, active, deprecated, retired.",
+            "enum": [
+              "alpha",
+              "beta",
+              "active",
+              "deprecated",
+              "retired"
+            ]
+          }
+        },
+        "readOnly": true
+      },
+      "AnsokanBas": {
+        "required": [
+          "finansiarNamn",
+          "finansiarOrganisationsnummer",
+          "diarienummer",
+          "titel",
+          "lank"
+        ],
+        "type": "object",
+        "properties": {
+          "finansiarNamn": {
+            "type": "string",
+            "nullable": false,
+            "description": "Namn på finansiär som administrerar utlysning."
+          },
+          "finansiarOrganisationsnummer": {
+            "type": "string",
+            "nullable": false,
+            "description": "Organisationsnummer för finansiär som administrerar utlysning."
+          },
+          "diarienummer": {
+            "type": "string",
+            "nullable": false,
+            "description": "Identifikationsnummer för ansökan från administrerande finansiärs ärendehanteringssystem."
+          },
+          "titel": {
+            "type": "string",
+            "nullable": true,
+            "description": "Titel på ansökan."
+          },
+          "lank": {
+            "description": "Metadata för den relaterade resursen.",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LinkDescriptionObject"
+              }
+            ]
+          }
+        }
+      },
+      "Ansokan": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AnsokanBas"
+          },
+          {
+            "type": "object",
+            "description": "Beskrivning av aktivitet som extern person eller organisation har skickat in till en utlysning och söker finansiering för. För ej beslutade och avslagna ansökningar delas ansökningarnas titel och beskrivning, personnamn, ORCID, email, organisationsnamn och organisationsnummer som ej öppna data. Värdet \"Ej öppna data\" returneras till datakonsumenten.",
+            "required": [
+              "titelEng",
+              "beskrivning",
+              "beskrivningEng",
+              "status",
+              "soktBelopp",
+              "soktBeloppValuta",
+              "organisationer",
+              "personer",
+              "beslut",
+              "forskningsamnen",
+              "hallbarhetsmal",
+              "kategoriseringFinansiar",
+              "nyckelord",
+              "bidragsform",
+              "utlysning",
+              "program"
+            ],
+            "properties": {
+              "titelEng": {
+                "nullable": true,
+                "type": "string",
+                "description": "Titel på ansökan på engelska."
+              },
+              "beskrivning": {
+                "type": "string",
+                "nullable": true,
+                "description": "Kortfattad beskrivning av aktivitet."
+              },
+              "beskrivningEng": {
+                "nullable": true,
+                "type": "string",
+                "description": "Kortfattad beskrivning av aktivitet på engelska."
+              },
+              "status": {
+                "type": "string",
+                "nullable": true,
+                "description": "Aktuell status för ansökan.",
+                "enum": [
+                  "Avslagen",
+                  "Beviljad",
+                  "Ej beslutad"
+                ]
+              },
+              "soktBelopp": {
+                "type": "number",
+                "nullable": true,
+                "description": "Totalbelopp som extern aktör ansöker om för att genomföra aktivitet. Om fler än en organisation söker finansiering i en ansökan redovisas det sammanlagda sökta beloppet.",
+                "format": "float"
+              },
+              "soktBeloppValuta": {
+                "nullable": true,
+                "description": "Valutakod enligt ISO 4217 för valuta kopplad till sökt belopp.",
+                "example": "SEK",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Valutakod"
+                  }
+                ]
+              },
+              "organisationer": {
+                "type": "array",
+                "description": "Juridiska personer som är kopplade till en ansökan genom en roll. Juridiska personer som är enskilda näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data. Värdet \"Ej öppna data\" returneras till datakonsumenten.",
+                "items": {
+                  "$ref": "#/components/schemas/Organisation"
+                },
+                "nullable": true
+              },
+              "personer": {
+                "type": "array",
+                "nullable": true,
+                "description": "Fysiska personer som är kopplade till en ansökan genom en roll.",
+                "items": {
+                  "$ref": "#/components/schemas/Person"
+                }
+              },
+              "beslut": {
+                "type": "array",
+                "description": "Beslut kopplat till en ansökan. Avser expedierade beslut för finansiärer som är myndigheter.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Beslut"
+                }
+              },
+              "forskningsamnen": {
+                "nullable": true,
+                "type": "array",
+                "description": "Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD.",
+                "items": {
+                  "$ref": "#/components/schemas/Forskningsamne"
+                }
+              },
+              "hallbarhetsmal": {
+                "nullable": true,
+                "type": "array",
+                "description": "Mål för hållbarhet antagna av FN:s generalförsamling (Agenda 2030). Avser målen på den övergripande nivån.",
+                "items": {
+                  "$ref": "#/components/schemas/Hallbarhetsmal"
+                }
+              },
+              "kategoriseringFinansiar": {
+                "nullable": true,
+                "type": "array",
+                "description": "En finansiärs egen kategorisering av forskningsområden eller andra typer av interna kategoriseringar.",
+                "items": {
+                  "$ref": "#/components/schemas/KategoriseringFinansiar"
+                }
+              },
+              "nyckelord": {
+                "nullable": true,
+                "type": "array",
+                "description": "Ord som sammanfattar innehåll i aktivitet som extern person eller organisation söker finansiering för.",
+                "items": {
+                  "$ref": "#/components/schemas/Nyckelord"
+                }
+              },
+              "bidragsform": {
+                "nullable": true,
+                "description": "Typ av bidrag som en ansökan kan riktas mot. Bidragsformerna sorterar hierarkiskt under stödformerna.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Bidragsform"
+                  }
+                ]
+              },
+              "utlysning": {
+                "nullable": true,
+                "description": "Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på aktivitet som kan finansieras En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.  Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/UtlysningBas"
+                  }
+                ]
+              },
+              "program": {
+                "nullable": true,
+                "type": "array",
+                "description": "Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.",
+                "items": {
+                  "$ref": "#/components/schemas/ProgramBas"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Ansokningar": {
+        "description": "Hämtar en lista med ansökningar genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning.",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Ansokan"
+        }
+      },
+      "FinansieradAktivitet": {
+        "required": [
+          "finansiarNamn",
+          "finansiarOrganisationsnummer",
+          "diarienummer",
+          "titel",
+          "titelEng",
+          "beskrivning",
+          "beskrivningEng",
+          "status",
+          "startdatum",
+          "slutdatum",
+          "lank",
+          "typ",
+          "organisationer",
+          "personer",
+          "beslut",
+          "beslutadFinansiering",
+          "forskningsamnen",
+          "hallbarhetsmal",
+          "kategoriseringFinansiar",
+          "nyckelord",
+          "bidragsform",
+          "utlysning",
+          "program"
+        ],
+        "type": "object",
+        "description": "Finansierad aktivitet med syfte att facilitera, genomföra och kommunicera forskning, innovation och utveckling. En finansierad aktivitet kan gälla alla tre delar – facilitera, genomföra och kommunicera - eller enbart vissa av dem.",
+        "properties": {
+          "finansiarNamn": {
+            "type": "string",
+            "nullable": false,
+            "description": "Namn på finansiär som administrerar finansierad aktivitet."
+          },
+          "finansiarOrganisationsnummer": {
+            "type": "string",
+            "nullable": false,
+            "description": "Organisationsnummer för finansiär som administrerar finansierad aktivitet."
+          },
+          "diarienummer": {
+            "type": "string",
+            "nullable": false,
+            "description": "Identifikationsnummer för finansierad aktivtet från administrerande finansiärs ärendehanteringssystem."
+          },
+          "titel": {
+            "type": "string",
+            "nullable": true,
+            "description": "Titel på finansierad aktivitet."
+          },
+          "titelEng": {
+            "type": "string",
+            "description": "Titel på finansierad aktivitet på engelska.",
+            "nullable": true
+          },
+          "beskrivning": {
+            "type": "string",
+            "nullable": true,
+            "description": "Kortfattad beskrivning av finansierad aktivitet."
+          },
+          "beskrivningEng": {
+            "type": "string",
+            "nullable": true,
+            "description": "Kortfattad beskrivning av finansierad aktivitet på engelska."
+          },
+          "status": {
+            "type": "string",
+            "nullable": true,
+            "description": "Aktuell status för finansierad aktivitet.",
+            "enum": [
+              "Ej påbörjad",
+              "Pågående",
+              "Avslutad"
+            ]
+          },
+          "startdatum": {
+            "type": "string",
+            "nullable": true,
+            "description": "Datum enligt ISO 8601 när finansierad aktivitet startar.",
+            "format": "date",
+            "example": "2021-08-30"
+          },
+          "slutdatum": {
+            "type": "string",
+            "nullable": true,
+            "description": "Datum enligt ISO 8601 när finansierad aktivitet slutar.",
+            "format": "date",
+            "example": "2021-08-30"
+          },
+          "lank": {
+            "description": "Metadata för den relaterade resursen.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LinkDescriptionObject"
+              }
+            ]
+          },
+          "typ": {
+            "type": "string",
+            "nullable": true,
+            "description": "Typ av finansierad aktivitet.",
+            "enum": [
+              "FinansieradAktivitetUtlysning"
+            ]
+          },
+          "organisationer": {
+            "type": "array",
+            "nullable": true,
+            "description": "Juridiska personer som är kopplade till en finansierad genom en roll. Juridiska personer som är enskilda näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data. Värdet \"Ej öppna data\" returneras till datakonsumenten.",
+            "items": {
+              "$ref": "#/components/schemas/Organisation"
+            }
+          },
+          "personer": {
+            "type": "array",
+            "nullable": true,
+            "description": "Fysiska personer som är kopplade till en ansökan genom en roll.",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            }
+          },
+          "beslut": {
+            "type": "array",
+            "description": "Beslut kopplat till en finansierad aktivitet.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Beslut"
+            }
+          },
+          "beslutadFinansiering": {
+            "type": "array",
+            "description": "Ekonomiska medel som finansiär beslutat ska betalas till en finansierad aktivitet (per finansierad organisation och per kalenderår för planerad betalning). Avser samtliga organisationer som blir finansierade inom ramen för en finansierad aktivitet.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BeslutadFinansiering"
+            }
+          },
+          "forskningsamnen": {
+            "nullable": true,
+            "description": "Forskningsämnen enligt Standard för svensk indelning av forskningsämnen Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Forskningsamne"
+            }
+          },
+          "hallbarhetsmal": {
+            "nullable": true,
+            "description": "Mål för hållbarhet antagna av FN:s generalförsamling (Agenda 2030). Avser målen på den övergripande nivån.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Hallbarhetsmal"
+            }
+          },
+          "kategoriseringFinansiar": {
+            "nullable": true,
+            "type": "array",
+            "description": "En finansiärs egen kategorisering av forskningsområden eller andra typer av interna kategoriseringar.",
+            "items": {
+              "$ref": "#/components/schemas/KategoriseringFinansiar"
+            }
+          },
+          "nyckelord": {
+            "nullable": true,
+            "description": "Ord som sammanfattar innehåll i aktivitet som extern person eller organisation söker finansiering för.",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Nyckelord"
+            }
+          },
+          "bidragsform": {
+            "nullable": true,
+            "description": "Typ av bidrag som en ansökan kan riktas mot. Bidragsformerna sorterar hierarkiskt under stödformerna.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Bidragsform"
+              }
+            ]
+          },
+          "utlysning": {
+            "nullable": true,
+            "description": "Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på aktivitet som kan finansieras.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UtlysningBas"
+              }
+            ]
+          },
+          "program": {
+            "nullable": true,
+            "type": "array",
+            "description": "Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.",
+            "items": {
+              "$ref": "#/components/schemas/ProgramBas"
+            }
+          }
+        }
+      },
+      "FinansieradeAktiviteter": {
+        "description": "Hämtar en lista med finansierade aktiviteter genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning.",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/FinansieradAktivitet"
+        }
+      },
+      "UtlysningBas": {
+        "required": [
+          "finansiarNamn",
+          "finansiarOrganisationsnummer",
+          "diarienummer",
+          "titel",
+          "lank"
+        ],
+        "type": "object",
+        "properties": {
+          "finansiarNamn": {
+            "type": "string",
+            "nullable": false,
+            "description": "Namn på finansiär som administrerar utlysning."
+          },
+          "finansiarOrganisationsnummer": {
+            "type": "string",
+            "nullable": false,
+            "description": "Organisationsnummer för finansiär som administrerar utlysning."
+          },
+          "diarienummer": {
+            "type": "string",
+            "nullable": false,
+            "description": "Identifikationsnummer för utlysning från administrerande finansiärs ärendehanteringssystem."
+          },
+          "titel": {
+            "type": "string",
+            "nullable": true,
+            "description": "Titel på utlysning"
+          },
+          "lank": {
+            "description": "Metadata för den relaterade resursen.",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LinkDescriptionObject"
+              }
+            ]
+          }
+        }
+      },
+      "Utlysning": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UtlysningBas"
+          },
+          {
+            "type": "object",
+            "description": "Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på aktivitet som kan finansieras En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.  Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.",
+            "required": [
+              "titelEng",
+              "beskrivning",
+              "beskrivningEng",
+              "status",
+              "budgetBelopp",
+              "budgetValuta",
+              "oppningsdatum",
+              "stangningsdatum",
+              "publiceringsplatser",
+              "bidragsformer",
+              "program"
+            ],
+            "properties": {
+              "titelEng": {
+                "nullable": true,
+                "type": "string",
+                "description": "Titel på utlysning på engelska."
+              },
+              "beskrivning": {
+                "type": "string",
+                "nullable": true,
+                "description": "Beskrivning av utlysning."
+              },
+              "beskrivningEng": {
+                "nullable": true,
+                "type": "string",
+                "description": "Beskrivning av utlysning på engelska."
+              },
+              "status": {
+                "type": "string",
+                "nullable": true,
+                "description": "Aktuell status för utlysning.",
+                "enum": [
+                  "Kommande",
+                  "Pågående",
+                  "Avslutad"
+                ]
+              },
+              "budgetBelopp": {
+                "nullable": true,
+                "type": "number",
+                "description": "Total budget för utlysning.",
+                "format": "float"
+              },
+              "budgetValuta": {
+                "nullable": true,
+                "description": "Valutakod enligt ISO 4217 för valuta kopplad till budget för utlysning.",
+                "example": "SEK",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Valutakod"
+                  }
+                ]
+              },
+              "oppningsdatum": {
+                "type": "string",
+                "nullable": true,
+                "description": "Datum enligt ISO 8601 när utlysning öppnar och ansökningar kan skickas in.",
+                "format": "date",
+                "example": "2021-08-29"
+              },
+              "stangningsdatum": {
+                "type": "string",
+                "nullable": true,
+                "description": "Datum enligt ISO 8601 när utlysning  stänger och ansökningar inte längre kan skickas in.",
+                "format": "date",
+                "example": "2021-10-29"
+              },
+              "publiceringsplatser": {
+                "nullable": true,
+                "type": "array",
+                "description": "Webbadress med information om en utlysning.",
+                "items": {
+                  "$ref": "#/components/schemas/Publiceringsplats"
+                }
+              },
+              "bidragsformer": {
+                "nullable": true,
+                "description": "Typ av bidrag som en ansökan kan riktas mot. Bidragsformerna sorterar hierarkiskt under stödformerna.",
+                "items": {
+                  "$ref": "#/components/schemas/Bidragsform"
+                }
+              },
+              "program": {
+                "nullable": true,
+                "description": "Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.",
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Program"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Utlysningar": {
+        "description": "Hämtar en lista med utlysningar genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning.",
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Utlysning"
+        }
+      },
+      "Organisation": {
+        "required": [
+          "namn",
+          "namnEng",
+          "organisationsnummer",
+          "lan",
+          "landskod",
+          "typ",
+          "roll"
+        ],
+        "type": "object",
+        "description": "Juridisk person. Juridiska personer som är enskilda näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data. Värdet \"Ej öppna data\" returneras till datakonsumenten.",
+        "properties": {
+          "namn": {
+            "type": "string",
+            "nullable": true,
+            "description": "Namn på organisation."
+          },
+          "namnEng": {
+            "nullable": true,
+            "type": "string",
+            "description": "Namn på organisation på engelska."
+          },
+          "organisationsnummer": {
+            "type": "string",
+            "nullable": true,
+            "description": "Identitetsbeteckning för organisationer från Bolagsverket.",
+            "example": "202100-5216"
+          },
+          "lan": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Lan"
+              }
+            ]
+          },
+          "landskod": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Landskod"
+              }
+            ]
+          },
+          "typ": {
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrganisationTyp"
+              }
+            ]
+          },
+          "roll": {
+            "description": "Roller för organisationer som är kopplade till ansökningar och finansierade aktiviteter.",
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "FinansieradOrganisation",
+              "Koordinator",
+              "SökandeKoordinator",
+              "MedsökandeOrganisation"
+            ]
+          }
+        }
+      },
+      "Person": {
+        "required": [
+          "namn",
+          "ORCID",
+          "kon",
+          "roll",
+          "arbetsgivare"
+        ],
+        "description": "Fysisk person.",
+        "type": "object",
+        "properties": {
+          "namn": {
+            "type": "string",
+            "nullable": true,
+            "description": "Namn på person."
+          },
+          "ORCID": {
+            "type": "string",
+            "nullable": true,
+            "description": "Internationellt och öppet register med identifierare för författare av vetenskapliga publikationer.",
+            "example": "202100-5216"
+          },
+          "kon": {
+            "nullable": true,
+            "type": "string",
+            "description": "Könstillhörighet som person angivit."
+          },
+          "roll": {
+            "description": "Roller för organisationer och personer som är kopplade till ansökningar och finansierade aktiviteter.",
+            "type": "string",
+            "nullable": true,
+            "enum": [
+              "AnsvarigPerson",
+              "MedverkandePerson",
+              "SökandeAnsvarigPerson",
+              "SökandeMedverkandePerson"
+            ]
+          },
+          "arbetsgivare": {
+            "description": "Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data. Värdet \"Ej öppna data\" returneras till datakonsumenten.",
+            "nullable": true,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Arbetsgivare"
+              }
+            ]
+          }
+        }
+      },
+      "Forskningsamne": {
+        "required": [
+          "namn",
+          "namnEng",
+          "kod"
+        ],
+        "type": "object",
+        "description": "Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD",
+        "properties": {
+          "namn": {
+            "type": "string",
+            "nullable": true,
+            "description": "Namn på forskningsämne."
+          },
+          "namnEng": {
+            "nullable": true,
+            "type": "string",
+            "description": "Namn på forskningsämne på engelska."
+          },
+          "kod": {
+            "type": "integer",
+            "nullable": true,
+            "format": "int32",
+            "description": "Femställig sifferbeteckning för forskningsämne."
+          }
+        }
+      },
+      "KategoriseringFinansiar": {
+        "required": [
+          "namn"
+        ],
+        "type": "object",
+        "description": "En finansiärs egen kategorisering av forskningsområden eller andra typer av interna kategoriseringar.",
+        "properties": {
+          "namn": {
+            "type": "string",
+            "description": "Namn på kategori.",
+            "nullable": true
+          }
+        }
+      },
+      "Nyckelord": {
+        "required": [
+          "namn"
+        ],
+        "type": "object",
+        "description": "Ord som sammanfattar innehåll i aktivitet som extern person eller organisation söker finansiering för.",
+        "properties": {
+          "namn": {
+            "type": "string",
+            "description": "Namn på nyckelord. Inkluderar både svenska och engelska namn.",
+            "nullable": true
+          }
+        }
+      },
+      "Beslut": {
+        "required": [
+          "datum",
+          "typ",
+          "utfall"
+        ],
+        "type": "object",
+        "description": "Beslut kopplat till en ansökan eller finansierad aktivitet. Avser expedierade beslut för finansiärer som är myndigheter.",
+        "properties": {
+          "datum": {
+            "type": "string",
+            "description": "Datum enligt ISO 8601 när beslut blev fattat.",
+            "nullable": true,
+            "format": "date",
+            "example": "2021-10-29"
+          },
+          "typ": {
+            "type": "string",
+            "nullable": true,
+            "description": "Typ av beslut.",
+            "enum": [
+              "BeslutFinansiering"
+            ]
+          },
+          "utfall": {
+            "type": "string",
+            "nullable": true,
+            "description": "Utfall av beslutet.",
+            "enum": [
+              "Avslagen",
+              "Beviljad"
+            ]
+          }
+        }
+      },
+      "BeslutadFinansiering": {
+        "required": [
+          "stodgrund",
+          "ar",
+          "belopp",
+          "valuta",
+          "finansieradOrganisation"
+        ],
+        "type": "object",
+        "description": "Ekonomiska medel som finansiär beslutat ska betalas till en finansierad aktivitet (per finansierad organisation och per kalenderår för planerad betalning). Avser samtliga organisationer som blir finansierade inom ramen för en finansierad aktivitet.",
+        "properties": {
+          "stodgrund": {
+            "nullable": true,
+            "type": "string",
+            "description": "Juridisk grund för tilldelning av medel."
+          },
+          "ar": {
+            "type": "integer",
+            "nullable": true,
+            "description": "Kalenderår som beslutat belopp ska betalas."
+          },
+          "belopp": {
+            "type": "number",
+            "nullable": true,
+            "format": "float",
+            "description": "Belopp som blivit beslutat ska betalas. Innefattar eventuella senare beslut om att öka eller minska ursprungligt beviljat belopp, s.k. \"nettoeffekt\" av samtliga beslut."
+          },
+          "valuta": {
+            "nullable": true,
+            "description": "Valutakod enligt ISO 4217 för valuta kopplad till belopp som blivit beslutat ska betalas.",
+            "example": "SEK",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Valutakod"
+              }
+            ]
+          },
+          "finansieradOrganisation": {
+            "nullable": true,
+            "description": "Organisation som finansieras inom ramen för en finansierad aktivitet.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Organisation"
+              }
+            ]
+          }
+        }
+      },
+      "Hallbarhetsmal": {
+        "required": [
+          "namn",
+          "namnEng"
+        ],
+        "type": "object",
+        "description": "Globala mål för hållbarhet antagna av FN:s generalförsamling (Agenda 2030). Avser målen på den övergripande nivån.",
+        "properties": {
+          "namn": {
+            "description": "Namn på mål.",
+            "type": "string",
+            "nullable": true
+          },
+          "namnEng": {
+            "nullable": true,
+            "description": "Namn på mål på engelska.",
+            "type": "string"
+          }
+        }
+      },
+      "ProgramBas": {
+        "required": [
+          "finansiarNamn",
+          "finansiarOrganisationsnummer",
+          "diarienummer",
+          "titel"
+        ],
+        "type": "object",
+        "description": "Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.",
+        "properties": {
+          "finansiarNamn": {
+            "type": "string",
+            "nullable": false,
+            "description": "Namn på finansiär som administrerar utlysningar och finansiering kopplad till program."
+          },
+          "finansiarOrganisationsnummer": {
+            "type": "string",
+            "nullable": false,
+            "description": "Organisationsnummer för finansiär som administrerar utlysningar och finansiering kopplad till program."
+          },
+          "diarienummer": {
+            "type": "string",
+            "nullable": false,
+            "description": "Identifikationsnummer från administrerande finansiärs ärendehanteringssystem."
+          },
+          "titel": {
+            "type": "string",
+            "nullable": true,
+            "description": "Titel på program."
+          }
+        }
+      },
+      "Program": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ProgramBas"
+          },
+          {
+            "type": "object",
+            "required": [
+              "beskrivning",
+              "status",
+              "budgetBelopp",
+              "budgetValuta",
+              "startdatum",
+              "slutdatum"
+            ],
+            "properties": {
+              "beskrivning": {
+                "nullable": true,
+                "type": "string",
+                "description": "Beskrivning av program."
+              },
+              "status": {
+                "nullable": true,
+                "type": "string",
+                "description": "Aktuell status för program.",
+                "enum": [
+                  "Planerat",
+                  "Pågående",
+                  "Avslutat"
+                ]
+              },
+              "budgetBelopp": {
+                "nullable": true,
+                "type": "number",
+                "description": "Totalt budgetbelopp för program.",
+                "format": "float"
+              },
+              "budgetValuta": {
+                "nullable": true,
+                "description": "Valutakod enligt ISO 4217 för valuta kopplad till budget för program.",
+                "example": "SEK",
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/Valutakod"
+                  }
+                ]
+              },
+              "startdatum": {
+                "nullable": true,
+                "type": "string",
+                "description": "Datum enligt ISO 8601 när program startar.",
+                "format": "date",
+                "example": "2021-08-29"
+              },
+              "slutdatum": {
+                "nullable": true,
+                "type": "string",
+                "description": "Datum enligt ISO 8601 när program slutar.",
+                "format": "date",
+                "example": "2021-08-29"
+              }
+            }
+          }
+        ]
+      },
+      "Stodform": {
+        "required": [
+          "namn"
+        ],
+        "type": "object",
+        "description": "Typ av stöd som en ansökan kan riktas mot.",
+        "properties": {
+          "namn": {
+            "nullable": true,
+            "type": "string",
+            "description": "Namn på stödform."
+          }
+        }
+      },
+      "LinkDescriptionObject": {
+        "required": [
+          "href",
+          "method",
+          "rel",
+          "titelEng"
+        ],
+        "type": "object",
+        "description": "Metadata för den relaterade resursen.",
+        "properties": {
+          "href": {
+            "type": "string",
+            "nullable": true,
+            "description": "URI som används för att bestämma målet för den relaterade resursen.",
+            "format": "uri"
+          },
+          "rel": {
+            "type": "string",
+            "description": "Identifierare för en länk som beskriver semantiken för länken.",
+            "nullable": true,
+            "enum": [
+              "self",
+              "create",
+              "edit",
+              "delete",
+              "replace",
+              "first",
+              "last",
+              "next",
+              "prev",
+              "collection",
+              "latest-version",
+              "search",
+              "up"
+            ]
+          },
+          "method": {
+            "type": "string",
+            "description": "Identifierar HTTP verbet som SKALL användas i förfrågan i länken.",
+            "nullable": true,
+            "default": "GET",
+            "enum": [
+              "GET",
+              "DELETE",
+              "PUT",
+              "PATCH"
+            ]
+          },
+          "titelEng": {
+            "type": "string",
+            "nullable": true,
+            "description": "Används för att rubricera länken för att på så sätt ge värdefull dokumentation för att enklare förstå länkens syfte."
+          }
+        }
+      },
+      "Arbetsgivare": {
+        "required": [
+          "namn",
+          "namnEng",
+          "organisationsnummer",
+          "lan",
+          "landskod",
+          "typ"
+        ],
+        "type": "object",
+        "description": "OOrganisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data. Värdet \"Ej öppna data\" returneras till datakonsumenten.",
+        "properties": {
+          "namn": {
+            "type": "string",
+            "nullable": true,
+            "description": "Namn på organisation."
+          },
+          "namnEng": {
+            "nullable": true,
+            "type": "string",
+            "description": "Namn på organisation på engelska."
+          },
+          "organisationsnummer": {
+            "type": "string",
+            "nullable": true,
+            "description": "Identitetsbeteckning för organisationer från Bolagsverket.",
+            "example": "202100-5216"
+          },
+          "lan": {
+            "nullable": true,
+            "description": "Län där organisation har sitt huvudsäte.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Lan"
+              }
+            ]
+          },
+          "landskod": {
+            "nullable": true,
+            "description": "Landskod enligt ISO 3166-1 alpha-2 för land där organisation har sitt huvudsäte.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Landskod"
+              }
+            ]
+          },
+          "typ": {
+            "nullable": true,
+            "description": "Typ av organisation.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OrganisationTyp"
+              }
+            ]
+          }
+        }
+      },
+      "Bidragsform": {
+        "required": [
+          "namn",
+          "beskrivning",
+          "stodform"
+        ],
+        "type": "object",
+        "description": "Typ av bidrag som en ansökan kan riktas mot. Bidragsformerna sorterar hierarkiskt under stödformerna.",
+        "properties": {
+          "namn": {
+            "type": "string",
+            "nullable": true,
+            "description": "Namn på bidragsform."
+          },
+          "beskrivning": {
+            "nullable": true,
+            "type": "string",
+            "description": "Beskrivning av bidragsform."
+          },
+          "stodform": {
+            "nullable": true,
+            "description": "Typ av stöd som en ansökan kan riktas mot.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/Stodform"
+              }
+            ]
+          }
+        }
+      },
+      "OrganisationTyp": {
+        "type": "string",
+        "description": "Typ av organisation.",
+        "enum": [
+          "Forskningsinstitut (RISE)",
+          "Företag",
+          "Ideella föreningar, stiftelser, fysiska personer mm",
+          "Offentlig förvaltning",
+          "Universitet och högskolor",
+          "Övriga offentliga organisationer",
+          "Ospecificerade"
+        ]
+      },
+      "Publiceringsplats": {
+        "required": [
+          "webbadress"
+        ],
+        "type": "object",
+        "description": "Webbadress med information om en utlysning.",
+        "properties": {
+          "webbadress": {
+            "type": "string",
+            "nullable": true,
+            "format": "uri",
+            "description": "Länk till webbadress med information om en utlysning."
+          }
+        }
+      },
+      "Lan": {
+        "type": "string",
+        "description": "Län där organisation har sitt huvudsäte.",
+        "enum": [
+          "Blekinge län",
+          "Dalarnas län",
+          "Gotlands län",
+          "Gävleborgs län",
+          "Hallands län",
+          "Jämtlands län",
+          "Jönköpings län",
+          "Kalmar län",
+          "Kronobergs län",
+          "Norrbottens län",
+          "Skåne län",
+          "Stockholms län",
+          "Södermanlands län",
+          "Uppsala län",
+          "Värmlands län",
+          "Västerbottens län",
+          "Västernorrlands län",
+          "Västmanlands län",
+          "Västra Götalands län",
+          "Örebro län",
+          "Östergötlands län"
+        ]
+      },
+      "Landskod": {
+        "type": "string",
+        "description": "Landskod enligt ISO 3166-1 alpha-2 för land där organisation har sitt huvudsäte.",
+        "enum": [
+          "AD",
+          "AE",
+          "AF",
+          "AG",
+          "AI",
+          "AL",
+          "AM",
+          "AO",
+          "AQ",
+          "AR",
+          "AS",
+          "AT",
+          "AU",
+          "AW",
+          "AX",
+          "AZ",
+          "BA",
+          "BB",
+          "BD",
+          "BE",
+          "BF",
+          "BG",
+          "BH",
+          "BI",
+          "BJ",
+          "BL",
+          "BM",
+          "BN",
+          "BO",
+          "BQ",
+          "BR",
+          "BS",
+          "BT",
+          "BV",
+          "BW",
+          "BY",
+          "BZ",
+          "CA",
+          "CC",
+          "CD",
+          "CF",
+          "CG",
+          "CH",
+          "CI",
+          "CK",
+          "CL",
+          "CM",
+          "CN",
+          "CO",
+          "CR",
+          "CU",
+          "CV",
+          "CW",
+          "CX",
+          "CY",
+          "CZ",
+          "DE",
+          "DJ",
+          "DK",
+          "DM",
+          "DO",
+          "DZ",
+          "EC",
+          "EE",
+          "EG",
+          "EH",
+          "ER",
+          "ES",
+          "ET",
+          "FI",
+          "FJ",
+          "FK",
+          "FM",
+          "FO",
+          "FR",
+          "GA",
+          "GB",
+          "GD",
+          "GE",
+          "GF",
+          "GG",
+          "GH",
+          "GI",
+          "GL",
+          "GM",
+          "GN",
+          "GP",
+          "GQ",
+          "GR",
+          "GS",
+          "GT",
+          "GU",
+          "GW",
+          "GY",
+          "HK",
+          "HM",
+          "HN",
+          "HR",
+          "HT",
+          "HU",
+          "ID",
+          "IE",
+          "IL",
+          "IM",
+          "IN",
+          "IO",
+          "IQ",
+          "IR",
+          "IS",
+          "IT",
+          "JE",
+          "JM",
+          "JO",
+          "JP",
+          "KE",
+          "KG",
+          "KH",
+          "KI",
+          "KM",
+          "KN",
+          "KP",
+          "KR",
+          "KW",
+          "KY",
+          "KZ",
+          "LA",
+          "LB",
+          "LC",
+          "LI",
+          "LK",
+          "LR",
+          "LS",
+          "LT",
+          "LU",
+          "LV",
+          "LY",
+          "MA",
+          "MC",
+          "MD",
+          "ME",
+          "MF",
+          "MG",
+          "MH",
+          "MK",
+          "ML",
+          "MM",
+          "MN",
+          "MO",
+          "MP",
+          "MQ",
+          "MR",
+          "MS",
+          "MT",
+          "MU",
+          "MV",
+          "MW",
+          "MX",
+          "MY",
+          "MZ",
+          "NA",
+          "NC",
+          "NE",
+          "NF",
+          "NG",
+          "NI",
+          "NL",
+          "NO",
+          "NP",
+          "NR",
+          "NU",
+          "NZ",
+          "OM",
+          "PA",
+          "PE",
+          "PF",
+          "PG",
+          "PH",
+          "PK",
+          "PL",
+          "PM",
+          "PN",
+          "PR",
+          "PS",
+          "PT",
+          "PW",
+          "PY",
+          "QA",
+          "RE",
+          "RO",
+          "RS",
+          "RU",
+          "RW",
+          "SA",
+          "SB",
+          "SC",
+          "SD",
+          "SE",
+          "SG",
+          "SH",
+          "SI",
+          "SJ",
+          "SK",
+          "SL",
+          "SM",
+          "SN",
+          "SO",
+          "SR",
+          "SS",
+          "ST",
+          "SV",
+          "SX",
+          "SY",
+          "SZ",
+          "TC",
+          "TD",
+          "TF",
+          "TG",
+          "TH",
+          "TJ",
+          "TK",
+          "TL",
+          "TM",
+          "TN",
+          "TO",
+          "TR",
+          "TT",
+          "TV",
+          "TW",
+          "TZ",
+          "UA",
+          "UG",
+          "UM",
+          "US",
+          "UY",
+          "UZ",
+          "VA",
+          "VC",
+          "VE",
+          "VG",
+          "VI",
+          "VN",
+          "VU",
+          "WF",
+          "WS",
+          "YE",
+          "YT",
+          "ZA",
+          "ZM",
+          "ZW"
+        ]
+      },
+      "Valutakod": {
+        "type": "string",
+        "description": "Valutakod enligt ISO 4217",
+        "enum": [
+          "AED",
+          "AFN",
+          "ALL",
+          "AMD",
+          "ANG",
+          "AOA",
+          "ARS",
+          "AUD",
+          "AWG",
+          "AZN",
+          "BAM",
+          "BBD",
+          "BDT",
+          "BGN",
+          "BHD",
+          "BIF",
+          "BMD",
+          "BND",
+          "BOB",
+          "BRL",
+          "BSD",
+          "BTN",
+          "BWP",
+          "BYN",
+          "BZD",
+          "CAD",
+          "CDF",
+          "CHF",
+          "CLP",
+          "CNY",
+          "COP",
+          "COU",
+          "CRC",
+          "CUP",
+          "CVE",
+          "CZK",
+          "DJF",
+          "DKK",
+          "DOP",
+          "DZD",
+          "EGP",
+          "ERN",
+          "ETB",
+          "EUR",
+          "FJD",
+          "FKP",
+          "GBP",
+          "GEL",
+          "GHS",
+          "GIP",
+          "GMD",
+          "GNF",
+          "GTQ",
+          "GYD",
+          "HKD",
+          "HNL",
+          "HTG",
+          "HUF",
+          "IDR",
+          "ILS",
+          "INR",
+          "IQD",
+          "IRR",
+          "ISK",
+          "JMD",
+          "JOD",
+          "JPY",
+          "KES",
+          "KGS",
+          "KHR",
+          "KMF",
+          "KPW",
+          "KRW",
+          "KWD",
+          "KYD",
+          "KZT",
+          "LAK",
+          "LBP",
+          "LKR",
+          "LRD",
+          "LSL",
+          "LYD",
+          "MAD",
+          "MDL",
+          "MGA",
+          "MKD",
+          "MMK",
+          "MNT",
+          "MOP",
+          "MRO",
+          "MUR",
+          "MVR",
+          "MWK",
+          "MXN",
+          "MYR",
+          "MZN",
+          "NAD",
+          "NGN",
+          "NIO",
+          "NOK",
+          "NPR",
+          "NZD",
+          "OMR",
+          "PAB",
+          "PEN",
+          "PGK",
+          "PHP",
+          "PKR",
+          "PLN",
+          "PYG",
+          "QAR",
+          "RON",
+          "RSD",
+          "RUB",
+          "RWF",
+          "SAR",
+          "SBD",
+          "SCR",
+          "SDG",
+          "SEK",
+          "SGD",
+          "SHP",
+          "SLL",
+          "SOS",
+          "SRD",
+          "SSP",
+          "STN",
+          "SYP",
+          "SZL",
+          "THB",
+          "TJS",
+          "TMT",
+          "TND",
+          "TOP",
+          "TRY",
+          "TTD",
+          "TWD",
+          "TZS",
+          "UAH",
+          "UGX",
+          "USD",
+          "UYU",
+          "UZS",
+          "VES",
+          "VND",
+          "VUV",
+          "WST",
+          "XAF",
+          "XCD",
+          "XOF",
+          "XPF",
+          "YER",
+          "ZAR",
+          "ZMW",
+          "ZWL"
+        ]
+      }
+    }
+  }
+}
