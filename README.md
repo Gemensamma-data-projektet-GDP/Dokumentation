@@ -22,14 +22,9 @@ GDP syftar till att:
 Detta GitHub-repo innehåller dokumentation och resurser kopplade till GDP-projektet, så som:
 
 - Informationsmodell raw/refs/heads/main/Information/
-  - [GDP V2.0 - UML Model  241023](https://github.com/Gemensamma-data-GDP/Dokumentation/raw/refs/heads/main/Information/GDP%20V2.0%20-%20UML%20Model%20%20241023.vsdx)
-  - [GDP V2.0 - UML Model Eng 241023](https://github.com/Gemensamma-data-GDP/Dokumentation/raw/refs/heads/main/Information/GDP%20V2.0%20-%20UML%20Model%20%20Eng%20241023.vsdx)
 - Begrepp (definitioner av begrepp)
-  - [GDP-standard Begrepp v2-0  250423](https://github.com/Gemensamma-data-GDP/Dokumentation/raw/refs/heads/main/Information/GDP-standard%20Begrepp%20v2-0%20%20250423.xlsx)
-  - [GDP-standard Begrepp v2-0  250423 - eng](https://github.com/Gemensamma-data-GDP/Dokumentation/raw/refs/heads/main/Information/GDP-standard%20Begrepp%20v2-0%20%20250423%20-%20eng.xlsx)
 - Underlag för klassificering av organisationer
-  - [Organisationsklass  241023](https://github.com/Gemensamma-data-GDP/Dokumentation/raw/refs/heads/main/Information/Organisationsklass%20%20241023.xlsx "download")
-- [Tekniska specifikationer](https://github.com/Gemensamma-data-GDP/Dokumentation/tree/main/Tekniska%20specifikationer)
+- [Tekniska specifikationer för API](https://github.com/Gemensamma-data-GDP/Dokumentation/tree/main/Tekniska%20specifikationer)
 
 ## Målgrupper
 
