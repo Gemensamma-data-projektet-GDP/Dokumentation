@@ -54,6 +54,7 @@ Vill du bidra eller komma i kontakt med projektgruppen?
 Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagarna i arbetsgruppen.
 
 ---
+<iframe width="560" height="315" src='https://dbdiagram.io/e/68315a6ab9f7446da3f16e2d/684ab2771dff20a534c2a3b9'> </iframe>
 
 📅 **Senast uppdaterad:** Januari 2025  
 📍 **Status:** Pågående – proof of concept och modellutveckling pågår  
