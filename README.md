@@ -1,3 +1,5 @@
+https://dbdiagram.io/d/Test-2-68315a6ab9f7446da3f16e2d
+
 # Gemensamma data-projektet (GDP)
 
 ## Om projektet
