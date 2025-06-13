@@ -4,22 +4,11 @@ https://dbdiagram.io/d/GDP-version-2-0-68315a6ab9f7446da3f16e2d
 
 ## Om GDP
 
-**Gemensamma data-projektet (GDP)** är ett myndighetsgemensamt initiativ som syftar till att möjliggöra effektiv delning av administrativ FoU-data i maskinläsbart och jämförbart format mellan svenska forskningsfinansiärer. Projektet är en fortsättning på tidigare insatser inom ramen för nätverket "Delade data" och har sitt ursprung i ett regeringsuppdrag.
-
-Projektet drivs av Energimyndigheten, Formas, Forte, Vetenskapsrådet och Vinnova, i samverkan med andra aktörer inom forskning, statistik och analys.
-
-## Syfte
-
-GDP syftar till att:
-
-- Skapa en gemensam informationsutbytesmodell för forskningsfinansieringsdata.
-- Möjliggöra jämförbarhet mellan olika finansiärers data.
-- Tillgängliggöra data för vidare användning inom forskning, analys, AI-metoder och visualisering.
-- Berika befintliga datakällor som Swecris med ny kontext och fler klassificeringar.
+**GDP** är ett initiativ som syftar till att möjliggöra delning av öppna och jämförbara data från svenska finansiärer av forskning och innovation genom att producera en gemensam datastandard. Projektet är ett resultat av ett regeringsuppdrag och drivs av Energimyndigheten, Formas, Forte, Vetenskapsrådet och Vinnova. En projektgrupp med medlemmar från finansiärerna samarbetar med en refrensgrupp som består av externa datakonsumenter för att fastställa innehållet i standarden. En styrgrupp som blivit tillsatt för arbetet har beslutat att anta en version 2.0 av standarden och börja dela data enligt den.
 
 ## Vad innehåller detta repo?
 
-Detta GitHub-repo innehåller dokumentation och resurser kopplade till GDP-projektet, så som:
+Detta GitHub-repo innehåller :
 
 - Informationsmodell raw/refs/heads/main/Information/
 - Begrepp (definitioner av begrepp)
@@ -39,16 +28,15 @@ Den data som delas genom GDP är avsedd att kunna användas av:
 
 ## Avgränsningar
 
-- Projektet utvecklar inte själva API:erna – varje finansiär ansvarar för sin egen implementation efter GDP-standarden
+- GDP-standarden är teknik-agnostisk, projektet syftar inte till att producera gemensamma tekniska lösningar för att dela data
+- Data som delas är öppna data
 - Varje finansiär beskriver likaledes sin egen implmentering
-- Första versionen av modellen omfattar endast öppna data
 
-## Kontakt och medverkan
 
-Arbetet leds av en styrgrupp och en arbetsgrupp med representanter från deltagande myndigheter. En referensgrupp med externa aktörer bidrar med expertis och återkoppling.
+## Kontakt
 
-Vill du bidra eller komma i kontakt med projektgruppen? 
-Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagarna i arbetsgruppen.
+Vill du veta mer om projektet och datastandarden? 
+Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagarna i projektgruppen.
 
 ---
 
