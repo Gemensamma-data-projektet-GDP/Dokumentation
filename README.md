@@ -1,4 +1,3 @@
-https://dbdiagram.io/d/GDP-version-2-0-68315a6ab9f7446da3f16e2d
 
 # Gemensamma data projektet (GDP)
 
