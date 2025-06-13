@@ -8,29 +8,16 @@ https://dbdiagram.io/d/GDP-version-2-0-68315a6ab9f7446da3f16e2d
 
 ## Vad innehåller detta repo?
 
-Detta GitHub-repo innehåller :
+Detta GitHub-repo innehåller dokumentation av standarden version 2.0 i form av :
 
-- Informationsmodell raw/refs/heads/main/Information/
-- Begrepp (definitioner av begrepp)
-- Underlag för klassificering av organisationer
+- [Informationsmodell med definierade begrepp] (https://dbdiagram.io/d/GDP-version-2-0-68315a6ab9f7446da3f16e2d)
 - [Tekniska specifikationer för API](https://github.com/Gemensamma-data-GDP/Dokumentation/tree/main/Tekniska%20specifikationer)
-
-## Målgrupper
-
-Den data som delas genom GDP är avsedd att kunna användas av:
-
-- Forskningsfinansiärer
-- Uppdragsgivare
-- Forskare och sökande
-- Analytiker och investerare
-- Vetenskapsjournalister
-- Intresserad allmänhet
 
 ## Avgränsningar
 
 - GDP-standarden är teknik-agnostisk, projektet syftar inte till att producera gemensamma tekniska lösningar för att dela data
-- Data som delas är öppna data
-- Varje finansiär beskriver likaledes sin egen implmentering
+- Data som omfattas av standarden är öppna data
+- Varje finansiär beskriver sin egen tillämpning av standarden
 
 
 ## Kontakt
