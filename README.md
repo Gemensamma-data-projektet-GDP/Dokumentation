@@ -1,8 +1,8 @@
 https://dbdiagram.io/d/GDP-version-2-0-68315a6ab9f7446da3f16e2d
 
-# Gemensamma data-projektet (GDP)
+# Gemensamma data projektet (GDP)
 
-## Om projektet
+## Om GDP
 
 **Gemensamma data-projektet (GDP)** är ett myndighetsgemensamt initiativ som syftar till att möjliggöra effektiv delning av administrativ FoU-data i maskinläsbart och jämförbart format mellan svenska forskningsfinansiärer. Projektet är en fortsättning på tidigare insatser inom ramen för nätverket "Delade data" och har sitt ursprung i ett regeringsuppdrag.
 
