@@ -8,7 +8,7 @@ https://dbdiagram.io/d/GDP-version-2-0-68315a6ab9f7446da3f16e2d
 
 ## Vad innehåller detta repo?
 
-Detta GitHub-repo innehåller dokumentation av standarden version 2.0 i form av :
+Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 i form av :
 
 - Informationsmodell med definierade begrepp (https://dbdiagram.io/d/GDP-version-2-0-68315a6ab9f7446da3f16e2d)
 - [Tekniska specifikationer för API](https://github.com/Gemensamma-data-GDP/Dokumentation/tree/main/Tekniska%20specifikationer)
