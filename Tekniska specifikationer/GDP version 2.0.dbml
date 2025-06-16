@@ -1,0 +1,2534 @@
+//GDP version 2.0
+
+Table GDP.Program {
+  programID int [pk, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  finansiarNamn varchar [note: 'Namn på finansiär som administrerar utlysningar och finansiering kopplad till program. English translation - fundingBodyName: Name of funding body administering call related to programme in swedish.']
+  finansiarOrganisationsnummer varchar [note: 'Organisationsnummer för finansiär som administrerar utlysningar och finansiering kopplad till program. English translation - fundingBodyCorporateIdNumber: Corporate identy number from the Swedish Companies Registration Office for funding body administering call related to programme']
+  diarienummer varchar [note: 'Identifikationsnummer för program från administrerande finansiärs ärendehanteringssystem. English translation - registrationNumber: Registration number from system of the administering funding body']
+  titel varchar [note: 'Titel på program. English translation - title: Title of programme in Swedish']
+  beskrivning varchar [note: 'Beskrivning av program. English translation - description: Description of programme in Swedish']
+  status GDP.program_status  [note: 'Aktuell status för program. English translation - status: Current status of programme in Swedish']
+  budgetBelopp float [note: 'Totalt budgetbelopp för program. English translation - budgetAmount: Total budget of programme ']
+  budgetValuta GDP.Program_budgetValuta [note: 'Valutakod enligt ISO 4217 för valuta kopplad till budget för program. English translation - budgetCurrency: Code for currency according to ISO 4217 for currency connected to budget of programme']
+  startdatum date [note: 'Datum enligt ISO 8601 när program startar. English translation - startDate: Date according to ISO 8601 when programme starts']
+  slutdatum date [note: 'Datum enligt ISO 8601 när program slutar. English translation - endDate: Date according to ISO 8601 when programme ends']
+
+  Note:'Programsatsning på forskning, innovation och utveckling	Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete. English translation - Programme initiative in research, innovation and development. A programme can be initiated by a funding body, a task master of a funding body, the EU or through other international cooperation.'
+}
+
+
+Table GDP.Utlysning {
+  utlysningID int [pk, note: 'Tekniskt id,om används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  finansiarNamn varchar [note: 'Namn på finansiär som administrerar utlysning. English translation - fundingBodyName: Name of funding body administering call in Swedish.']
+  finansiarOrganisationsnummer varchar [note: 'Organisationsnummer för finansiär som administrerar utlysning. English translation - fundingBodyCorporateIdNumber: Corporate identy number  from the Swedish Companies Registration Office for funding body administering call.']
+  diarienummer varchar [note: 'Identifikationsnummer för utlysning från administrerande finansiärs ärendehanteringssystem. English transation - registrationNumber: Registration number from system of the administering funding body']
+  titel varchar [note: 'Titel på utlysning. English translation - title: Title of call in Swedish.']
+  titelEng varchar [note: 'Titel på utlysning på engelska. English translation - titleEng: Title of call']
+  beskrivning varchar [note: 'Beskrivning av utlysning. English translation - description: Description of call in Swedish.']
+  beskrivningEng varchar [note: 'Beskrivning av utlysning på engelska. English translation - descriptionEng: Description of call']
+  status GDP.utlysning_status [note: 'Aktuell status för utlysning. English translation - status: Current status of call in Swedish']
+  budgetBelopp float [note: 'Total budget för utlysning. English translation - budgetAmount: Total budget of call']
+  budgetValuta GDP.Utlysning_budgetValuta [note: 'Valutakod enligt ISO 4217 för valuta kopplad till budget för utlysning. English translation - budgetCurrency: Code for Currency according to ISO 4217 for currency connected to budget of call.']
+  oppningsdatum date [note: 'Datum enligt ISO 8601 när utlysning öppnar och ansökningar kan skickas in. English translation - openingDate: Date according to ISO 8601 when the call opens and applications can be sent in.']
+  stangningsdatum date [note: 'Datum enligt ISO 8601 när utlysning  stänger och ansökningar inte längre kan skickas in. English translation - closingDate: Date according to ISO 8601 when the call closes and applications no longer can be sent in.']
+  programID int [note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  
+  Note: 'Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på aktivitet som kan finansieras	En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.  Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation. English translation - A funding bodys published invitation to external person/s or organisation/s to send in proposal for activity that can be funded. A call can be initiated by a funding body, a task master of a funding body, the EU or through other international cooperation. Furthermore, it can be open or only for specially invited applicants. To the majority of calls several applicants are invited and competition takes place, only exceptionally are there calls to which only one (1) applicant has been invited. An applicant can be a person or an organisation.'
+  }
+
+Table GDP.Publiceringsplats {
+  webbadress uri [note: 'Länk till webbadress med information om en utlysning. English translation - Link to web address with information about a call in Swedish.']
+  utlysningID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+
+Note: 'Webbadress med information om en utlysning. English translation - Web address with information about a call '
+}
+
+Table GDP.Ansokan {
+  ansokanID int [pk, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']  
+  finansiarNamn varchar [note: 'Namn på finansiär som administrerar utlysning. English translation - fundingBodyName: Name of funding body administering call in Swedish.']
+  finansiarOrganisationsnummer varchar [note: 'Organisationsnummer för finansiär som administrerar utlysning. English translation - fundingBodyCorporateIdNumber: Corporate identy number  from the Swedish Companies Registration Office for funding body administering call.']
+  diarienummer varchar [note: 'Identifikationsnummer för ansökan från administrerande finansiärs ärendehanteringssystem. English translation - registrationNumber: Registration number from system of the administering funding body']
+  titel varchar [note: 'Titel på ansökan. English translation - title: Title of application in Swedish ']
+  titelEng varchar [note: 'Titel på ansökan på engelska. English translation - titleEng: Title of application']
+  beskrivning varchar [note: 'Kortfattad beskrivning av aktivitet. English translation - abstract: Short description of activity in Swedish']
+  beskrivningEng varchar [note: 'Kortfattad beskrivning av aktivitet på engelska. English translation - abstractEng: Short description of activity']
+  status GDP.ansokan_status [note: 'Aktuell status för ansökan. English translation - status: Current status of application in Swedish']
+  soktBelopp float [note: 'Totalbelopp som extern aktör ansöker om för att genomföra aktivitet. Om fler än en organisation söker finansiering i en ansökan redovisas det sammanlagda sökta beloppet. English translation - seekedFundingAmount: Total amount that the applicants are seeking funding for.']
+  soktBeloppValuta GDP.Ansokan_soktBeloppValuta [note: 'Valutakod enligt ISO 4217 för valuta kopplad till sökt belopp. English translation - seekedFundingAmountCurrency: Code for currency according to ISO 4217 for currency connected to the total amount the applicants are seeking funding for.']
+  programID int [note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  utlysningID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+ 
+  Note: 'Beskrivning av aktivitet som extern person eller organisation har skickat in till en utlysning och söker finansiering för. För ej beslutade och avslagna ansökningar delas ansökningarnas titel och beskrivning, personnamn, ORCID, email, organisationsnamn och organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten. English translation - Description of an activity for which an external person or organisation has sent in an application for funding. For applications that have not been decided and rejected applications, titles and abstracts, names of persons, ORCID, email, names of organisations and corporate identity numbers for organisations will be shared as not open data. The value "Not open data" will be returned to the data consumers.'
+  }
+
+Table GDP.Bidragsform {
+  namn varchar [note: 'Namn på bidragsform. English translation - name: Name of type of grant in Swedish.']
+  beskrivning varchar [note: 'Beskrivning av bidragsform. English translation - description: Description of type of grant in Swedish.']
+  utysningID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingånot null, r ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  ansokanID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingårnot null,  ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  stodformID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår not null, ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  
+  Note:'Typ av bidrag som en ansökan kan riktas mot. Bidragsformerna sorterar hierarkiskt under stödformerna. English translation - Types of grants to which an application can be directed. The types of grants sort hierarchically under the types of support.'
+  }
+
+Table GDP.Stodform {
+  stodformID int [pk, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  namn varchar [note: 'Namn på stödform. English translation - name: Name of type of support in Swedish']
+  
+  Note:'Typ av stöd som en ansökan kan riktas mot. English translation - Types of support to which an application can be directed'
+}
+
+Table GDP.Beslut {
+  beslutID int [pk, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  datum date [note: 'Datum enligt ISO 8601 när beslut blev fattat. English translation - date: Date according to ISO 8601 when decision was made.']
+  typ GDP.beslut_typ [note: 'Typ av beslut. English translation - type: Type of decision in Swedish']
+  utfall GDP.beslut_utfall [note: 'Utfall av beslut. English translation - outcome: Outcome of decision in Swedish.']
+  ansokanID int [ note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  finansieradAktivitetID int [note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.'] 
+  Note:'Beslut kopplat till en ansökan. Avser expedierade beslut för finansiärer som är myndigheter. English translation - Decision relating to an application. Refers to expidited decisions when the funding body is a government agency.'
+}
+
+Table GDP.FinansieradAktivitet {
+  finansieradAktivitetID int [pk, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  finansiarNamn varchar [note: 'Namn på finansiär som administrerar finansierad aktivitet. English translation - fundingBodyName: Name of funding body administering call in Swedish.']
+  finansiarOrganisationsnummer varchar [note: 'Organisationsnummer för finansiär som administrerar finansierad aktivitet. English translation - fundingBodyCorporateIdNumber: Corporate identy number  from the Swedish Companies Registration Office for funding body administering call']
+  diarienummer varchar [note: 'Identifikationsnummer för ansökan från administrerande finansiärs ärendehanteringssystem. English translation - registrationNumber: Registration number from system of the administering funding body']
+  titel varchar [note: 'Titel på finansierad aktivitet. English translation - title: Title of funded activity in Swedish.']
+  titelEng varchar [note: 'Titel på finansierad aktivitet på engelska. English translation - titleEng: Title of funded activity.']
+  beskrivning varchar [note: 'Kortfattad beskrivning av finansierad aktivitet. English translation - abstract: Short description of funded activity in Swedish.']
+  beskrivningEng varchar [note: 'Kortfattad beskrivning av finansierad aktivitet på engelska. English translation - abstractEng: Short description of funded activity.']
+  status GDP.aktivitet_status [note: 'Aktuell status för finansierad aktivitet. English translation - status: Current status for funded activity in Swedish.']
+  startdatum date [note: 'Datum enligt ISO 8601 när finansierad aktivitet startar. English translation - startDate: Date according to ISO 8601 when the funded activity starts.']
+  slutdatum date [note: 'Datum enligt ISO 8601 när finansierad aktivitet slutar. English translation - endDate: Date according to ISO 8601 when the funded activity ends.']
+  typ GDP.aktivitet_typ [note: 'Typ av finansierad aktivitet. English translation - type: Type of funded activity in Swedish.']
+  programID int [note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  
+  Note: 'Finansierad aktivitet med syfte att facilitera, genomföra och kommunicera forskning, innovation och utveckling. En finansierad aktivitet kan gälla alla tre delar – facilitera, genomföra och kommunicera - eller enbart vissa av dem. English translation - Funded activity with the purpose to facilitate, implement and communicate research, innovation and development. A funded activity can involve all three parts - facilitate, implement and communicate - or only some of them'
+  }
+
+Table GDP.BeslutadFinansiering {
+  beslutadFinansieringID int [pk, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  stodgrund varchar [note: 'Juridisk grund för tilldelning av medel. English translation - legalBasis: Legal basis for amount granted in Swedish.']
+  ar int [note: 'Kalenderår som beslutat belopp ska betalas. English translation - year: Calendar year for payment of amount granted.']
+  belopp float [note: 'Belopp som blivit beslutat ska betalas. Innefattar eventuella senare beslut om att öka eller minska ursprungligt beviljat belopp, s.k. "nettoeffekt" av samtliga beslut. English translation - amount: Amount granted. Includes any later decisions to increase or decrease the amount originally granted.']
+  valuta GDP.BeslutadFinansiering_valuta [note: 'Valutakod enligt ISO 4217 för valuta kopplad till belopp som blivit beslutat ska betalas. English translation - currency: Code for currency according to ISO 4217 for currency  connected to amount granted ']
+  beslutID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  
+  Note:'Ekonomiska medel som finansiär beslutat ska betalas till en finansierad aktivitet (per finansierad organisation och per kalenderår för planerad betalning). Avser samtliga organisationer som blir finansierade inom ramen för en finansierad aktivitet. English translation - Funding that a funding body has decided to pay to a funded activity (per funded organisation and per calendar year for planned payment). Includes all organisations funded within the scope of a funded activity.'
+}
+
+Table GDP.Organisation {
+  namn varchar [note: 'Namn på organisation. English translation - name: Name of organisation in Swedish.']
+  namnEng varchar [note: 'Namn på organisation på engelska. English translation - nameEng: Name of organisation.']
+  organisationsnummer varchar [note: 'Identitetsbeteckning för organisationer från Bolagsverket. English translation - corporateIdNumber: Corporate identy number from the Swedish Companies Registration Office.']
+  lan GDP.Organisation_lan [note: 'Län där organisation har sitt huvudsäte. English translation - county: County where organisation headquarters are located.']
+  landskod GDP.Organisation_landskod [note:'Landskod enligt ISO 3166-1 alpha-2 för land där organisation har sitt huvudsäte. English translation - country: Code according to ISO 3166-1 alpha-2 för country where organisation headquarters are located.']
+  typ GDP.organisation_typ [note:'Typ av organisation. English translation - type: Type of organisation in Swedish.']
+  roll GDP.organisation_roll [note: 'Roller för organisationer som är kopplade till ansökningar och finansierade aktiviteter. English translation - role: Roles for organisations involved in applications and funded activities']
+  ansokanID int [note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  finansieradAktivitetID int [note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  beslutadFinansieringID int [not null, note:'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+ 
+  Note:'Juridisk person. Juridiska personer som är enskilda näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten. English translation - Legal entity.'
+}
+
+Table GDP.Person {
+  ansokanPersonID int [pk, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  namn varchar [note: 'Namn på person. För- och efternamn. English translation - name: Name of person. First name and surname.']
+  ORCID varchar [note: 'Internationellt och öppet register med identifierare för författare av vetenskapliga publikationer. English translation - ORCID: A nonproprietary alphanumeric code to uniquely identify authors of and contributors to scholarly communications.']
+  kon varchar [note: 'Könstillhörighet som person angivit. English translation - gender: Gender stated by person in Swedish.']
+  roll GDP.person_roll [note: 'Roller för personer som är kopplade till ansökningar och finansierade aktiviteter. English translation - role: Roles for persons involved in applications and funded activities ']
+  ansokanID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+ 
+  Note:'Fysisk person. English translation - Natural person'
+}
+
+Table GDP.Arbetsgivare {
+  namn varchar [note: 'Namn på organisation. English translation - name: Name of organisation in Swedish.']
+  namnEng varchar [note: 'Namn på organisation på engelska. English translation - nameEng: Name of organisation.']
+  organisationsnummer varchar [note: 'Identitetsbeteckning för organisationer från Bolagsverket. English translation - corporateIdNumber: Corporate identy number from the Swedish Companies Registration Office.']
+  lan GDP.Arbetsgivare_lan [note: 'Län där organisation har sitt huvudsäte. English translation - county: County where organisation headquarters are located.']
+  landskod GDP.Arbetsgivare_landskod [note: 'Landskod enligt ISO 3166-1 alpha-2 för land där organisation har sitt huvudsäte. English translation - country: Code according to ISO 3166-1 alpha-2 för country where organisation headquarters are located.']
+  typ GDP.organisation_typ [note: 'Typ av organisation. English translation - type: Type of organisation in Swedish.']
+  ansokanPersonID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  
+  Note: 'Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten. English translation - Organisation that is the employer of person involved in applications and funded activities. Refers to the employer who was current when the application was sent in to the funding body. For applications that have not been decided and rejected applications the name and corporate identity number for the employer will be shared as not open data. The value "Not open data" will be returned to the data consumer.'
+}
+
+Table GDP.Nyckelord {
+  namn varchar [note: 'Namn på nyckelord. Inkluderar både svenska och engelska namn. English translation - name: Name of keyword. Includes both Swedish and English names.']
+  ansokanID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+ 
+  Note:'Ord som sammanfattar innehåll i aktivitet som extern person eller organisatnot null, ion söker finansiering för. English translation - Word that summarise the content of an activity for which an external person or organisation is applying for funding.'
+}
+
+Table GDP.Forskningsamne {
+  namn GDP.Forskningsamne_namn [note: 'Namn på forskningsämne. English translation - name: Name of research subject in Swedish.']
+  namnEng GDP.Forskningsamne_namnEng [note: 'Namn på forskningsämne på engelska. English translation - nameEng: Name of research subject.']
+  kod GDP.Forskningsamne_kod [note: 'Femställig sifferbeteckning för forskningsämne. English translation - code: Five-digit numerical code for research subject.']
+  ansokanID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+ 
+  Note:'Forskningsämne enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD. English translation - Research subjects according to the Standard for Swedish classification of research subjects. The standard has three levels - one digit, three digits and five digits. The first two levels can be translated to an international standard used within the OECD.'
+}
+
+Table GDP.Hallbarhetsmal {
+  namn GDP.Hallbarhetsmal_namn [note: 'Namn på mål. English translation - name: Name of goal in Swedish.']
+  namnEng GDP.Hallbarhetsmal_namnEng [note: 'Namn på mål på engelska. English translation - nameEng: Name of goal.']
+  ansokanID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  
+  Note:'Globala mål för hållbarhet antagna av FN:s generalförsamling (Agenda 2030). Avser målen på den övergripande nivån. English translation - Global sustainability goals adopted by the United Nations General Assembly (Agenda 2030). Refers to the goals at overall level.'
+}
+
+Table GDP.KategoriseringFinansiar {
+  namn varchar [note: 'Namn på kategori. English translation - name: Name of category in Swedish.']
+  ansokanID int [not null, note: 'Tekniskt id som används för att koppla ihop tabeller, ingår ej i datadelningen. English translation - Technical ID used to connect tables, not included in the data sharing.']
+  
+  Note:'En finansiärs egen kategorisering av forskningsområden eller andra typer av interna kategoriseringar. English translation - A funding bodys own system of categorising research subjects or other types of categorisations for internal use '
+}
+
+
+//ENUMERATION I ATTRIBUTER
+
+enum GDP.program_status {
+  "Planerat"	[note : 'Datum vid datauttagstillfället är före programmets startdatum. English translation - Planned: Date at data extraction is before start date of the programme']
+  "Pågående"	[note : 'Datum vid datauttagstillfälletär mellan programmets start- och slutdatum. English translation - Ongoing: Date at data extraction is between the start date and the end date of the programme']
+  "Avslutat"	[note : 'Datum vid datauttagstillfället är efter programmets slutdatum. English translation - Finished: Date at data extraction is after the end date of the programme.']
+}
+
+enum GDP.utlysning_status {
+  "Kommande"	[note : 'Datum vid datauttagstillfället är före utlysningens öppningsdatum. English translation - Forthcoming: Date at data extraction is before the opening date of the call']
+  "Pågående" [note : 'Datum vid datauttagstillfället är mellan utlysningens öppnings- och stängningsdatum	Innefattar utlysningar som ännu inte har några beslutade ansökningar kopplade till sig vid datauttagstillfället. English translation - Ongoing: Date at data extraction is between the opening date and closing date of the call. Includes calls where the applications yet have been decided by the funding body at the time of the data extraction.']
+  "Avslutad"	[note : 'Datum vid datauttagstillfället är efter utlysningens stängningsdatum. English translation - Finished: Date at data extraction is after the closing date of the call.']	
+}
+
+enum GDP.ansokan_status {
+  "Avslagen"	[note:'Ansökan har blivit avslagen och resulterar inte i en finansierad aktivitet. English translation - Rejected: The application has been rejected and does not result in a funded activity.']
+  "Beviljad"	[note:'Ansökan har blivit beviljad och resulterar i en finansierad aktivitet. English translation - Granted: The application has been granted and results in a funded activity.']
+  "Ej beslutad" [note:'Ansökan har inkommit till finansiär men har inte blivit beslutad. English translation - Notdecided: The application has been sent to funding body but has not been decided.']
+}
+
+enum GDP.beslut_typ {
+  "BeslutFinansiering" [note:'Beslut om att avslå eller bevilja en aktivitet finansiering. Om ett avslag ändras till beviljad, eller tvärtom, inkluderas det senast fattade beslutet. Eventuella efterkommande beslut om att öka eller minska det ursprungligen beviljade beloppet innefattas inte. English translation - DecisionFunding: Decision to reject  an activity funding or to grant an activity funding. If a decision to reject an activity funding is changed to grant the activity funding, or the other way around, the latest decision is included. Any later decisions to increase or decrease the originally granted amount are not included.']
+}
+
+enum GDP.beslut_utfall {
+  "Avslagen"	[note: 'Ansökan blir avslagen och resulterar inte i en finansierad aktivitet. English translation - Rejected: The application is rejected and does not result in a funded activity.']
+  "Beviljad"	[note: 'Ansökan blir beviljad och resulterar i en finansierad aktivitet. English translation - Granted: The application is granted and results in a funded activity.']
+}
+
+enum GDP.aktivitet_typ {
+  "FinansieradAktivitetUtlysning" [note:'Finansierad aktivitet beviljad i utlysning. English translation - FundedActivityCall: Funded activity granted in call.']
+
+}
+enum GDP.aktivitet_status {
+  "Ej påbörjad" [note:'Datum vid datauttagstillfället är före startdatum för aktivteten. English translation - Not started: Date at data extraction is before start date of the activity.']
+  "Pågående"	[note:'Datum vid datauttagstillfället är mellan startdatum och slutdatum för aktivteten. English translation - Ongoing: Date at data extraction is between the start date and the end date of the activity.']
+  "Avslutad"	[note:'Datum vid datauttagstillfället är efter slutdatum för aktiviteten. English translation - Finished: Date at data extraction is after the end date of the activity.']
+}
+
+enum GDP.organisation_typ {
+  "Forskningsinstitut (RISE)" [note:'Avser svenska bolag som är en del av RISE-koncernen.Organisationer med följande organisationsnummer: 556464-6874, 556802-4946, 556139-9485, 556641-7357, 556599-2277, 559155-5536, 559308-7728, 556224-1918, 556534-9007 , 556186-4587, 556593-0509, 556603-1109, 556520-7601, 556053-1526, 556992-6651, 556664-2228, 556585-4725, 556179-8520, 556196-9204, 556557-3077, 556352-5699, 556111-6855, 556772-8026, 556536-9369, 556587-0119, 556542-4339, 802006-9236, 556558-0338, 559003-7569, 556877-7139 och 556567-9155. English translation - "Research institute (RISE)"". Refers to Swedish companies that are part of the RISE group. Organisations with the following corporate identy number: 556464-6874, 556802-4946, 556139-9485, 556641-7357, 556599-2277, 559155-5536, 559308-7728, 556224-1918, 556534-9007 , 556186-4587, 556593-0509, 556603-1109, 556520-7601, 556053-1526, 556992-6651, 556664-2228, 556585-4725, 556179-8520, 556196-9204, 556557-3077, 556352-5699, 556111-6855, 556772-8026, 556536-9369, 556587-0119, 556542-4339, 802006-9236, 556558-0338, 559003-7569, 556877-7139 and 556567-9155.'] 
+  "Företag" [note:'Organisationer som har följande tre siffror först i sitt organisationsnummer: 5X2-5X9, 9X2-9X9 och 3X2-3X9 (X=0–9). Undantaget svenska bolag som är del av RISE-koncernen och lärosäten som drivs som aktiebolag. English translation - "Private business". Organisations with the following three numbers first in their corporate identity number: 5X2-5X9, 9X2-9X9 and 3X2-3X9 (X=0–9). With the exception of swedish companies that are part of the RISE group.']
+  "Ideella föreningar, stiftelser, fysiska personer mm" [note:'Organisationer som har följande tre siffror först i sitt organisationsnummer (X=0–9): 7X2-7X9. English translation - "Non-profit associations, foundations, natural persons etc". Organisations with the following three numbers first in their corporate identity number: 7X2-7X9 (X=0–9).']
+  "Offentlig förvaltning" [note:'Organisationer som har följande tre siffror först i sitt organisationsnummer: 202, 212 och 232. English translation - "Public administration". Organisations with the following three numbers first in their corporate identity number: 202, 212 and 232.']
+  "Universitet och högskolor" [note:' Avser lärosäten med examenstillstånd för högskoleutbildning i Sverige (https://www.uka.se/sa-fungerar-hogskolan/universitet-och-hogskolor/lista-over-universitet-hogskolor-och-enskilda-utbildningsanordnare). Organisationer med följande organisationsnummer: 802507-2813, 202100-4011, 883800-1892, 556479-5598, 556947-8968, 802005-8841, 202100-4730, 872400-0958, 202100-4334, 202100-3153, 802006-2074, 202100-2908, 202100-3138, 202100-2890, 202100-3203, 202100-3195, 202100-3146, 202100-4052, 559305-6517, 202100-3120, 202100-2973, 202100-1199, 202100-2957, 202100-1215, 202100-3054, 202100-3096, 202100-6271, 202100-2841, 202100-3211, 202100-4920, 556688-5280, 202100-4524, 202100-2916, 556563-8128, 802002-8695, 556948-9817, 802006-8741, 802480-6153, 556358-5297, 556260-7514, 826001-7333, 556487-2751, 556619-6399, 556487-2769, 556487-2728, 202100-6560, 802002-3670, 202100-3062, 556329-2092, 202100-2817, 202100-4896, 202100-2874, 202100-2932, 846002-4832 och 202100-2924. English translation - "Universities and colleges". Refers to higher education institutions with a degree permit for higher education in Sweden ((https://www.uka.se/sa-fungerar-hogskolan/universitet-och-hogskolor/lista-over-universitet-hogskolor-och-enskilda-utbildningsanordnare). Organisations with the following corporate identity number: 802507-2813, 202100-4011, 883800-1892, 556479-5598, 556947-8968, 802005-8841, 202100-4730, 872400-0958, 202100-4334, 202100-3153, 802006-2074, 202100-2908, 202100-3138, 202100-2890, 202100-3203, 202100-3195, 202100-3146, 202100-4052, 559305-6517, 202100-3120, 202100-2973, 202100-1199, 202100-2957, 202100-1215, 202100-3054, 202100-3096, 202100-6271, 202100-2841, 202100-3211, 202100-4920, 556688-5280, 202100-4524, 202100-2916, 556563-8128, 802002-8695, 556948-9817, 802006-8741, 802480-6153, 556358-5297, 556260-7514, 826001-7333, 556487-2751, 556619-6399, 556487-2769, 556487-2728, 202100-6560, 802002-3670, 202100-3062, 556329-2092, 202100-2817, 202100-4896, 202100-2874, 202100-2932, 846002-4832 and 202100-2924.']
+  "Övriga offentliga organisationer" [note:'Organisationer som har följande tre siffror först i sitt organisationsnummer: 222, 242, 252, 262, 272, 282 och 292. English translation - "Other public organisations". Organisations with the following three numbers first in their corporate identity number: 222, 242, 252, 262, 272, 282 and 292.']
+  "Ospecificerade" [note:'Avser organisationer om inte har ett organisationsnummer från Bolagsverket. English translation - "Unspecified". Refers to organizations that do not have a corporate identy number from the Swedish Companies Registration Office']
+}
+
+enum GDP.organisation_roll {
+  "SökandeKoordinator"	[note : 'Organisation som söker finansiering för att genomföra en aktivitet i rollen som koordinator	Rollen tillämpas på avslagna ansökningar och ej beslutade ansökningar. English translation - ApplicantCoordinator: Organisation that applies for funding to carry through an activity in the role of coordinator. The role is applied to rejected applications and applications that not have been decided.']
+  "MedsökandeOrganisation"	[note : 'Organisation som tillsammans med en sökande koordinator ansöker om finansiering för att genomföra en aktivitet	Rollen tillämpas på avslagna ansökningar och ej beslutade ansökningar. English translation - Co-applicantOrganisation: Organisation that, together with an applying coordinator, applies for funding to carry through an activity. The role is applied to rejected applications and applications that not have been decided.']
+  "Koordinator"	[note : 'Organisation som koordinerar en finansierad aktivitet och är mottagare av utbetalningar från finansiär. I vissa fall förmedlar organisationen vidare de utbetalade medlen till andra organisationer som finansieras i aktiviteten enligt beslut av finansiären. 	För ej påbörjade finansierade aktiviter avses organisation som ska koordinera aktivteten.  För pågående finansierade aktiviteter avses koordinerande organisation som är aktuell vid datauttagstillfället. För avslutade finansierade aktiviteter avses koordinerande organisation som var aktuell när aktiviteten avslutades. Organisationer som tidigare koordinerat en finansierad aktivitet men inte har den rollen vid datauttagstillfället redovisas med rollen "FinansieradOrganisation". English translation - Organisation that coordinates a funded activity and is the recipient of payments from a funding body. In some cases the coordinator may transfer the payments to other organisations funded within the activity in accordance with decision from the funding body. For funded activities that have not yet started, this refers to the organization that will coordinate the activity. For ongoing funded activities, this refers to the coordinating organization that is current at the time of data extraction. For finished funded activities, this refers to the coordinating organization that was current when the activity was finished. Organizations that previously coordinated a funded activity but do not have that role at the time of data extraction are reported with the role "FundedOrganisation".']
+  "FinansieradOrganisation"	[note : 'Organisation som finansieras inom ramen för en finansierad aktivitet	För ej påbörjade finansierade aktiviter avses organisationer som ska finansieras. För pågående finansierade aktiviteter avses organisationer som blir finansierade eller har blivit finansierade vid datauttagstillfället. För avslutade finansierade aktivteter avses organisationer som har blivit finansierade. English translation - Organisation that is funded within the scope of a funded activity. For funded activities that have not yet started, this refers to organizations that are going to be funded. For ongoing funded activities, this refers to organizations that are being funded or have been funded at the time of data extraction. For finished funded activities, this refers to organizations that have been funded.']
+  
+}
+
+enum GDP.person_roll {
+  "SökandeAnsvarigPerson"	[note : 'Person som ansöker om att få ansvara för och leda genomförandet av en aktivitet	Rollen tillämpas på avslagna ansökningar och ej beslutade ansökningar. English translation - ApplicantResponsiblePerson: Person who applies to be responsible for and lead the carry through of an activity. The role is applied to rejected applications and applications that not have been decided.']
+  "SökandeMedverkandePerson"	[note : 'Person som ansöker om att få medverka i genomförandet av en aktivitet	Rollen tillämpas på avslagna ansökningar och ej beslutade ansökningar.  English translation - ApplicantCollaboratingPerson: Person who applies to collaborate in the carry through of an activity. The role is applied to rejected applications and applications that not have been decided.']
+  "AnsvarigPerson"	[note : 'Person som gentemot finansiären ansvarar för och leder genomförandet av en finansierad aktivitet	För ej påbörjade finansierade aktiviteter avses den person ska ansvara för aktiviteten. För pågående finansierade aktivteter avses den person som är ansvarig vid datauttagstillfället. För avslutade finansierade aktiviter avses den person som var ansvarig när aktivitete avslutades. Personer som tidigare varit ansvariga för en finansierad aktivitet men inte längre har den rollen vid datauttagstillfället redovisas med rollen "MedverkandePerson".  English translation - ResponsiblePerson: Person who towards the funding body is responsible for and leads the carry through of a funded activity.']
+  "MedverkandePerson"	[note : 'Person som medverkar till att genomföra en finansierad aktivitet	För ej påbörjade finansierade aktiviter avses personer som ska medverka i aktiviteten. För pågående finansierade aktiviteter avses personer som medverkar eller har medverkat i aktiviteten vid datauttagstillfället. För avslutade finansierade aktivteter avses personer som har medverkat i aktiviteten.  English translation - CollaboratingPerson: Person who collaborate in the carry through of a funded activity.']
+  }
+
+enum GDP.Forskningsamne_namn   {
+"Acceleratorfysik och instrumentering"
+"Algebra och logik"
+"Algoritmer"
+"Allmänmedicin"
+"Analytisk kemi"
+"Andra geografiska studier"
+"Andra medicinska och farmaceutiska grundvetenskaper"
+"Anestesi och intensivvård"
+"Annan biologi"
+"Annan data- och informationsvetenskap"
+"Annan elektroteknik och elektronik"
+"Annan fysik"
+"Annan geovetenskap"
+"Annan hälsovetenskap"
+"Annan industriell bioteknik"
+"Annan kemi"
+"Annan kemiteknik"
+"Annan klinisk medicin"
+"Annan maskinteknik"
+"Annan matematik"
+"Annan materialteknik"
+"Annan medicinsk bioteknologi"
+"Annan medicinteknik"
+"Annan miljöbioteknik"
+"Annan nanoteknik"
+"Annan naturresursteknik"
+"Annan naturvetenskap"
+"Annan rättsvetenskaplig forskning"
+"Annan samhällsbyggnadsteknik"
+"Annan teknik"
+"Annan utbildningsvetenskaplig forskning"
+"Annan veterinärmedicin"
+"Antikvetenskap"
+"Arbetslivsstudier"
+"Arbetsmedicin och miljömedicin"
+"Arbetsterapi"
+"Arkeologi"
+"Arkitektur"
+"Arkitekturteknik"
+"Artificiell intelligens"
+"Astronomi, astrofysik och kosmologi"
+"Atom- och molekylfysik och optik"
+"Autoimmunitet och inflamation"
+"Barn- och ungdomsvetenskap"
+"Basal cancerforskning"
+"Bearbetnings-, yt- och fogningsteknik"
+"Beroendelära och missbruk"
+"Beräkningsmatematik"
+"Biblioteks-och informationsvetenskap"
+"Bioenergi"
+"Biofysik"
+"Bioinformatik (beräkningsbiologi) (tillämpningar under 10610)"
+"Bioinformatik och beräkningsbiologi (metodutveckling under 10203)"
+"Biokatalys och enzymteknik"
+"Biokemi och molekylärbiologi"
+"Biokemi"
+"Biokemikalier"
+"Biologisk systematik"
+"Biomaterial"
+"Biomaterialvetenskap"
+"Biomedicinsk laboratorievetenskap/teknologi"
+"Bioprocessteknik"
+"Biosanering"
+"Bioteknisk apparatteknik"
+"Bioteknisk etik"
+"Botanik"
+"Byggkonstruktion"
+"Byggnadsmaterial"
+"Byggprocess och förvaltning"
+"Cancer och onkologi"
+"Cell- och molekylärbiologi"
+"Cellbiologi"
+"Datavetenskap (datalogi)"
+"Datorgrafk och datorseende (Systemtekniska aspekter under 20208)"
+"Datorseende och lärande system (datavetenskapliga aspekter under 10207)"
+"Datorsystem"
+"Datorteknik"
+"Demografi"
+"Den kondenserade materiens fysik"
+"Dermatologi och venereologi"
+"Design"
+"Diagnostisk bioteknologi"
+"Didaktik"
+"Diskret matematik"
+"Ekologi"
+"Ekonomisk geografi"
+"Ekonomisk historia"
+"Elkraftsystem och -komponenter"
+"Endokrinologi och diabetes"
+"Energisystem"
+"Energiteknik"
+"Epidemiologi"
+"Estetik"
+"Etik"
+"Etnologi"
+"Etologi"
+"Evolution och utvecklingsgenetik"
+"Evolutionsbiologi"
+"Farkost och rymdteknik"
+"Farkostteknik"
+"Farmaceutisk synteskemi"
+"Farmaceutiska vetenskaper"
+"Farmakologi och toxikologi"
+"Film"
+"Filmvetenskap"
+"Filologi"
+"Filosofi"
+"Fisk- och akvakulturforskning"
+"Folkhälsovetenskap, global hälsa och socialmedicin"
+"Folkhälsovetenskap, global hälsa, socialmedicin och epidemiologi"
+"Formella metoder"
+"Fotografi"
+"Freds- och konfliktforskning"
+"Fri Konst"
+"Fusion, plasma och rymdfysik"
+"Fysikalisk kemi"
+"Fysiologi och anatomi"
+"Fysioterapi"
+"Företagsekonomi"
+"Förlossnings- och mödravård"
+"Förnyelsebar bioenergi"
+"Gastroenterologi and hepatologi"
+"Genetik och förädling inom lantbruksvetenskap"
+"Genetik och genomik (medicinska aspekter under 30107 och lantbruksvetenskapliga under 40402)"
+"Genusstudier"
+"Geofysik (Tillämningar med jordobservationsteknik under 20703)"
+"Geofysisk teknik"
+"Geokemi"
+"Geologi (Geoteknik och teknisk geologi under 20106)"
+"Geometri"
+"Geoteknik och teknisk geologi"
+"Geriatrik"
+"Gerontologi, medicinsk/hälsovetenskaplig inriktning  (Samhällsvetenskaplig inriktn.under 50908)"
+"Globaliseringsstudier"
+"Gynekologi, obstetrik och reproduktionsmedicin"
+"Havs- och vattendragsteknik"
+"Hematologi"
+"Historia"
+"Husbyggnad"
+"Husdjursvetenskap"
+"Hälso- och sjukvårdsorganisation, hälsopolitik och hälsoekonomi"
+"Idé- och lärdomshistoria"
+"Idrottsvetenskap och fitness"
+"Immunologi (medicinsk under 30110 och lantbruksvetenskaplig under 40302)"
+"Immunologi inom det medicinska området"
+"Inbäddad systemteknik"
+"Industriell ekonomi"
+"Infektionsmedicin"
+"Infrastrukturteknik"
+"Interaktionsteknik"
+"Internationell migration och etniska relationer (IMER)"
+"Internmedicin"
+"Jordbruksekonomi och landsbygdsutveckling"
+"Jordbruksvetenskap"
+"Jordobservationsteknik"
+"Juridik och samhälle"
+"Juridik"
+"Jämförande språkvetenskap och allmän lingvistik"
+"Kardiologi och kardiovaskulära sjukdomar"
+"Katalytiska processer"
+"Kemiska processer"
+"Keramiska och pulvermetallurgiska material"
+"Kirurgi"
+"Klimatvetenskap"
+"Klinisk laboratoriemedicin"
+"Klinisk vetenskap"
+"Kommunikationssystem"
+"Kommunikationsvetenskap"
+"Kompositmaterial och kompositteknik"
+"Konsthantverk"
+"Konstvetenskap"
+"Krigs-, kris-, säkerhetsvetenskaper"
+"Kriminologi"
+"Kulturgeografi"
+"Kulturstudier"
+"Landskapsarkitektur"
+"Lantbrukets arbetsmiljö och säkerhet"
+"Litteraturstudier"
+"Litteraturvetenskap"
+"Litterär gestaltning"
+"Livsmedelsbioteknik"
+"Livsmedelsprocessteknik"
+"Livsmedelsteknik"
+"Livsmedelsvetenskap"
+"Lungmedicin och allergi"
+"Läkemedel- och medicinsk processbioteknik"
+"Läkemedelskemi (naturvetenskaplig inriktning under 10405)"
+"Lärande"
+"Marinteknik"
+"Markvetenskap"
+"Matematisk analys"
+"Materialkemi"
+"Mediateknik"
+"Medicinsk bildvetenskap"
+"Medicinsk biostatistik"
+"Medicinsk bioteknik"
+"Medicinsk bioteknologi (inriktn. mot cellbiologi (inkl. stamcellsbiologi), molekylärbiologi, mikrobiologi, biokemi eller biofarmaci)"
+"Medicinsk biovetenskap"
+"Medicinsk epigenetik och epigenomik"
+"Medicinsk etik"
+"Medicinsk genetik och genomik"
+"Medicinsk informatik (Tekniska aspekter under 20606)"
+"Medicinsk instrumentering"
+"Medicinsk laboratorieteknik"
+"Medicinsk materialteknik"
+"Medicinsk modellering och simulering"
+"Medicinsk bioinformatik och systembiologi"
+"Medicinska biovetenskaper"
+"Medicinteknisk informatik (medicinska aspekter under 30117)"
+"Medie- och kommunikationsvetenskap"
+"Medieteknik"
+"Metallurgi och metalliska material"
+"Meteorologi och atmosfärsvetenskap"
+"Mikrobiologi (medicinsk under 30109 och lantbruksvetenskaplig under 40302)"
+"Mikrobiologi inom det medicinska området"
+"Miljö- och  naturvårdsvetenskap"
+"Miljöanalys och bygginformationsteknik"
+"Miljöekonomi och förvaltning"
+"Miljöteknik och miljöledning"
+"Miljövetenskap (Samhällsvetenskapliga aspekter under 50909 och lantbruksvetenskapliga under 40504)"
+"Miljövetenskapliga studier inom samhällsvetenskap"
+"Mineral- och gruvteknik"
+"Molekylärbiologi"
+"Multidisciplinär geovetenskap"
+"Musik"
+"Musikvetenskap"
+"Människa-datorinteraktion (interaktionsdesign) (Samhällsvetenskapliga aspekter under 50804)"
+"Mänsklig interaktion med IKT"
+"Nanoteknik"
+"Nanoteknisk elektronik"
+"Nanoteknisk materialvetenskap"
+"Nanotekniska energitillämpningar"
+"Nanotekniska livsvetenskaper och medicin"
+"Nationalekonomi"
+"Naturgeografi"
+"Neurologi"
+"Neurovetenskaper"
+"Njurmedicin"
+"Näringslära och dietkunskap"
+"Nätverks-, parallell- och distribuerad beräkning"
+"Oceanografi, hydrologi och vattenresurser"
+"Odontologi"
+"Oftalmologi"
+"Omvårdnad"
+"Oorganisk kemi"
+"Oral hälsa"
+"Organisk kemi"
+"Ortopedi"
+"Oto-rhino-laryngologi"
+"Paleontologi och paleoekologi"
+"Palliativ medicin och palliativ vård"
+"Pappers-, massa-  och fiberteknik"
+"Patobiologi"
+"Pedagogik"
+"Pedagogiskt arbete"
+"Pediatrik"
+"Polymerkemi"
+"Polymerteknologi"
+"Produktionsteknik, arbetsvetenskap och ergonomi"
+"Programvaruteknik"
+"Psykiatri"
+"Psykologi  (exklusive tillämpad psykologi)"
+"Radiologi och bildbehandling"
+"Reglerteknik"
+"Rehabiliteringsmedicin"
+"Religionshistoria"
+"Religionsvetenskap"
+"Retorik"
+"Reumatologi och inflammation"
+"Reumatologi"
+"Robotik och automation"
+"Rättsmedicin"
+"Samhällsfarmaci och klinisk farmaci"
+"Samhällsvetenskapliga hälso- och koststudier"
+"Sannolikhetsteori och statistik (Statistik med medicinska aspekter under 30118 och samhällsvetenskapliga aspekter under 50907)"
+"Scenkonst"
+"Separationsprocesser"
+"Signalbehandling"
+"Skogsvetenskap"
+"Socialantropologi"
+"Socialpsykologi"
+"Socialt arbete"
+"Sociologi (exklusive socialt arbete, socialantropologi, demografi och kriminologi)"
+"Solid- och strukturmekanik"
+"Språkbehandling och datorlingvistik"
+"Statistik inom samhällsvetenskap"
+"Statistisk fysik och komplexa system"
+"Statsvetenskap (Exklusive freds- och konfiktforskning)"
+"Strukturbiologi"
+"Strömningsmekanik"
+"Studier av enskilda språk"
+"Studier av offentlig förvaltning"
+"Subatomär fysik"
+"Systemvetenskap, informationssystem och informatik (samhällsvetenskaplig inriktning under 50804)"
+"Systemvetenskap, informationssystem och informatik med samhällsvetenskaplig inriktning"
+"Säkerhet, integritet och kryptologi"
+"Teatervetenskap"
+"Teknik- och miljöhistoria"
+"Teknik och samhälle"
+"Teknisk mekanik"
+"Telekommunikation"
+"Teoretisk kemi"
+"Textil-, gummi- och polymermaterial"
+"Tillförlitlighets- och kvalitetsteknik"
+"Tillämpad psykologi"
+"Transportteknik och logistik"
+"Tribologi (ytteknik omfattande friktion, nötning och smörjning)"
+"Trädgårdsvetenskap/hortikultur"
+"Trävetenskap"
+"Tvärdiciplinära studier i humaniora och konst"
+"Tvärvetenskapliga studier inom samhällsvetenskap"
+"Urologi och njurmedicin"
+"Urologi"
+"Utvecklingsbiologi"
+"Utvecklingsstudier"
+"Vattenbehandlingsbioteknik"
+"Vattenteknik"
+"Vilt- och fiskeförvaltning"
+"Växtbioteknologi"
+"Yt- och korrosionsteknik"
+"Zoologi"
+"Översättningsvetenskap"
+"Övrig annan humaniora"
+"Övrig annan lantbruksvetenskap"
+"Övrig annan medicin och hälsovetenskap"
+"Övrig annan samhällsvetenskap"
+  }
+
+enum GDP.Forskningsamne_namnEng {
+  "Accelerator Physics and Instrumentation"
+"Aesthetics"
+"Agricultural Economics and Management and Rural development"
+"Agricultural Occupational Health and Safety"
+"Agricultural Science"
+"Algebra and Logic"
+"Analytical Chemistry"
+"Anesthesiology and Intensive Care"
+"Animal and Dairy Science."
+"Applied Mechanics"
+"Applied Psychology"
+"Archaeology"
+"Architectural Engineering"
+"Architecture"
+"Art History"
+"Artifcial Intelligence"
+"Astronomy, Astrophysics and Cosmology"
+"Atom and Molecular Physics and Optics"
+"Autoimmunity and Infammation"
+"Basic Cancer Research"
+"Behavioural Sciences Biology"
+"Bio Materials"
+"Biocatalysis and Enzyme Technology"
+"Biochemicals"
+"Biochemistry and Molecular Biology"
+"Biochemistry"
+"Bioenergy"
+"Bioengineering Equipment"
+"Bioethics"
+"Bioinformatics (Computational Biology) (applications to be 10610)"
+"Bioinformatics and Computational Biology (Methods development to be 10203)"
+"Biological Systematics"
+"Biomaterials Science"
+"Biomedical Laboratory Science/Technology"
+"Biophysics"
+"Bioprocess Technology"
+"Bioremediation"
+"Botany"
+"Building materials"
+"Building Technologies"
+"Business Administration"
+"Cancer and Oncology"
+"Cardiology and Cardiovascular Disease"
+"Catalytic Processes"
+"Cell and Molecular Biology"
+"Cell Biology"
+"Ceramics and Powder Metallurgical Materials"
+"Chemical Process Engineering"
+"Child and Youth Studies"
+"Childbirth and Maternity care"
+"Classical Archaeology and Ancient History"
+"Climate Science"
+"Clinical Laboratory Medicine"
+"Clinical Science"
+"Communication Studies"
+"Communication Systems"
+"Composite Science and Engineering"
+"Computational Mathematics"
+"Computer Engineering"
+"Computer graphics and computer vision (System engineering aspects at 20208)"
+"Computer Sciences"
+"Computer Systems"
+"Computer Vision and learning System (Computer Sciences aspects in 10207)"
+"Condensed Matter Physics"
+"Construction Management"
+"Control Engineering"
+"Crafts"
+"Cultural Studies"
+"Dentistry"
+"Dermatology and Venereal Diseases"
+"Design"
+"Development Studies"
+"Developmental Biology"
+"Diagnostic Biotechnology"
+"Didactics"
+"Discrete Mathematics"
+"Drug Abuse and Addiction"
+"Earth Observation"
+"Ecology"
+"Economic Geography"
+"Economic History"
+"Economics"
+"edical Imaging "
+"Embedded Systems"
+"emography "
+"Endocrinology and Diabetes"
+"Energy Engineering"
+"Energy Systems"
+"Environmental Analysis and  Construction Information Technology"
+"Environmental Economics and Management"
+"Environmental Management"
+"Environmental Sciences (Social aspects at 50909 and agricultural at 40504)"
+"Environmental Sciences related to Agriculture and Land-use"
+"Environmental Studies in Social Sciences"
+"Ethics"
+"Ethnology"
+"Evolution and Developmental Genetics"
+"Evolutionary Biology"
+"Film"
+"Fish and Aquacultural Science"
+"Fish and Wildlife Management"
+"Fluid Mechanics"
+"Food Biotechnology"
+"Food Engineering"
+"Food Science"
+"Forensic Science"
+"Forest Science"
+"Formal Methods"
+"Fusion, Plasma and Space Physics"
+"Gastroenterology and Hepatology"
+"Gender Studies"
+"General Language Studies and Linguistics"
+"General Literary studies"
+"General Practice"
+"Genetics and Breeding in Agricultural Sciences"
+"Genetics and Genomics (Medical aspects at 30107 and agricultural at 40402)"
+"Geochemistry"
+"Geology (Geotechnical Engineering and Engineering Geology at 20106)"
+"Geometry"
+"Geophysical Engineering"
+"Geophysics (Applications with Earth Observation at 20703)"
+"Geosciences, Multidisciplinary"
+"Geotechnical Engineering and Engineering Geology"
+"Geriatrics"
+"Gerontology, specialising in Medical and Health Sciences (Specialising in Social Sciences at 50908)"
+"Globalisation Studies"
+"Gynaecology, Obstetrics and Reproductive Medicine"
+"Health and Diet Studies in Social Sciences"
+"Health Care Service and Management, Health Policy and Services and Health Economy"
+"Hematology"
+"hilology "
+"History of Ideas"
+"History of Religions"
+"History of Science and Ideas"
+"History"
+"Horticulture"
+"Human Aspects of ICT"
+"Human Computer Interaction (Social aspects at 50804)"
+"Human Geography"
+"Immunology (medical  to be 30110 and agricultural to be 40302)"
+"Immunology in the medical area"
+"Industrial engineering and management"
+"Infectious Medicine"
+"Information Studies"
+"Information Systems (Social aspects to be 50804)"
+"Information Systems, Social aspects"
+"Infrastructure Engineering"
+"Inorganic Chemistry"
+"Interaction Technologies"
+"Interdisciplinary Studies in Humanities och konst and Arts"
+"Internal Medicine"
+"International Migration and Ethnic Relations"
+"ircular Food Process Technologies "
+"Landscape Architecture"
+"Law and Society"
+"Law"
+"Learning"
+"lgorithms "
+"Literary Composition"
+"Manufacturing, Surface and Joining Technology"
+"Marine Engineering"
+"Materials Chemistry"
+"Mathematical Analysis"
+"Media and Communication Studies"
+"Media and Communication Technology"
+"Media Engineering"
+"Medical Bioinformatics and Systems Biology"
+"Medical Bioscience"
+"Medical Biostatistics"
+"Medical Biotechnology (focus on Cell Biology (incl. Stem Cell Biology), Molecular Biology, Microbiology, Biochemistry or Biopharmacy)"
+"Medical Biotechnology"
+"Medical Epigenetics and Epigenomics"
+"Medical Ethics"
+"Medical Genetics and Genomics"
+"Medical Informatics (Technical aspects at 20606)"
+"Medical Informatics Engineering (Medical aspects at 30117)"
+"Medical Instrumentation"
+"Medical Laboratory Technologies"
+"Medical Life Sciences"
+"Medical Materials"
+"Medical Modelling and Simulation"
+"Medicinal Chemistry (Natural Sciences at 10405)"
+"Metallurgy and Metallic Materials"
+"Meteorology and Atmospheric Sciences"
+"Microbiology (medical  to be 30109 and agricultural to be 40302)"
+"Microbiology in the medical area"
+"Mineral and Mine Engineering"
+"Molecular Biology"
+"Music"
+"Musicology"
+"Nanotechnology for Electronic Applications"
+"Nanotechnology for Energy Applications"
+"Nanotechnology for Material Science"
+"Nanotechnology for/in Life Science and Medicine"
+"Nano-technology"
+"Natural Language Processing"
+"Nephrology"
+"Networked, Parallel and Distributed Computing"
+"Neurology"
+"Neurosciences"
+"Nursing"
+"Nutrition and Dietetics"
+"Occupational Health and Environmental Health"
+"Occupational Therapy"
+"Ocean and River Engineering"
+"Oceanography, Hydrology and Water Resources"
+"Ophthalmology"
+"Oral Health"
+"Organic Chemistry"
+"Orthopaedics"
+"Other Agricultural Sciences not elsewhere specified"
+"Other Basic Medicine"
+"Other Biological Topics"
+"Other Chemical Engineering"
+"Other Chemistry Topics"
+"Other Civil Engineering"
+"Other Clinical Medicine"
+"Other Computer and Information Science"
+"Other Earth Sciences"
+"Other Educational Sciences"
+"Other Electrical Engineering, Electronic Engineering, Information Engineering"
+"Other Engineering and Technologies"
+"Other Environmental Biotechnology"
+"Other Environmental Engineering"
+"Other Geographic Studies"
+"Other Health Sciences"
+"Other Humanities not elsewhere specified"
+"Other Industrial Biotechnology"
+"Other Legal Research"
+"Other Materials Engineering"
+"Other Mathematics"
+"Other Mechanical Engineering"
+"Other Medical and Health Sciences not elsewhere specified"
+"Other Medical Biotechnology"
+"Other Medical Engineering"
+"Other Nanotechnology"
+"Other Natural Sciences"
+"Other Physics Topics"
+"Other Social Sciences not elsewhere specified"
+"Other Veterinary Science"
+"Otorhinolaryngology"
+"Palaeontology and Palaeoecology"
+"Palliative Medicine and Palliative Care"
+"Paper, Pulp and Fiber Technology"
+"Pathobiology"
+"Peace and Confict Studies"
+"Pedagogical Work"
+"Pedagogy"
+"Pediatrics"
+"Performing Art Studies"
+"Performing Arts"
+"Pharmaceutical and Medical Biotechnology"
+"Pharmaceutical Chemistry"
+"Pharmaceutical Sciences"
+"Pharmacology and Toxicology"
+"Philosophy"
+"Photography"
+"Physical Chemistry"
+"Physical Geography"
+"Physiology and Anatomy"
+"Physiotherapy"
+"pidemiology "
+"Plant Biotechnology"
+"Political Science (Excluding Peace and Confict Studies)"
+"Polymer Chemistry"
+"Polymer Technologies"
+"Power Systems and Components"
+"Probability Theory and Statistics (Statistics with medical aspects at 30118 and with social aspects at 50907)"
+"Production Engineering, Human Work Science and Ergonomics"
+"Psychiatry"
+"Psychology (excluding Applied Psychology)"
+"Public Administration Studies"
+"Public Health, Global Health och socialmedicin and Social Medicine"
+"Public Health, Global Health, Social Medicine and Epidemiology"
+"Radiology, Nuclear Medicine and Medical Imaging"
+"Rehabilitation Medicine"
+"Reliability and Maintenance"
+"Religious Studies"
+"Renewable Bioenergy Research"
+"Respiratory Medicine and Allergy"
+"Rhetoric"
+"Rheumatology and Autoimmunity"
+"Rheumatology"
+"riminology "
+"Robotics and automation"
+"Science and Technology Studies"
+"Security, Privacy and Cryptography"
+"Separation Processes"
+"Signal Processing"
+"Social and Clinical Pharmacy"
+"Social Anthropology"
+"Social Psychology"
+"Social Sciences Interdisciplinary"
+"Social Work"
+"Sociology (Excluding Social Work, Social Anthropology, Demography and Criminology)"
+"Software Engineering"
+"Soil Science"
+"Solid and Structural Mechanics"
+"Specific Languages"
+"Specific Literatures"
+"Sport and Fitness Sciences"
+"Statistical physics and complex systems"
+"Statistics in Social Sciences"
+"Structural Biology"
+"Structural Engineering"
+"Studies on Film"
+"Subatomic Physics"
+"Surface- and Corrosion Engineering"
+"Surgery"
+"Technology and Environmental History"
+"Telecommunications"
+"Textile, Rubber and Polymeric Materials"
+"Theoretical Chemistry"
+"Translation Studies"
+"Transport Systems and Logistics"
+"Tribology (interacting surfaces including Friction, Lubrication and Wear)"
+"Urology and Nephrology"
+"Urology"
+"Vehicle and Aerospace Engineering"
+"Vehicle Engineering"
+"Visual Arts"
+"War, Crisis, and Security Studies"
+"Water Engineering"
+"Water Treatment"
+"Wood Science"
+"Work Sciences"
+"Zoology"
+
+  }
+
+enum GDP.Forskningsamne_kod {
+"10101"
+"10102"
+"10103"
+"10104"
+"10105"
+"10106"
+"10199"
+"10201"
+"10202"
+"10203"
+"10204"
+"10205"
+"10206"
+"10207"
+"10208"
+"10209"
+"10299"
+"10301"
+"10302"
+"10303"
+"10304"
+"10305"
+"10306"
+"10399"
+"10401"
+"10402"
+"10403"
+"10404"
+"10405"
+"10406"
+"10407"
+"10499"
+"10501"
+"10502"
+"10503"
+"10504"
+"10505"
+"10506"
+"10507"
+"10508"
+"10509"
+"10599"
+"10601"
+"10602"
+"10603"
+"10604"
+"10605"
+"10606"
+"10607"
+"10608"
+"10609"
+"10610"
+"10611"
+"10612"
+"10613"
+"10614"
+"10615"
+"10699"
+"10799"
+"20101"
+"20102"
+"20103"
+"20104"
+"20105"
+"20106"
+"20107"
+"20108"
+"20199"
+"20201"
+"20202"
+"20203"
+"20204"
+"20205"
+"20206"
+"20207"
+"20299"
+"20301"
+"20302"
+"20303"
+"20304"
+"20305"
+"20306"
+"20307"
+"20308"
+"20399"
+"20401"
+"20402"
+"20403"
+"20404"
+"20499"
+"20501"
+"20502"
+"20503"
+"20504"
+"20505"
+"20506"
+"20599"
+"20601"
+"20602"
+"20603"
+"20604"
+"20605"
+"20699"
+"20701"
+"20702"
+"20703"
+"20704"
+"20705"
+"20706"
+"20707"
+"20799"
+"20801"
+"20802"
+"20803"
+"20804"
+"20899"
+"20901"
+"20902"
+"20903"
+"20904"
+"20905"
+"20906"
+"20907"
+"20908"
+"20999"
+"21001"
+"21101"
+"21102"
+"21103"
+"21199"
+"30101"
+"30102"
+"30103"
+"30104"
+"30105"
+"30106"
+"30107"
+"30108"
+"30109"
+"30110"
+"30199"
+"30201"
+"30202"
+"30203"
+"30204"
+"30205"
+"30206"
+"30207"
+"30208"
+"30209"
+"30210"
+"30211"
+"30212"
+"30213"
+"30214"
+"30215"
+"30216"
+"30217"
+"30218"
+"30219"
+"30220"
+"30221"
+"30222"
+"30223"
+"30224"
+"30299"
+"30301"
+"30302"
+"30303"
+"30304"
+"30305"
+"30306"
+"30307"
+"30308"
+"30309"
+"30310"
+"30399"
+"30401"
+"30402"
+"30403"
+"30499"
+"30501"
+"30502"
+"30599"
+"40101"
+"40102"
+"40103"
+"40104"
+"40105"
+"40106"
+"40107"
+"40108"
+"40201"
+"40301"
+"40302"
+"40303"
+"40304"
+"40401"
+"40402"
+"40501"
+"40502"
+"40503"
+"40504"
+"40599"
+"50101"
+"50102"
+"50201"
+"50202"
+"50203"
+"50301"
+"50302"
+"50303"
+"50304"
+"50401"
+"50402"
+"50403"
+"50404"
+"50501"
+"50502"
+"50601"
+"50602"
+"50603"
+"50701"
+"50702"
+"50801"
+"50802"
+"50803"
+"50804"
+"50805"
+"50901"
+"50902"
+"50903"
+"50904"
+"50999"
+"60101"
+"60102"
+"60103"
+"60201"
+"60202"
+"60203"
+"60204"
+"60301"
+"60302"
+"60303"
+"60304"
+"60305"
+"60411"
+"60402"
+"60403"
+"60404"
+"60405"
+"60406"
+"60407"
+"60408"
+"60409"
+"60410"
+"60501"
+"60502"
+"60503"
+"60599"
+"10210"
+"10211"
+"10212"
+"10213"
+"10214"
+"10307"
+"10308"
+"10408"
+"10510"
+"10616"
+"20109"
+"20110"
+"20208"
+"20209"
+"20309"
+"20310"
+"20405"
+"20406"
+"20407"
+"20606"
+"20909"
+"21002"
+"21003"
+"21004"
+"21005"
+"21099"
+"30111"
+"30112"
+"30113"
+"30114"
+"30115"
+"30116"
+"30117"
+"30118"
+"30225"
+"30226"
+"30227"
+"30228"
+"30229"
+"30230"
+"30311"
+"30312"
+"30313"
+"30314"
+"40399"
+"40505"
+"40506"
+"40507"
+"50399"
+"50405"
+"50406"
+"50503"
+"50604"
+"50703"
+"50905"
+"50906"
+"50907"
+"50908"
+"50909"
+"50910"
+"50911"
+"50912"
+"60104"
+"60105"
+"60205"
+"60206"
+"60207"
+"60306"
+"60412"
+"60413"
+"60414"
+"60415"
+"60416"
+"60417"
+"60418"
+"60419"
+"60504"
+
+  }
+
+enum GDP.Hallbarhetsmal_namn {
+"01 Ingen fattigdom"
+"02 Ingen hunger"
+"03 Hälsa och välbefinnande"
+"04 God utbildning för alla"
+"05 Jämställdhet"
+"06 Rent vatten och sanitet för alla"
+"07 Hållbar energi för alla"
+"08 Anständiga arbetsvillkor och ekonomisk tillväxt"
+"09 Hållbar industri, innovationer och infrastruktur"
+"10 Minskad ojämlikhet"
+"11 Hållbara städer och samhällen"
+"12 Hållbar konsumtion och produktion"
+"13 Bekämpa klimatförändringarna"
+"14 Hav och marina resurser"
+"15 Ekosystem och biologisk mångfald"
+"16 Fredliga och inkluderande samhällen"
+"17 Genomförande och globalt partnerskap"
+
+  }
+
+enum GDP.Hallbarhetsmal_namnEng {
+"01 No poverty"
+"02 Zero hunger"
+"03 Good health and well-being"
+"04 Quality education"
+"05 Gender equality"
+"06 Clean water and sanitation"
+"07 Affordable and clean energy"
+"08 Decent work and economic growth"
+"09 Industry, innovation and infrastructure"
+"10 Reduced inequalities"
+"11 Sustainable cities and communities"
+"12 Responsible consumption and production"
+"13 Climate action"
+"14 Life below water"
+"15 Life on land"
+"16 Peace, justice and strong institutions"
+"17 Partnerships for the goals"
+
+  }
+
+enum GDP.Program_budgetValuta {
+        AED
+        AFN
+        ALL
+        AMD
+        ANG
+        AOA
+        ARS
+        AUD
+        AWG
+        AZN
+        BAM
+        BBD
+        BDT
+        BGN
+        BHD
+        BIF
+        BMD
+        BND
+        BOB
+        BRL
+        BSD
+        BTN
+        BWP
+        BYN
+        BZD
+        CAD
+        CDF
+        CHF
+        CLP
+        CNY
+        COP
+        COU
+        CRC
+        CUP
+        CVE
+        CZK
+        DJF
+        DKK
+        DOP
+        DZD
+        EGP
+        ERN
+        ETB
+        EUR
+        FJD
+        FKP
+        GBP
+        GEL
+        GHS
+        GIP
+        GMD
+        GNF
+        GTQ
+        GYD
+        HKD
+        HNL
+        HTG
+        HUF
+        IDR
+        ILS
+        INR
+        IQD
+        IRR
+        ISK
+        JMD
+        JOD
+        JPY
+        KES
+        KGS
+        KHR
+        KMF
+        KPW
+        KRW
+        KWD
+        KYD
+        KZT
+        LAK
+        LBP
+        LKR
+        LRD
+        LSL
+        LYD
+        MAD
+        MDL
+        MGA
+        MKD
+        MMK
+        MNT
+        MOP
+        MRO
+        MUR
+        MVR
+        MWK
+        MXN
+        MYR
+        MZN
+        NAD
+        NGN
+        NIO
+        NOK
+        NPR
+        NZD
+        OMR
+        PAB
+        PEN
+        PGK
+        PHP
+        PKR
+        PLN
+        PYG
+        QAR
+        RON
+        RSD
+        RUB
+        RWF
+        SAR
+        SBD
+        SCR
+        SDG
+        SEK
+        SGD
+        SHP
+        SLL
+        SOS
+        SRD
+        SSP
+        STN
+        SYP
+        SZL
+        THB
+        TJS
+        TMT
+        TND
+        TOP
+        TRY
+        TTD
+        TWD
+        TZS
+        UAH
+        UGX
+        USD
+        UYU
+        UZS
+        VES
+        VND
+        VUV
+        WST
+        XAF
+        XCD
+        XOF
+        XPF
+        YER
+        ZAR
+        ZMW
+        ZWL
+	
+  }
+
+enum GDP.Utlysning_budgetValuta {
+   AED
+        AFN
+        ALL
+        AMD
+        ANG
+        AOA
+        ARS
+        AUD
+        AWG
+        AZN
+        BAM
+        BBD
+        BDT
+        BGN
+        BHD
+        BIF
+        BMD
+        BND
+        BOB
+        BRL
+        BSD
+        BTN
+        BWP
+        BYN
+        BZD
+        CAD
+        CDF
+        CHF
+        CLP
+        CNY
+        COP
+        COU
+        CRC
+        CUP
+        CVE
+        CZK
+        DJF
+        DKK
+        DOP
+        DZD
+        EGP
+        ERN
+        ETB
+        EUR
+        FJD
+        FKP
+        GBP
+        GEL
+        GHS
+        GIP
+        GMD
+        GNF
+        GTQ
+        GYD
+        HKD
+        HNL
+        HTG
+        HUF
+        IDR
+        ILS
+        INR
+        IQD
+        IRR
+        ISK
+        JMD
+        JOD
+        JPY
+        KES
+        KGS
+        KHR
+        KMF
+        KPW
+        KRW
+        KWD
+        KYD
+        KZT
+        LAK
+        LBP
+        LKR
+        LRD
+        LSL
+        LYD
+        MAD
+        MDL
+        MGA
+        MKD
+        MMK
+        MNT
+        MOP
+        MRO
+        MUR
+        MVR
+        MWK
+        MXN
+        MYR
+        MZN
+        NAD
+        NGN
+        NIO
+        NOK
+        NPR
+        NZD
+        OMR
+        PAB
+        PEN
+        PGK
+        PHP
+        PKR
+        PLN
+        PYG
+        QAR
+        RON
+        RSD
+        RUB
+        RWF
+        SAR
+        SBD
+        SCR
+        SDG
+        SEK
+        SGD
+        SHP
+        SLL
+        SOS
+        SRD
+        SSP
+        STN
+        SYP
+        SZL
+        THB
+        TJS
+        TMT
+        TND
+        TOP
+        TRY
+        TTD
+        TWD
+        TZS
+        UAH
+        UGX
+        USD
+        UYU
+        UZS
+        VES
+        VND
+        VUV
+        WST
+        XAF
+        XCD
+        XOF
+        XPF
+        YER
+        ZAR
+        ZMW
+        ZWL	
+  }
+
+enum GDP.Ansokan_soktBeloppValuta {
+   AED
+        AFN
+        ALL
+        AMD
+        ANG
+        AOA
+        ARS
+        AUD
+        AWG
+        AZN
+        BAM
+        BBD
+        BDT
+        BGN
+        BHD
+        BIF
+        BMD
+        BND
+        BOB
+        BRL
+        BSD
+        BTN
+        BWP
+        BYN
+        BZD
+        CAD
+        CDF
+        CHF
+        CLP
+        CNY
+        COP
+        COU
+        CRC
+        CUP
+        CVE
+        CZK
+        DJF
+        DKK
+        DOP
+        DZD
+        EGP
+        ERN
+        ETB
+        EUR
+        FJD
+        FKP
+        GBP
+        GEL
+        GHS
+        GIP
+        GMD
+        GNF
+        GTQ
+        GYD
+        HKD
+        HNL
+        HTG
+        HUF
+        IDR
+        ILS
+        INR
+        IQD
+        IRR
+        ISK
+        JMD
+        JOD
+        JPY
+        KES
+        KGS
+        KHR
+        KMF
+        KPW
+        KRW
+        KWD
+        KYD
+        KZT
+        LAK
+        LBP
+        LKR
+        LRD
+        LSL
+        LYD
+        MAD
+        MDL
+        MGA
+        MKD
+        MMK
+        MNT
+        MOP
+        MRO
+        MUR
+        MVR
+        MWK
+        MXN
+        MYR
+        MZN
+        NAD
+        NGN
+        NIO
+        NOK
+        NPR
+        NZD
+        OMR
+        PAB
+        PEN
+        PGK
+        PHP
+        PKR
+        PLN
+        PYG
+        QAR
+        RON
+        RSD
+        RUB
+        RWF
+        SAR
+        SBD
+        SCR
+        SDG
+        SEK
+        SGD
+        SHP
+        SLL
+        SOS
+        SRD
+        SSP
+        STN
+        SYP
+        SZL
+        THB
+        TJS
+        TMT
+        TND
+        TOP
+        TRY
+        TTD
+        TWD
+        TZS
+        UAH
+        UGX
+        USD
+        UYU
+        UZS
+        VES
+        VND
+        VUV
+        WST
+        XAF
+        XCD
+        XOF
+        XPF
+        YER
+        ZAR
+        ZMW
+        ZWL	
+  }
+
+enum GDP.BeslutadFinansiering_valuta {
+   AED
+        AFN
+        ALL
+        AMD
+        ANG
+        AOA
+        ARS
+        AUD
+        AWG
+        AZN
+        BAM
+        BBD
+        BDT
+        BGN
+        BHD
+        BIF
+        BMD
+        BND
+        BOB
+        BRL
+        BSD
+        BTN
+        BWP
+        BYN
+        BZD
+        CAD
+        CDF
+        CHF
+        CLP
+        CNY
+        COP
+        COU
+        CRC
+        CUP
+        CVE
+        CZK
+        DJF
+        DKK
+        DOP
+        DZD
+        EGP
+        ERN
+        ETB
+        EUR
+        FJD
+        FKP
+        GBP
+        GEL
+        GHS
+        GIP
+        GMD
+        GNF
+        GTQ
+        GYD
+        HKD
+        HNL
+        HTG
+        HUF
+        IDR
+        ILS
+        INR
+        IQD
+        IRR
+        ISK
+        JMD
+        JOD
+        JPY
+        KES
+        KGS
+        KHR
+        KMF
+        KPW
+        KRW
+        KWD
+        KYD
+        KZT
+        LAK
+        LBP
+        LKR
+        LRD
+        LSL
+        LYD
+        MAD
+        MDL
+        MGA
+        MKD
+        MMK
+        MNT
+        MOP
+        MRO
+        MUR
+        MVR
+        MWK
+        MXN
+        MYR
+        MZN
+        NAD
+        NGN
+        NIO
+        NOK
+        NPR
+        NZD
+        OMR
+        PAB
+        PEN
+        PGK
+        PHP
+        PKR
+        PLN
+        PYG
+        QAR
+        RON
+        RSD
+        RUB
+        RWF
+        SAR
+        SBD
+        SCR
+        SDG
+        SEK
+        SGD
+        SHP
+        SLL
+        SOS
+        SRD
+        SSP
+        STN
+        SYP
+        SZL
+        THB
+        TJS
+        TMT
+        TND
+        TOP
+        TRY
+        TTD
+        TWD
+        TZS
+        UAH
+        UGX
+        USD
+        UYU
+        UZS
+        VES
+        VND
+        VUV
+        WST
+        XAF
+        XCD
+        XOF
+        XPF
+        YER
+        ZAR
+        ZMW
+        ZWL	
+  }
+
+enum GDP.Organisation_lan {
+  "Blekinge län" 
+  "Dalarnas län" 
+  "Gotlands län"  
+  "Gävleborgs län"
+  "Hallands län"
+  "Jämtlands län"
+  "Jönköpings län"
+  "Kalmar län"
+  "Kronobergs län"
+  "Norrbottens län"
+  "Skåne län"
+  "Stockholms län"
+  "Södermanlands län"
+  "Uppsala län"
+  "Värmlands län"
+  "Västerbottens län"
+  "Västernorrlands län"
+  "Västmanlands län"
+  "Västra Götalands län"
+  "Örebro län"
+  "Östergötlands län"
+  }
+
+enum GDP.Arbetsgivare_lan {
+  "Blekinge län" 
+  "Dalarnas län" 
+  "Gotlands län"  
+  "Gävleborgs län"
+  "Hallands län"
+  "Jämtlands län"
+  "Jönköpings län"
+  "Kalmar län"
+  "Kronobergs län"
+  "Norrbottens län"
+  "Skåne län"
+  "Stockholms län"
+  "Södermanlands län"
+  "Uppsala län"
+  "Värmlands län"
+  "Västerbottens län"
+  "Västernorrlands län"
+  "Västmanlands län"
+  "Västra Götalands län"
+  "Örebro län"
+  "Östergötlands län"
+  }
+
+enum GDP.Organisation_landskod {
+        AD
+        AE
+        AF
+        AG
+        AI
+        AL
+        AM
+        AO
+        AQ
+        AR
+        AS
+        AT
+        AU
+        AW
+        AX
+        AZ
+        BA
+        BB
+        BD
+        BE
+        BF
+        BG
+        BH
+        BI
+        BJ
+        BL
+        BM
+        BN
+        BO
+        BQ
+        BR
+        BS
+        BT
+        BV
+        BW
+        BY
+        BZ
+        CA
+        CC
+        CD
+        CF
+        CG
+        CH
+        CI
+        CK
+        CL
+        CM
+        CN
+        CO
+        CR
+        CU
+        CV
+        CW
+        CX
+        CY
+        CZ
+        DE
+        DJ
+        DK
+        DM
+        DO
+        DZ
+        EC
+        EE
+        EG
+        EH
+        ER
+        ES
+        ET
+        FI
+        FJ
+        FK
+        FM
+        FO
+        FR
+        GA
+        GB
+        GD
+        GE
+        GF
+        GG
+        GH
+        GI
+        GL
+        GM
+        GN
+        GP
+        GQ
+        GR
+        GS
+        GT
+        GU
+        GW
+        GY
+        HK
+        HM
+        HN
+        HR
+        HT
+        HU
+        ID
+        IE
+        IL
+        IM
+        IN
+        IO
+        IQ
+        IR
+        IS
+        IT
+        JE
+        JM
+        JO
+        JP
+        KE
+        KG
+        KH
+        KI
+        KM
+        KN
+        KP
+        KR
+        KW
+        KY
+        KZ
+        LA
+        LB
+        LC
+        LI
+        LK
+        LR
+        LS
+        LT
+        LU
+        LV
+        LY
+        MA
+        MC
+        MD
+        ME
+        MF
+        MG
+        MH
+        MK
+        ML
+        MM
+        MN
+        MO
+        MP
+        MQ
+        MR
+        MS
+        MT
+        MU
+        MV
+        MW
+        MX
+        MY
+        MZ
+        NA
+        NC
+        NE
+        NF
+        NG
+        NI
+        NL
+        NO
+        NP
+        NR
+        NU
+        NZ
+        OM
+        PA
+        PE
+        PF
+        PG
+        PH
+        PK
+        PL
+        PM
+        PN
+        PR
+        PS
+        PT
+        PW
+        PY
+        QA
+        RE
+        RO
+        RS
+        RU
+        RW
+        SA
+        SB
+        SC
+        SD
+        SE
+        SG
+        SH
+        SI
+        SJ
+        SK
+        SL
+        SM
+        SN
+        SO
+        SR
+        SS
+        ST
+        SV
+        SX
+        SY
+        SZ
+        TC
+        TD
+        TF
+        TG
+        TH
+        TJ
+        TK
+        TL
+        TM
+        TN
+        TO
+        TR
+        TT
+        TV
+        TW
+        TZ
+        UA
+        UG
+        UM
+        US
+        UY
+        UZ
+        VA
+        VC
+        VE
+        VG
+        VI
+        VN
+        VU
+        WF
+        WS
+        YE
+        YT
+        ZA
+        ZM
+        ZW
+   
+	
+  }
+
+enum GDP.Arbetsgivare_landskod {
+          AD
+        AE
+        AF
+        AG
+        AI
+        AL
+        AM
+        AO
+        AQ
+        AR
+        AS
+        AT
+        AU
+        AW
+        AX
+        AZ
+        BA
+        BB
+        BD
+        BE
+        BF
+        BG
+        BH
+        BI
+        BJ
+        BL
+        BM
+        BN
+        BO
+        BQ
+        BR
+        BS
+        BT
+        BV
+        BW
+        BY
+        BZ
+        CA
+        CC
+        CD
+        CF
+        CG
+        CH
+        CI
+        CK
+        CL
+        CM
+        CN
+        CO
+        CR
+        CU
+        CV
+        CW
+        CX
+        CY
+        CZ
+        DE
+        DJ
+        DK
+        DM
+        DO
+        DZ
+        EC
+        EE
+        EG
+        EH
+        ER
+        ES
+        ET
+        FI
+        FJ
+        FK
+        FM
+        FO
+        FR
+        GA
+        GB
+        GD
+        GE
+        GF
+        GG
+        GH
+        GI
+        GL
+        GM
+        GN
+        GP
+        GQ
+        GR
+        GS
+        GT
+        GU
+        GW
+        GY
+        HK
+        HM
+        HN
+        HR
+        HT
+        HU
+        ID
+        IE
+        IL
+        IM
+        IN
+        IO
+        IQ
+        IR
+        IS
+        IT
+        JE
+        JM
+        JO
+        JP
+        KE
+        KG
+        KH
+        KI
+        KM
+        KN
+        KP
+        KR
+        KW
+        KY
+        KZ
+        LA
+        LB
+        LC
+        LI
+        LK
+        LR
+        LS
+        LT
+        LU
+        LV
+        LY
+        MA
+        MC
+        MD
+        ME
+        MF
+        MG
+        MH
+        MK
+        ML
+        MM
+        MN
+        MO
+        MP
+        MQ
+        MR
+        MS
+        MT
+        MU
+        MV
+        MW
+        MX
+        MY
+        MZ
+        NA
+        NC
+        NE
+        NF
+        NG
+        NI
+        NL
+        NO
+        NP
+        NR
+        NU
+        NZ
+        OM
+        PA
+        PE
+        PF
+        PG
+        PH
+        PK
+        PL
+        PM
+        PN
+        PR
+        PS
+        PT
+        PW
+        PY
+        QA
+        RE
+        RO
+        RS
+        RU
+        RW
+        SA
+        SB
+        SC
+        SD
+        SE
+        SG
+        SH
+        SI
+        SJ
+        SK
+        SL
+        SM
+        SN
+        SO
+        SR
+        SS
+        ST
+        SV
+        SX
+        SY
+        SZ
+        TC
+        TD
+        TF
+        TG
+        TH
+        TJ
+        TK
+        TL
+        TM
+        TN
+        TO
+        TR
+        TT
+        TV
+        TW
+        TZ
+        UA
+        UG
+        UM
+        US
+        UY
+        UZ
+        VA
+        VC
+        VE
+        VG
+        VI
+        VN
+        VU
+        WF
+        WS
+        YE
+        YT
+        ZA
+        ZM
+        ZW	
+  }
+
+//RELATIONER MELLAN ENTITETER
+
+Ref har: "GDP"."Utlysning"."programID" <> "GDP"."Program"."programID"
+
+Ref har: "GDP"."Ansokan"."programID" <> "GDP"."Program"."programID"
+
+Ref har: "GDP"."FinansieradAktivitet"."programID" <> "GDP"."Program"."programID"
+
+Ref har: "GDP"."Utlysning"."utlysningID" < "GDP"."Publiceringsplats"."utlysningID"
+
+Ref har:  "GDP"."Utlysning"."utlysningID" < "GDP"."Bidragsform"."utysningID"
+
+Ref har: GDP.Ansokan.utlysningID > GDP.Utlysning.utlysningID
+
+Ref har: "GDP"."Ansokan"."ansokanID" < "GDP"."Bidragsform"."ansokanID"
+
+Ref har: "GDP"."Stodform"."stodformID" < "GDP"."Bidragsform"."stodformID"
+
+Ref har: "GDP"."Ansokan"."ansokanID" < "GDP"."Beslut"."ansokanID"
+
+Ref har: "GDP"."Ansokan"."ansokanID" < "GDP"."Person"."ansokanID"
+
+Ref har: "GDP"."Ansokan"."ansokanID" < "GDP"."Organisation"."ansokanID"
+
+Ref har: "GDP"."Person"."ansokanPersonID" < "GDP".Arbetsgivare.ansokanPersonID
+
+Ref har: "GDP"."Ansokan"."ansokanID" < "GDP"."Nyckelord".ansokanID
+
+Ref har: "GDP"."Ansokan"."ansokanID" < "GDP"."Forskningsamne".ansokanID
+
+Ref har: GDP.Ansokan.ansokanID < GDP.Hallbarhetsmal.ansokanID
+
+Ref har: "GDP"."Ansokan"."ansokanID" < GDP.KategoriseringFinansiar.ansokanID
+
+Ref har: GDP.Organisation.finansieradAktivitetID > GDP.FinansieradAktivitet.finansieradAktivitetID
+
+Ref har: GDP.Beslut.finansieradAktivitetID > GDP.FinansieradAktivitet.finansieradAktivitetID
+
+Ref har: GDP.Beslut.beslutID < GDP.BeslutadFinansiering.beslutID
+
+Ref tilldelas: GDP.Organisation.beslutadFinansieringID < GDP.BeslutadFinansiering.beslutadFinansieringID
+
+
+//Data finns inte i finansiärens system. Värden som returneras: NULL (char), NULL (numerisk), NULL (datum)
+//English translation - Data is missing in the administrative system of the funding body. Values returned: NULL (char), NULL (numerical), NULL (date)
+
+//Data finns i finansiärens system men det finns ingen data kopplad till det aktuella ärendet (program, utlysning, ansökan eller finansierad aktivitet) i datauttaget. Värden som returneras: NULL (char), NULL (numerisk), NULL (datum) 
+//English translation - Data exists in the administrative system of the funding body but there is no data connected to the current entity (Program, Call, Application or Funded activity) in the data extraction. Values returned: NULL (char), NULL (numerical), NULL (date)
+
+//Finansiären har gjort bedömningen att data inte kan delas som öppna data. Värden som returneras: "Ej öppna data" (char), NULL (numerisk), NULL (datum)
+//English translation - The funding body has made the assesment  that data cannot be shared as open data. Values returned: "Not open data" (char), NULL (numerical), NULL (date)
