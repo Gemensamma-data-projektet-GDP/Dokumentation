@@ -18,7 +18,7 @@ Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 
 - Data som omfattas av standarden är öppna data
 - Varje finansiär beskriver sin egen tillämpning av standarden och datakvalitén
 
-## Datadelningar
+## Datadelning enligt standarden
 
 (länkar till Vinnovas API-portal och EM:s JSON-filer)
 
