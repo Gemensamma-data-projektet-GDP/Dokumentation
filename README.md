@@ -20,7 +20,7 @@ Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 
 
 ## Datadelningar
 
-(länkar till Vinnovas API-portal och till EM:s JSON-filer)
+(länkar till Vinnovas API-portal och EM:s JSON-filer)
 
 ## Kontakt
 
