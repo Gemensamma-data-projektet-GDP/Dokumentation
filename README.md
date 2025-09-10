@@ -16,7 +16,7 @@ Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 
 
 - GDP-standarden är teknik-agnostisk, projektet syftar inte till att producera gemensamma tekniska lösningar för att dela data
 - Data som omfattas av standarden är öppna data
-- Varje finansiär beskriver sin egen tillämpning av standarden och datakvalitén
+- Varje finansiär beskriver sin egen tillämpning av standarden och av datakvalitén
 
 ## Datadelning enligt standarden
 
