@@ -9,7 +9,7 @@
 
 Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 i form av :
 
-- [Informationsmodell](https://dbdiagram.io/d/GDP-version-2-0-68315a6ab9f7446da3f16e2d)
+- [Informationsmodell](<iframe width="560" height="315" src='https://dbdiagram.io/e/68d24e0b7c85fb9961ec9252/68d259f97c85fb9961eedf69'> </iframe>)
 - [Tekniska specifikationer för API](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Tekniska%20specifikationer%20f%C3%B6r%20API/)
 
 ## Avgränsningar
