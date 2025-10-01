@@ -1,5 +1,5 @@
 
-# Gemensamma data projektet (GDP)
+# Gemensamma data-projektet (GDP)
 
 ## Om GDP
 
