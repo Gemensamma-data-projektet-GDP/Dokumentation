@@ -3,7 +3,7 @@
 
 ## Om GDP
 
-**GDP** är ett initiativ som syftar till att möjliggöra delning av öppna och jämförbara data från svenska finansiärer av forskning och innovation genom att producera en gemensam datastandard. Projektet är ett resultat av ett regeringsuppdrag och drivs av Energimyndigheten, Formas, Forte, Vetenskapsrådet och Vinnova. En projektgrupp med medlemmar från finansiärerna samarbetar med en referensgrupp som består av externa datakonsumenter för att bestämma innehållet i standarden. En styrgrupp som blivit tillsatt för arbetet har beslutat att anta en version 2.0 av standarden och börja dela data enligt den. Ambitionen är att utveckla standarden vidare efter version 2.0 och lägga till nya data till datadelningen.
+**GDP** är ett initiativ som syftar till att möjliggöra delning av öppna och jämförbara data från svenska finansiärer av forskning och innovation genom att producera en gemensam datastandard. Projektet är ett resultat av ett regeringsuppdrag och drivs av Energimyndigheten, Formas, Forte, Vetenskapsrådet och Vinnova. En arbetsgrupp med medlemmar från finansiärerna samarbetar med en referensgrupp som består av externa datakonsumenter för att bestämma innehållet i standarden. En styrgrupp som blivit tillsatt för arbetet har beslutat att anta en version 2.0 av standarden och börja dela data enligt den. Ambitionen är att utveckla standarden vidare efter version 2.0 och lägga till nya data till datadelningen.
 
 ## Vad innehåller detta repo?
 
@@ -27,7 +27,7 @@ Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 
 ## Kontakt
 
 Vill du veta mer om projektet och datastandarden? 
-Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagarna i projektgruppen.
+Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagarna i arbetsgruppen!
 
 ---
 
