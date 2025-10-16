@@ -10,7 +10,7 @@
 Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 i form av :
 
 - [Informationsmodell](https://dbdiagram.io/e/68d24e0b7c85fb9961ec9252/68d259f97c85fb9961eedf69)
-- [Definitioner av värden i enumerationer i modellen](Ann)
+- [Definitioner av värden i enumerationer i modellen]([Ann](https://github.com/Gemensamma-data-projektet-GDP/Dokumentation/blob/main/Definitioner%20av%20v%C3%A4rden%20i%20enumerationer%20i%20modellen.docx))
 - [Tekniska specifikationer för API](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Tekniska%20specifikationer%20f%C3%B6r%20API/)
 
 ## Avgränsningar
