@@ -26,7 +26,9 @@ Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 
 ## Kontakt
 
 Vill du veta mer om projektet och datastandarden? 
-Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagarna i arbetsgruppen!
+Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagarna i arbetsgruppen:
+
+ - rickard.franzen@vinnova.se
 
 ---
 
