@@ -29,6 +29,11 @@ Vill du veta mer om projektet och datastandarden?
 Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagarna i arbetsgruppen:
 
  - rickard.franzen@vinnova.se
+ - annika.forsblom@energimyndigheten.se
+ - peter.carlsson@forte.se
+ - anna.ringqvist@formas.se
+ - kenth.hermansson@vr.se
+ - joar.rehn@vr.se
 
 ---
 
