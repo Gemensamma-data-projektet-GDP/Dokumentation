@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <head>
     <style>
@@ -79,7 +79,7 @@
       <span style="background-color: #61AFFE; color: #FFFFFF;"> &nbspGET&nbsp</span>
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; font-weight: bold;">
-      /v2/metadata
+      /metadata
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; ">
       Hämta information om API:et
@@ -118,7 +118,7 @@
       <span style="background-color: #61AFFE; color: #FFFFFF;"> &nbspGET&nbsp</span>
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; font-weight: bold;">
-      /v2/ansokningar
+      /ansokningar
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; ">
        Hämta en lista med ansökningar genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning”.
@@ -280,16 +280,7 @@
       Totalt antal objekt som sökning resulterade i.
     </td>
   </tr>
-  <tr>
-    <td style="border-color: white; "></td>
-    <td style="border-color: white; ">
-      400
-    </td>
-    <td style="border-color: white; ">
-      Felaktig parameter.
-    </td>
-  </tr>
-
+  
   <tr>
     <td style="border-color: white; height: 10px; "></td>
     <td style="border-color: white; height: 10px; "></td>
@@ -301,7 +292,7 @@
       <span style="background-color: #61AFFE; color: #FFFFFF;"> &nbspGET&nbsp</span>
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; font-weight: bold;">
-      /v2/finansieradeaktiviteter
+      /finansieradeaktiviteter
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; ">
        Hämtar en lista med finansierade aktiviteter genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning.
@@ -379,28 +370,6 @@
     </td>
     <td style="border-color: white; ">
        Returnerar alla finansierade aktiviteter som organisation med angivet organisationsnummer är kopplad till i rollen som finansierad organisation och/eller koordinator. Inmatningen är begränsad till maximalt 1200 tecken.
-    </td>
-  </tr>
-  <tr>
-    <td style="border-color: white; "></td>
-    <td style="border-color: white; ">
-      minBeslutadFinansieringsBelopp</a>&nbsp;<span style="font-size: 8pt; vertical-align: top; color: red;"></span>
-      <br>
-      <span style="font-style: italic; font-size: 10pt; vertical-align: top; ">integer&nbsp;</span>
-    </td>
-    <td style="border-color: white; ">
-       Returnerar alla finansierade aktiviteter med belopp beslutad finansiering (per finansierad organisation och år för planerad utbetalning) som överskrider angivet belopp.
-    </td>
-  </tr>
-  <tr>
-    <td style="border-color: white; "></td>
-    <td style="border-color: white; ">
-      maxBeslutadFinansieringsBelopp</a>&nbsp;<span style="font-size: 8pt; vertical-align: top; color: red;"></span>
-      <br>
-      <span style="font-style: italic; font-size: 10pt; vertical-align: top; ">integer&nbsp;</span>
-    </td>
-    <td style="border-color: white; ">
-       Returnerar alla finansierade aktiviteter med belopp beslutad finansiering (per finansierad organisation och år för planerad utbetalning) som underskrider angivet belopp.
     </td>
   </tr>
   <tr>
@@ -485,16 +454,7 @@
       Totalt antal objekt som sökningen resulterade i.
     </td>
   </tr>
-  <tr>
-    <td style="border-color: white; "></td>
-    <td style="border-color: white; ">
-      400
-    </td>
-    <td style="border-color: white; ">
-      Felaktig parameter.
-    </td>
-  </tr>
-
+  
   <tr>
     <td style="border-color: white; height: 10px; "></td>
     <td style="border-color: white; height: 10px; "></td>
@@ -506,7 +466,7 @@
       <span style="background-color: #61AFFE; color: #FFFFFF;"> &nbspGET&nbsp</span>
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; font-weight: bold;">
-      /v2/utlysningar
+      /utlysningar
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; ">
        Hämtar en lista med utlysningar genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning.
@@ -622,15 +582,6 @@
     </td>
     <td style="border-color: white; ">
       Totalt antal objekt som sökningen resulterade i.
-    </td>
-  </tr>
-  <tr>
-    <td style="border-color: white; "></td>
-    <td style="border-color: white; ">
-      400
-    </td>
-    <td style="border-color: white; ">
-      Felaktig parameter.
     </td>
   </tr>
 
@@ -947,7 +898,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/organisationer/lan">lan</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Län där organisation har sitt huvudsäte.<br/>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
+  <td>Län där organisation har sitt huvudsäte.<br/></td>
 </tr>
 
 
@@ -965,7 +916,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/organisationer/typ">typ</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 
@@ -1063,7 +1014,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/personer/arbetsgivare/lan">lan</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Län där organisation har sitt huvudsäte.<br/>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
+  <td>Län där organisation har sitt huvudsäte.<br/></td>
 </tr>
 
 
@@ -1081,7 +1032,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/personer/arbetsgivare/typ">typ</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 
@@ -1609,7 +1560,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/organisationer/lan">lan</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Län där organisation har sitt huvudsäte.<br/>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
+  <td>Län där organisation har sitt huvudsäte.<br/></td>
 </tr>
 
 
@@ -1627,7 +1578,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/organisationer/typ">typ</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 
@@ -1725,7 +1676,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/personer/arbetsgivare/lan">lan</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Län där organisation har sitt huvudsäte.<br/>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
+  <td>Län där organisation har sitt huvudsäte.<br/></td>
 </tr>
 
 
@@ -1743,7 +1694,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/personer/arbetsgivare/typ">typ</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 
@@ -1869,7 +1820,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/beslutadFinansiering/finansieradOrganisation/lan">lan</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Län där organisation har sitt huvudsäte.<br/>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
+  <td>Län där organisation har sitt huvudsäte.<br/></td>
 </tr>
 
 
@@ -1887,7 +1838,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/beslutadFinansiering/finansieradOrganisation/typ">typ</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>Typ av organisation.<br/>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 
@@ -2542,7 +2493,7 @@
         <td>En beskrivning av attributet.</td>
     </tr>
     <tr>
-        <td style="font-weight: bold;">Värdedomain</td>
+        <td style="font-weight: bold;">Värdedomän</td>
         <td>
             Anger om attributet innehåller förutbestämda värden. De förutbestämda värdena sätts samman till en sträng med alla värden inom hakparenteser och åtskilda med ett kommatecken, t.ex.
             <b>[C1]</b>, <b>[C2]</b>, <b>[C3]</b>.
@@ -3633,11 +3584,6 @@
 </tr>
 
 <tr>
-  <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
-</tr>
-
-<tr>
   <td style="font-weight: bold;">Referens</td>
   <td>Ja</td>
 </tr>
@@ -3728,7 +3674,7 @@
 
 <tr>
   <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 <tr>
@@ -4168,11 +4114,6 @@
 </tr>
 
 <tr>
-  <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
-</tr>
-
-<tr>
   <td style="font-weight: bold;">Referens</td>
   <td>Ja</td>
 </tr>
@@ -4263,7 +4204,7 @@
 
 <tr>
   <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 <tr>
@@ -6526,11 +6467,6 @@
 </tr>
 
 <tr>
-  <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
-</tr>
-
-<tr>
   <td style="font-weight: bold;">Referens</td>
   <td>Ja</td>
 </tr>
@@ -6621,7 +6557,7 @@
 
 <tr>
   <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 <tr>
@@ -7061,11 +6997,6 @@
 </tr>
 
 <tr>
-  <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
-</tr>
-
-<tr>
   <td style="font-weight: bold;">Referens</td>
   <td>Ja</td>
 </tr>
@@ -7156,7 +7087,7 @@
 
 <tr>
   <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 <tr>
@@ -7728,11 +7659,6 @@
 </tr>
 
 <tr>
-  <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Blekinge län], [Dalarnas län], [Gotlands län], [Gävleborgs län], [Hallands län], [Jämtlands län], [Jönköpings län], [Kalmar län], [Kronobergs län], [Norrbottens län], [Skåne län], [Stockholms län], [Södermanlands län], [Uppsala län], [Värmlands län], [Västerbottens län], [Västernorrlands län], [Västmanlands län], [Västra Götalands län], [Örebro län], [Östergötlands län]</td>
-</tr>
-
-<tr>
   <td style="font-weight: bold;">Referens</td>
   <td>Ja</td>
 </tr>
@@ -7823,7 +7749,7 @@
 
 <tr>
   <td style="font-weight: bold;">Värdedomän</td>
-  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerade]</td>
+  <td>[Forskningsinstitut (RISE)], [Företag], [Ideella föreningar, stiftelser, fysiska personer mm], [Offentlig förvaltning], [Universitet och högskolor], [Övriga offentliga organisationer], [Ospecificerad]</td>
 </tr>
 
 <tr>

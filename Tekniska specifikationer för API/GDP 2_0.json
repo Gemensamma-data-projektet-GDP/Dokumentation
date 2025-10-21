@@ -16,8 +16,7 @@ info:
   title: GDP OpenApi
   description: Denna tjänst ger information om utlysningar, ansökningar och
     finansierade aktiviteter. För att få en detaljerad guide om hur man använder
-    detta verktyg, vänligen besök följande
-    [länk](https://proud-bay-0a32ebf03.5.azurestaticapps.net/documentation.html).
+    detta verktyg, vänligen läs mer under menyn Teknisk dokumentation ovan.
   license:
     name: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
     url: https://creativecommons.org/publicdomain/zero/1.0/
@@ -28,10 +27,10 @@ tags:
   - name: FinansieradeAktiviteter
   - name: Utlysningar
 servers:
-  - url: https://api.vinnova.se/gdp
-    description: Vinnovas webbtjänster för GDP.
+  - url: https://portal.api.vinnova.se/gdp-openapi-dokumentation
+    description: Webbtjänster för GDP.
 paths:
-  /v2/metadata:
+  /metadata:
     get:
       tags:
         - Metadata
@@ -45,13 +44,19 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Metadata"
-  /v2/ansokningar:
+              example:
+                apiName: GDP OpenAPI
+                apiVersion: v2.0
+                apiReleased: '2025-10-20'
+                apiDocumentation: https://portal.api.vinnova.se/gdp-openapi-dokumentation
+                apiStatus: active
+  /ansokningar:
     get:
       tags:
         - Ansokningar
       summary: Ansökningar
       description: Hämta en lista med ansökningar genom att ange en eller flera
-        sökparametrar. Listan är sorterad i fallande diarienummerordning”.
+        sökparametrar. Listan är sorterad i fallande diarienummerordning.
       operationId: listaAnsokan
       parameters:
         - name: limit
@@ -78,7 +83,7 @@ paths:
             format: int32
         - name: diarienummer
           in: query
-          description: Returnerar endast ansökningar som tillhör angivet diarienummer. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast ansökningar som tillhör angivet diarienummer. Inmatningen ska vara kommaseparerad om flera diarienummer anges och är begränsad till maximalt 1200 tecken. 
           required: false
           style: form
           explode: true
@@ -86,7 +91,7 @@ paths:
             type: string
         - name: programDiarienummer
           in: query
-          description: Returnerar endast ansökningar som tillhör angivet program. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast ansökningar som tillhör angivet program. Inmatningen ska vara kommaseparerad om flera diarienummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: true
@@ -94,7 +99,7 @@ paths:
             type: string
         - name: utlysningDiarienummer
           in: query
-          description: Returnerar endast ansökningar som tillhör angiven utlysning. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast ansökningar som tillhör angiven utlysning. Inmatningen ska vara kommaseparerad om flera diarienummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: true
@@ -102,7 +107,7 @@ paths:
             type: string
         - name: organisationsnummer
           in: query
-          description: Returnerar endast ansökningar som organisation med angivet organisationsnummer är kopplad till. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast ansökningar som organisation med angivet organisationsnummer är kopplad till. Inmatningen ska vara kommaseparerad om flera organisationsnummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: false
@@ -165,9 +170,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Ansokningar"
-        "400":
-          description: Felaktig parameter.
-  /v2/finansieradeaktiviteter:
+  /finansieradeaktiviteter:
     get:
       tags:
         - FinansieradeAktiviteter
@@ -200,7 +203,7 @@ paths:
             format: int32
         - name: diarienummer
           in: query
-          description: Returnerar endast finansierade aktiviteter som tillhör angivet diarienummer för ansokan. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast finansierade aktiviteter som tillhör angivet diarienummer för ansokan. Inmatningen ska vara kommaseparerad om flera diarienummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: true
@@ -208,7 +211,7 @@ paths:
             type: string
         - name: programDiarienummer
           in: query
-          description: Returnerar endast finansierade aktiviteter som tillhör angivet program. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast finansierade aktiviteter som tillhör angivet program. Inmatningen ska vara kommaseparerad om flera diarienummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: true
@@ -216,7 +219,7 @@ paths:
             type: string
         - name: utlysningDiarienummer
           in: query
-          description: Returnerar endast finansierade aktiviteter som tillhör angiven utlysning. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast finansierade aktiviteter som tillhör angiven utlysning. Inmatningen ska vara kommaseparerad om flera diarienummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: true
@@ -224,34 +227,13 @@ paths:
             type: string
         - name: organisationsnummer
           in: query
-          description: Returnerar alla finansierade aktiviteter som organisation med.
-            angivet organisationsnummer är kopplad till i rollen som finansierad
-            organisation och/eller koordinator. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar alla finansierade aktiviteter som organisation med angivet organisationsnummer är kopplad till i rollen som finansierad organisation och/eller koordinator. 
+            Inmatningen ska vara kommaseparerad om flera organisationsnummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: false
           schema:
             type: string
-        - name: minBeslutadFinansieringsBelopp
-          in: query
-          description: Returnerar alla finansierade aktiviteter med belopp beslutad
-            finansiering (per finansierad organisation och år för planerad
-            utbetalning) som överskrider angivet belopp.
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: maxBeslutadFinansieringsBelopp
-          in: query
-          description: Returnerar alla finansierade aktiviteter med belopp beslutad
-            finansiering (per finansierad organisation och år för planerad
-            utbetalning) som underskrider angivet belopp.
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
         - name: franBeslutDatum
           in: query
           description: Returnerar endast finansierade aktiviteter med beslut efter angivet
@@ -310,9 +292,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/FinansieradeAktiviteter"
-        "400":
-          description: Felaktig parameter.
-  /v2/utlysningar:
+  /utlysningar:
     get:
       tags:
         - Utlysningar
@@ -345,7 +325,7 @@ paths:
             format: int32
         - name: diarienummer
           in: query
-          description: Returnerar endast utlysningar som tillhör angivet diarienummer. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast utlysningar som tillhör angivet diarienummer. Inmatningen ska vara kommaseparerad om flera diarienummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: true
@@ -353,7 +333,7 @@ paths:
             type: string
         - name: programDiarienummer
           in: query
-          description: Returnerar endast utlysningar som tillhör angivet program. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast utlysningar som tillhör angivet program. Inmatningen ska vara kommaseparerad om flera diarienummer anges och är begränsad till maximalt 1200 tecken.
           required: false
           style: form
           explode: true
@@ -361,7 +341,7 @@ paths:
             type: string
         - name: status
           in: query
-          description: Returnerar endast utlysningar med angiven status. Inmatningen är begränsad till maximalt 1200 tecken.
+          description: Returnerar endast utlysningar med angiven status. 
           required: false
           style: form
           explode: true
@@ -392,8 +372,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Utlysningar"
-        "400":
-          description: Felaktig parameter.
 security:
   - apiKeyAuth: []
 components:
@@ -867,6 +845,7 @@ components:
                 $ref: "#/components/schemas/Publiceringsplats"
             bidragsformer:
               nullable: true
+              type: array
               description: Typ av bidrag som en ansökan kan riktas mot. Bidragsformerna sorterar hierarkiskt under stödformerna.
               items:
                 $ref: "#/components/schemas/Bidragsform"
@@ -1236,7 +1215,7 @@ components:
         - landskod
         - typ
       type: object
-      description: OOrganisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare 
+      description: Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare 
         som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och 
         organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.
       properties:
@@ -1299,7 +1278,7 @@ components:
         - Offentlig förvaltning
         - Universitet och högskolor
         - Övriga offentliga organisationer
-        - Ospecificerade
+        - Ospecificerad
     Publiceringsplats:
       required:
         - webbadress
@@ -1314,28 +1293,6 @@ components:
     Lan:
       type: string
       description: Län där organisation har sitt huvudsäte.              
-      enum:
-        - Blekinge län
-        - Dalarnas län
-        - Gotlands län
-        - Gävleborgs län
-        - Hallands län
-        - Jämtlands län
-        - Jönköpings län
-        - Kalmar län
-        - Kronobergs län
-        - Norrbottens län
-        - Skåne län
-        - Stockholms län
-        - Södermanlands län
-        - Uppsala län
-        - Värmlands län
-        - Västerbottens län
-        - Västernorrlands län
-        - Västmanlands län
-        - Västra Götalands län
-        - Örebro län
-        - Östergötlands län
     Landskod:
       type: string
       description: Landskod enligt ISO 3166-1 alpha-2 för land där organisation har sitt huvudsäte.
