@@ -30,7 +30,7 @@ servers:
   - url: https://portal.api.vinnova.se/gdp-openapi-dokumentation
     description: Webbtjänster för GDP.
 paths:
-  /v2/metadata:
+  /metadata:
     get:
       tags:
         - Metadata
@@ -47,10 +47,10 @@ paths:
               example:
                 apiName: GDP OpenAPI
                 apiVersion: v2.0
-                apiReleased: '2025-09-29'
+                apiReleased: '2025-10-20'
                 apiDocumentation: https://portal.api.vinnova.se/gdp-openapi-dokumentation
                 apiStatus: active
-  /v2/ansokningar:
+  /ansokningar:
     get:
       tags:
         - Ansokningar
@@ -170,9 +170,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Ansokningar"
-        "400":
-          description: Felaktig parameter.
-  /v2/finansieradeaktiviteter:
+  /finansieradeaktiviteter:
     get:
       tags:
         - FinansieradeAktiviteter
@@ -236,26 +234,6 @@ paths:
           explode: false
           schema:
             type: string
-        - name: minBeslutadFinansieringsBelopp
-          in: query
-          description: Returnerar alla finansierade aktiviteter med belopp beslutad
-            finansiering (per finansierad organisation och år för planerad
-            utbetalning) som överskrider angivet belopp.
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
-        - name: maxBeslutadFinansieringsBelopp
-          in: query
-          description: Returnerar alla finansierade aktiviteter med belopp beslutad
-            finansiering (per finansierad organisation och år för planerad
-            utbetalning) som underskrider angivet belopp.
-          required: false
-          style: form
-          explode: true
-          schema:
-            type: integer
         - name: franBeslutDatum
           in: query
           description: Returnerar endast finansierade aktiviteter med beslut efter angivet
@@ -314,9 +292,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/FinansieradeAktiviteter"
-        "400":
-          description: Felaktig parameter.
-  /v2/utlysningar:
+  /utlysningar:
     get:
       tags:
         - Utlysningar
@@ -396,8 +372,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Utlysningar"
-        "400":
-          description: Felaktig parameter.
 security:
   - apiKeyAuth: []
 components:
@@ -871,6 +845,7 @@ components:
                 $ref: "#/components/schemas/Publiceringsplats"
             bidragsformer:
               nullable: true
+              type: array
               description: Typ av bidrag som en ansökan kan riktas mot. Bidragsformerna sorterar hierarkiskt under stödformerna.
               items:
                 $ref: "#/components/schemas/Bidragsform"
@@ -1240,7 +1215,7 @@ components:
         - landskod
         - typ
       type: object
-      description: OOrganisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare 
+      description: Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare 
         som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och 
         organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.
       properties:
