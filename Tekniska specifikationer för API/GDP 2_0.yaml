@@ -47,7 +47,7 @@ paths:
               example:
                 apiName: GDP OpenAPI
                 apiVersion: v2.0
-                apiReleased: '2025-10-20'
+                apiReleased: '2025-10-24'
                 apiDocumentation: https://portal.api.vinnova.se/gdp-openapi-dokumentation
                 apiStatus: active
   /ansokningar:
@@ -124,7 +124,6 @@ paths:
             minimum: 0
             type: string
             format: date
-            example: 2021-08-29
         - name: tillBeslutDatum
           in: query
           description: Returnerar endast ansökningar med beslut före angivet beslutsdatum
@@ -136,7 +135,6 @@ paths:
             minimum: 0
             type: string
             format: date
-            example: 2021-08-29
         - name: status
           in: query
           description: Returnerar endast ansökningar med angiven status.
@@ -237,7 +235,7 @@ paths:
         - name: franBeslutDatum
           in: query
           description: Returnerar endast finansierade aktiviteter med beslut efter angivet
-            beslutsdatum enligt ISO 8601
+            beslutsdatum enligt ISO 8601.
           required: false
           style: form
           explode: true
@@ -245,11 +243,10 @@ paths:
             minimum: 0
             type: string
             format: date
-            example: 2021-08-29
         - name: tillBeslutDatum
           in: query
           description: Returnerar endast finansierade aktiviteter med beslut före angivet
-            beslutsdatum enligt ISO 8601
+            beslutsdatum enligt ISO 8601.
           required: false
           style: form
           explode: true
@@ -257,7 +254,6 @@ paths:
             minimum: 0
             type: string
             format: date
-            example: 2021-08-29
         - name: status
           in: query
           description: Returnera endast finansierade aktiviteter med angiven status.
@@ -387,7 +383,7 @@ components:
       properties:
         apiName:
           type: string
-          description: Namn på API
+          description: Namn på API.
         apiVersion:
           type: string
           description: API version med MAJOR och MINOR versioner.
@@ -446,7 +442,7 @@ components:
         - type: object
           description: Beskrivning av aktivitet som extern person eller organisation har skickat in till en utlysning 
             och söker finansiering för. För ej beslutade och avslagna ansökningar delas ansökningarnas titel och beskrivning,
-            personnamn, ORCID, email, organisationsnamn och organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten. 
+            personnamn, ORCID, email, organisationsnamn och organisationsnummer som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten. 
           required:
             - titelEng
             - beskrivning
@@ -501,8 +497,8 @@ components:
             organisationer:
               type: array
               description: Juridiska personer som är kopplade till en ansökan genom en roll. Juridiska personer som är enskilda 
-                näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och 
-                delas därför som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.
+                näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsidkare är deras personnummer och 
+                delas därför som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.
               items:
                 $ref: "#/components/schemas/Organisation"
               nullable: true
@@ -522,8 +518,7 @@ components:
               nullable: true
               type: array
               description: Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. 
-                Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda 
-                nivåerna är översättningsbara till en internationell standard som används inom OECD.
+                Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna går att översätta till en internationell standard som används inom OECD.
               items:
                 $ref: "#/components/schemas/Forskningsamne"
             hallbarhetsmal:
@@ -553,8 +548,8 @@ components:
             utlysning:
               nullable: true
               description: Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på 
-                aktivitet som kan finansieras En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, 
-                EU eller genom annat internationellt samarbete.  Den kan vara öppen eller enbart för särskilt inbjudna sökande. 
+                aktivitet som kan finansieras. En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, 
+                EU eller genom annat internationellt samarbete. Den kan vara öppen eller enbart för särskilt inbjudna sökande. 
                 Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer 
                 utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.
               allOf:
@@ -644,13 +639,11 @@ components:
           nullable: true
           description: Datum enligt ISO 8601 när finansierad aktivitet startar.
           format: date
-          example: 2021-08-30
         slutdatum:
           type: string
           nullable: true
           description: Datum enligt ISO 8601 när finansierad aktivitet slutar.
           format: date
-          example: 2021-08-30
         lank:
           description: Metadata för den relaterade resursen.
           allOf:
@@ -664,15 +657,15 @@ components:
         organisationer:
           type: array
           nullable: true
-          description: Juridiska personer som är kopplade till en finansierad genom en roll. Juridiska personer som är enskilda 
+          description: Juridiska personer som är kopplade till en finansierad aktivitet genom en roll. Juridiska personer som är enskilda 
             näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och 
-            delas därför som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.
+            delas därför som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.
           items:
             $ref: "#/components/schemas/Organisation"
         personer:
           type: array
           nullable: true
-          description: Fysiska personer som är kopplade till en ansökan genom en roll.
+          description: Fysiska personer som är kopplade till en finansierad aktivitet genom en roll.
           items:
             $ref: "#/components/schemas/Person"
         beslut:
@@ -691,9 +684,8 @@ components:
             $ref: "#/components/schemas/BeslutadFinansiering"
         forskningsamnen:
           nullable: true
-          description: Forskningsämnen enligt Standard för svensk indelning av forskningsämnen Standarden har tre nivåer - 
-            en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell 
-            standard som används inom OECD.
+          description: Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - 
+            en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna går att översätta till en internationell standard som används inom OECD.
           type: array
           items:
             $ref: "#/components/schemas/Forskningsamne"
@@ -724,7 +716,10 @@ components:
         utlysning:
           nullable: true
           description: Publicerad inbjudan till extern person/er eller organisation/er att 
-            till finansiär skicka in förslag på aktivitet som kan finansieras.
+            till finansiär skicka in förslag på aktivitet som kan finansieras. En utlysning kan initieras av exempelvis en finansiär, 
+            en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete. Den kan vara öppen eller enbart för särskilt inbjudna sökande. 
+            Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer 
+            utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.
           allOf:
             - $ref: "#/components/schemas/UtlysningBas"
         program:
@@ -765,7 +760,7 @@ components:
         titel:
           type: string
           nullable: true
-          description: Titel på utlysning
+          description: Titel på utlysning.
         lank:
           description: Metadata för den relaterade resursen.
           nullable: true
@@ -776,8 +771,8 @@ components:
         - $ref: "#/components/schemas/UtlysningBas"
         - type: object
           description: Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in 
-            förslag på aktivitet som kan finansieras En utlysning kan initieras av exempelvis en finansiär, en 
-            finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.  Den kan vara öppen eller 
+            förslag på aktivitet som kan finansieras. En utlysning kan initieras av exempelvis en finansiär, en 
+            finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete. Den kan vara öppen eller 
             enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och 
             konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande 
             har blivit inbjuden. En sökande kan vara en person eller en organisation.
@@ -830,17 +825,15 @@ components:
               nullable: true
               description: Datum enligt ISO 8601 när utlysning öppnar och ansökningar kan skickas in.
               format: date
-              example: 2021-08-29
             stangningsdatum:
               type: string
               nullable: true
-              description: Datum enligt ISO 8601 när utlysning  stänger och ansökningar inte längre kan skickas in.
+              description: Datum enligt ISO 8601 när utlysning stänger och ansökningar inte längre kan skickas in.
               format: date
-              example: 2021-10-29
             publiceringsplatser:
               nullable: true
               type: array
-              description: Webbadress med information om en utlysning.
+              description: Webbadresser med information om en utlysning.
               items:
                 $ref: "#/components/schemas/Publiceringsplats"
             bidragsformer:
@@ -887,7 +880,7 @@ components:
         organisationsnummer:
           type: string
           nullable: true
-          description: Identitetsbeteckning för organisationer från Bolagsverket.
+          description: Identitetsbeteckning för organisation från Bolagsverket.
           example: 202100-5216
         lan:
           nullable: true
@@ -902,7 +895,7 @@ components:
           allOf:
             - $ref: "#/components/schemas/OrganisationTyp"
         roll:
-          description: Roller för organisationer som är kopplade till ansökningar och
+          description: Roll för organisation kopplade till ansökningar och
             finansierade aktiviteter.
           type: string
           nullable: true
@@ -924,7 +917,7 @@ components:
         namn:
           type: string
           nullable: true
-          description: Namn på person.
+          description: Namn på person. För- och efternamn.
         ORCID:
           type: string
           nullable: true
@@ -936,7 +929,7 @@ components:
           type: string
           description: Könstillhörighet som person angivit.
         roll:
-          description: Roller för organisationer och personer som är kopplade till ansökningar
+          description: Roll för person kopplad till ansökningar
             och finansierade aktiviteter.
           type: string
           nullable: true
@@ -948,7 +941,7 @@ components:
         arbetsgivare:
           description: Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. 
             Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna 
-            ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data. Värdet "Ej öppna data" 
+            ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data, värdet "Ej öppna data" 
             returneras till datakonsumenten.
           nullable: true
           allOf:
@@ -960,7 +953,7 @@ components:
         - kod
       type: object
       description: Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - en siffra, 
-        tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD
+        tre siffror och fem siffror. De två förstnämnda nivåerna går att översätta till en internationell standard som används inom OECD.
       properties:
         namn:
           type: string
@@ -1009,7 +1002,6 @@ components:
           description: Datum enligt ISO 8601 när beslut blev fattat.
           nullable: true
           format: date
-          example: 2021-10-29
         typ:
           type: string
           nullable: true
@@ -1019,7 +1011,7 @@ components:
         utfall:
           type: string
           nullable: true
-          description: Utfall av beslutet.
+          description: Utfall av beslut.
           enum:
             - Avslagen
             - Beviljad
@@ -1056,7 +1048,10 @@ components:
             - $ref: "#/components/schemas/Valutakod"
         finansieradOrganisation:
           nullable: true
-          description: Organisation som finansieras inom ramen för en finansierad aktivitet.
+          description: Organisation som finansieras inom ramen för en finansierad aktivitet. 
+            För ej påbörjade finansierade aktiviteter avses organisationer som ska finansieras. 
+            För pågående finansierade aktiviteter avses organisationer som blir finansierade eller har blivit finansierade vid datauttagstillfället. 
+            För avslutade finansierade aktiviteter avses organisationer som har blivit finansierade.
           allOf:
             - $ref: "#/components/schemas/Organisation"
     Hallbarhetsmal:
@@ -1097,7 +1092,7 @@ components:
         diarienummer:
           type: string
           nullable: false
-          description: Identifikationsnummer från administrerande finansiärs ärendehanteringssystem.
+          description: Identifikationsnummer för program från administrerande finansiärs ärendehanteringssystem.
         titel:
           type: string
           nullable: true
@@ -1129,7 +1124,7 @@ components:
             budgetBelopp:
               nullable: true
               type: number
-              description: Totalt budgetbelopp för program.
+              description: Total budget för program.
               format: float
             budgetValuta:
               nullable: true
@@ -1142,13 +1137,11 @@ components:
               type: string
               description: Datum enligt ISO 8601 när program startar.
               format: date
-              example: 2021-08-29
             slutdatum:
               nullable: true
               type: string
               description: Datum enligt ISO 8601 när program slutar.
               format: date
-              example: 2021-08-29
     Stodform:
       required:
         - namn
@@ -1217,7 +1210,7 @@ components:
       type: object
       description: Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare 
         som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och 
-        organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.
+        organisationsnummer som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.
       properties:
         namn:
           type: string
@@ -1230,7 +1223,7 @@ components:
         organisationsnummer:
           type: string
           nullable: true
-          description: Identitetsbeteckning för organisationer från Bolagsverket.
+          description: Identitetsbeteckning för organisation från Bolagsverket.
           example: 202100-5216
         lan:
           nullable: true
@@ -1292,7 +1285,7 @@ components:
           description: Länk till webbadress med information om en utlysning.
     Lan:
       type: string
-      description: Län där organisation har sitt huvudsäte.              
+      description: Län där organisation har sitt huvudsäte.
     Landskod:
       type: string
       description: Landskod enligt ISO 3166-1 alpha-2 för land där organisation har sitt huvudsäte.

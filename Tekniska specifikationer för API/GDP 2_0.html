@@ -121,7 +121,7 @@
       /ansokningar
     </td>
     <td style="vertical-align: middle; background-color: #EEF6FE; border-color: white; ">
-       Hämta en lista med ansökningar genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning”.
+       Hämta en lista med ansökningar genom att ange en eller flera sökparametrar. Listan är sorterad i fallande diarienummerordning.
     </td>
   </tr>
 
@@ -380,7 +380,7 @@
       <span style="font-style: italic; font-size: 10pt; vertical-align: top; ">string&nbsp;($date)</span>
     </td>
     <td style="border-color: white; ">
-       Returnerar endast finansierade aktiviteter med beslut efter angivet beslutsdatum enligt ISO 8601
+       Returnerar endast finansierade aktiviteter med beslut efter angivet beslutsdatum enligt ISO 8601.
     </td>
   </tr>
   <tr>
@@ -391,7 +391,7 @@
       <span style="font-style: italic; font-size: 10pt; vertical-align: top; ">string&nbsp;($date)</span>
     </td>
     <td style="border-color: white; ">
-       Returnerar endast finansierade aktiviteter med beslut före angivet beslutsdatum enligt ISO 8601
+       Returnerar endast finansierade aktiviteter med beslut före angivet beslutsdatum enligt ISO 8601.
     </td>
   </tr>
   <tr>
@@ -595,7 +595,7 @@
 
 
 <p>
-    <h2>Schema översikten visar samtliga attribut för ett schema i tabellformat.</h2>
+    <h2>Översikt som visar samtliga attribut för ett schema i tabellformat.</h2>
 </p>
 <table style="width: 100%;">
     <tr>
@@ -659,7 +659,7 @@
   <td style="text-align: center;">[0..1]</td>
   <td>&nbsp&nbsp&nbsp<a href="#Metadata/apiName">apiName</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;"></span></td>
   <td>string</td>
-  <td>Namn på API<br/></td>
+  <td>Namn på API.<br/></td>
 </tr>
 
 
@@ -845,7 +845,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp<a href="#Ansokningar/soktBelopp">soktBelopp</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>number</td>
-  <td>Totalbelopp som extern aktör ansöker om för att genomföra aktivitet.  Om fler än en organisation söker finansiering i en ansökan redovisas det sammanlagda sökta beloppet.<br/></td>
+  <td>Totalbelopp som extern aktör ansöker om för att genomföra aktivitet. Om fler än en organisation söker finansiering i en ansökan redovisas det sammanlagda sökta beloppet.<br/></td>
 </tr>
 
 
@@ -863,7 +863,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#Ansokningar/organisationer">organisationer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Juridiska personer som är kopplade till en ansökan genom en roll. Juridiska personer som är enskilda  näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.<br/></td>
+  <td>Juridiska personer som är kopplade till en ansökan genom en roll. Juridiska personer som är enskilda näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.<br/></td>
 </tr>
 
 <tr>
@@ -889,7 +889,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/organisationer/organisationsnummer">organisationsnummer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.<br/></td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.<br/></td>
 </tr>
 
 
@@ -925,7 +925,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/organisationer/roll">roll</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Roller för organisationer som är kopplade till ansökningar och finansierade aktiviteter.<br/>[FinansieradOrganisation], [Koordinator], [SökandeKoordinator], [MedsökandeOrganisation]</td>
+  <td>Roll för organisation som är kopplad till ansökningar och finansierade aktiviteter.<br/>[FinansieradOrganisation], [Koordinator], [SökandeKoordinator], [MedsökandeOrganisation]</td>
 </tr>
 
 
@@ -943,7 +943,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/personer/namn">namn</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Namn på person.<br/></td>
+  <td>Namn på person. För- och efternamn.<br/></td>
 </tr>
 
 
@@ -970,7 +970,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/personer/roll">roll</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Roller för organisationer och personer som är kopplade till ansökningar och finansierade aktiviteter.<br/>[AnsvarigPerson], [MedverkandePerson], [SökandeAnsvarigPerson], [SökandeMedverkandePerson]</td>
+  <td>Roll för person som är kopplad till ansökningar och finansierade aktiviteter.<br/>[AnsvarigPerson], [MedverkandePerson], [SökandeAnsvarigPerson], [SökandeMedverkandePerson]</td>
 </tr>
 
 
@@ -979,7 +979,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/personer/arbetsgivare">arbetsgivare</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>object</td>
-  <td>Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter.  Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.<br/></td>
+  <td>Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.<br/></td>
 </tr>
 
 <tr>
@@ -1005,7 +1005,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/personer/arbetsgivare/organisationsnummer">organisationsnummer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.<br/></td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.<br/></td>
 </tr>
 
 
@@ -1069,7 +1069,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/beslut/utfall">utfall</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Utfall av beslutet.<br/>[Avslagen], [Beviljad]</td>
+  <td>Utfall av beslut.<br/>[Avslagen], [Beviljad]</td>
 </tr>
 
 
@@ -1079,7 +1079,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#Ansokningar/forskningsamnen">forskningsamnen</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Forskningsämnen enligt Standard för svensk indelning av forskningsämnen.  Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD.<br/></td>
+  <td>Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna går att översätta till en internationell standard som används inom OECD.<br/></td>
 </tr>
 
 <tr>
@@ -1223,7 +1223,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp<a href="#Ansokningar/utlysning">utlysning</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>object</td>
-  <td>Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på  aktivitet som kan finansieras En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.  Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.<br/></td>
+  <td>Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på aktivitet som kan finansieras. En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete. Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.<br/></td>
 </tr>
 
 <tr>
@@ -1258,7 +1258,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/utlysning/titel">titel</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Titel på utlysning<br/></td>
+  <td>Titel på utlysning.<br/></td>
 </tr>
 
 
@@ -1313,7 +1313,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#Ansokningar/program">program</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär,  en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.<br/></td>
+  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.<br/></td>
 </tr>
 
 <tr>
@@ -1339,7 +1339,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Ansokningar/program/diarienummer">diarienummer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Identifikationsnummer från administrerande finansiärs ärendehanteringssystem.<br/></td>
+  <td>Identifikationsnummer för program från administrerande finansiärs ärendehanteringssystem.<br/></td>
 </tr>
 
 
@@ -1525,7 +1525,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/organisationer">organisationer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Juridiska personer som är kopplade till en finansierad genom en roll. Juridiska personer som är enskilda  näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.<br/></td>
+  <td>Juridiska personer som är kopplade till en finansierad genom en roll. Juridiska personer som är enskilda näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.<br/></td>
 </tr>
 
 <tr>
@@ -1551,7 +1551,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/organisationer/organisationsnummer">organisationsnummer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.<br/></td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.<br/></td>
 </tr>
 
 
@@ -1587,7 +1587,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/organisationer/roll">roll</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Roller för organisationer som är kopplade till ansökningar och finansierade aktiviteter.<br/>[FinansieradOrganisation], [Koordinator], [SökandeKoordinator], [MedsökandeOrganisation]</td>
+  <td>Roll för organisation kopplad till ansökningar och finansierade aktiviteter.<br/>[FinansieradOrganisation], [Koordinator], [SökandeKoordinator], [MedsökandeOrganisation]</td>
 </tr>
 
 
@@ -1597,7 +1597,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/personer">personer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Fysiska personer som är kopplade till en ansökan genom en roll.<br/></td>
+  <td>Fysiska personer som är kopplade till en finansierad aktivitet genom en roll.<br/></td>
 </tr>
 
 <tr>
@@ -1605,7 +1605,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/personer/namn">namn</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Namn på person.<br/></td>
+  <td>Namn på person. För- och efternamn.<br/></td>
 </tr>
 
 
@@ -1632,7 +1632,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/personer/roll">roll</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Roller för organisationer och personer som är kopplade till ansökningar och finansierade aktiviteter.<br/>[AnsvarigPerson], [MedverkandePerson], [SökandeAnsvarigPerson], [SökandeMedverkandePerson]</td>
+  <td>Roll för person kopplad till ansökningar och finansierade aktiviteter.<br/>[AnsvarigPerson], [MedverkandePerson], [SökandeAnsvarigPerson], [SökandeMedverkandePerson]</td>
 </tr>
 
 
@@ -1641,7 +1641,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/personer/arbetsgivare">arbetsgivare</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>object</td>
-  <td>Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter.  Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.<br/></td>
+  <td>Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.<br/></td>
 </tr>
 
 <tr>
@@ -1667,7 +1667,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/personer/arbetsgivare/organisationsnummer">organisationsnummer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.<br/></td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.<br/></td>
 </tr>
 
 
@@ -1731,7 +1731,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/beslut/utfall">utfall</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Utfall av beslutet.<br/>[Avslagen], [Beviljad]</td>
+  <td>Utfall av beslut.<br/>[Avslagen], [Beviljad]</td>
 </tr>
 
 
@@ -1741,7 +1741,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/beslutadFinansiering">beslutadFinansiering</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Ekonomiska medel som finansiär beslutat ska betalas till en finansierad aktivitet (per finansierad organisation  och per kalenderår för planerad betalning). Avser samtliga organisationer som blir finansierade inom ramen för en finansierad aktivitet.<br/></td>
+  <td>Ekonomiska medel som finansiär beslutat ska betalas till en finansierad aktivitet (per finansierad organisation och per kalenderår för planerad betalning). Avser samtliga organisationer som blir finansierade inom ramen för en finansierad aktivitet.<br/></td>
 </tr>
 
 <tr>
@@ -1767,7 +1767,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/beslutadFinansiering/belopp">belopp</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>number</td>
-  <td>Belopp som blivit beslutat ska betalas. Innefattar eventuella senare beslut om att öka eller minska ursprungligt  beviljat belopp, s.k. "nettoeffekt" av samtliga beslut.<br/></td>
+  <td>Belopp som blivit beslutat ska betalas. Innefattar eventuella senare beslut om att öka eller minska ursprungligt beviljat belopp, s.k. "nettoeffekt" av samtliga beslut.<br/></td>
 </tr>
 
 
@@ -1785,7 +1785,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/beslutadFinansiering/finansieradOrganisation">finansieradOrganisation</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>object</td>
-  <td>Organisation som finansieras inom ramen för en finansierad aktivitet.<br/></td>
+  <td>Organisation som finansieras inom ramen för en finansierad aktivitet. För ej påbörjade finansierade aktiviteter avses organisationer som ska finansieras. För pågående finansierade aktiviteter avses organisationer som blir finansierade eller har blivit finansierade vid datauttagstillfället. För avslutade finansierade aktiviteter avses organisationer som har blivit finansierade.<br/></td>
 </tr>
 
 <tr>
@@ -1811,7 +1811,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/beslutadFinansiering/finansieradOrganisation/organisationsnummer">organisationsnummer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.<br/></td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.<br/></td>
 </tr>
 
 
@@ -1847,7 +1847,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/beslutadFinansiering/finansieradOrganisation/roll">roll</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Roller för organisationer som är kopplade till ansökningar och finansierade aktiviteter.<br/>[FinansieradOrganisation], [Koordinator], [SökandeKoordinator], [MedsökandeOrganisation]</td>
+  <td>Roll för organisation kopplad till ansökningar och finansierade aktiviteter.<br/>[FinansieradOrganisation], [Koordinator], [SökandeKoordinator], [MedsökandeOrganisation]</td>
 </tr>
 
 
@@ -1858,7 +1858,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/forskningsamnen">forskningsamnen</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Forskningsämnen enligt Standard för svensk indelning av forskningsämnen Standarden har tre nivåer -  en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD.<br/></td>
+  <td>Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD.<br/></td>
 </tr>
 
 <tr>
@@ -2002,7 +2002,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/utlysning">utlysning</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>object</td>
-  <td>Publicerad inbjudan till extern person/er eller organisation/er att  till finansiär skicka in förslag på aktivitet som kan finansieras.<br/></td>
+  <td>Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på aktivitet som kan finansieras. En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete. Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.<br/></td>
 </tr>
 
 <tr>
@@ -2037,7 +2037,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/utlysning/titel">titel</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Titel på utlysning<br/></td>
+  <td>Titel på utlysning.<br/></td>
 </tr>
 
 
@@ -2092,7 +2092,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/program">program</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en  finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.<br/></td>
+  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.<br/></td>
 </tr>
 
 <tr>
@@ -2118,7 +2118,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#FinansieradeAktiviteter/program/diarienummer">diarienummer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Identifikationsnummer från administrerande finansiärs ärendehanteringssystem.<br/></td>
+  <td>Identifikationsnummer för program från administrerande finansiärs ärendehanteringssystem.<br/></td>
 </tr>
 
 
@@ -2187,7 +2187,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp<a href="#Utlysningar/titel">titel</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Titel på utlysning<br/></td>
+  <td>Titel på utlysning.<br/></td>
 </tr>
 
 
@@ -2304,7 +2304,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp<a href="#Utlysningar/stangningsdatum">stangningsdatum</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Datum enligt ISO 8601 när utlysning  stänger och ansökningar inte längre kan skickas in.<br/></td>
+  <td>Datum enligt ISO 8601 när utlysning stänger och ansökningar inte längre kan skickas in.<br/></td>
 </tr>
 
 
@@ -2313,7 +2313,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#Utlysningar/publiceringsplatser">publiceringsplatser</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Webbadress med information om en utlysning.<br/></td>
+  <td>Webbadresser med information om en utlysning.<br/></td>
 </tr>
 
 <tr>
@@ -2331,7 +2331,7 @@
   <td style="text-align: center;">[1..*]</td>
   <td>&nbsp&nbsp&nbsp<a href="#Utlysningar/program">program</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>array</td>
-  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär,  en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.<br/></td>
+  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.<br/></td>
 </tr>
 
 <tr>
@@ -2357,7 +2357,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Utlysningar/program/diarienummer">diarienummer</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>string</td>
-  <td>Identifikationsnummer från administrerande finansiärs ärendehanteringssystem.<br/></td>
+  <td>Identifikationsnummer för program från administrerande finansiärs ärendehanteringssystem.<br/></td>
 </tr>
 
 
@@ -2393,7 +2393,7 @@
   <td style="text-align: center;"></td>
   <td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="#Utlysningar/program/budgetBelopp">budgetBelopp</a>&nbsp;<span style="font-size: 10pt; vertical-align: top; color: red;">*</span></td>
   <td>number</td>
-  <td>Totalt budgetbelopp för program.<br/></td>
+  <td>Total budget för program.<br/></td>
 </tr>
 
 
@@ -3339,7 +3339,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Totalbelopp som extern aktör ansöker om för att genomföra aktivitet.  Om fler än en organisation söker finansiering i en ansökan redovisas det sammanlagda sökta beloppet.</td>
+  <td>Totalbelopp som extern aktör ansöker om för att genomföra aktivitet. Om fler än en organisation söker finansiering i en ansökan redovisas det sammanlagda sökta beloppet.</td>
 </tr>
 
 </table>
@@ -3428,7 +3428,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Juridiska personer som är kopplade till en ansökan genom en roll. Juridiska personer som är enskilda  näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.</td>
+  <td>Juridiska personer som är kopplade till en ansökan genom en roll. Juridiska personer som är enskilda näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna datan, värdet "Ej öppna data" returneras till datakonsumenten.</td>
 </tr>
 
 <tr>
@@ -3543,7 +3543,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.</td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.</td>
 </tr>
 
 </table>
@@ -3716,7 +3716,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Roller för organisationer som är kopplade till ansökningar och finansierade aktiviteter.</td>
+  <td>Roll för organisation kopplad till ansökningar och finansierade aktiviteter.</td>
 </tr>
 
 <tr>
@@ -3805,7 +3805,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Namn på person.</td>
+  <td>Namn på person. För- och efternamn.</td>
 </tr>
 
 </table>
@@ -3916,7 +3916,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Roller för organisationer och personer som är kopplade till ansökningar och finansierade aktiviteter.</td>
+  <td>Roll för person kopplad till ansökningar och finansierade aktiviteter.</td>
 </tr>
 
 <tr>
@@ -3958,7 +3958,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter.  Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.</td>
+  <td>Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.</td>
 </tr>
 
 <tr>
@@ -4073,7 +4073,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.</td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.</td>
 </tr>
 
 </table>
@@ -4373,7 +4373,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Utfall av beslutet.</td>
+  <td>Utfall av beslut.</td>
 </tr>
 
 <tr>
@@ -4421,7 +4421,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Forskningsämnen enligt Standard för svensk indelning av forskningsämnen.  Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD.</td>
+  <td>Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna går att översätta till en internationell standard som används inom OECD.</td>
 </tr>
 
 <tr>
@@ -5058,7 +5058,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på  aktivitet som kan finansieras En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.  Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.</td>
+  <td>Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på aktivitet som kan finansieras. En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.  Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.</td>
 </tr>
 
 <tr>
@@ -5210,7 +5210,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Titel på utlysning</td>
+  <td>Titel på utlysning.</td>
 </tr>
 
 </table>
@@ -5458,7 +5458,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär,  en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.</td>
+  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.</td>
 </tr>
 
 <tr>
@@ -5573,7 +5573,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Identifikationsnummer från administrerande finansiärs ärendehanteringssystem.</td>
+  <td>Identifikationsnummer för program från administrerande finansiärs ärendehanteringssystem.</td>
 </tr>
 
 </table>
@@ -6311,7 +6311,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Juridiska personer som är kopplade till en finansierad genom en roll. Juridiska personer som är enskilda  näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.</td>
+  <td>Juridiska personer som är kopplade till en finansierad genom en roll. Juridiska personer som är enskilda näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.</td>
 </tr>
 
 <tr>
@@ -6426,7 +6426,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.</td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.</td>
 </tr>
 
 </table>
@@ -6599,7 +6599,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Roller för organisationer som är kopplade till ansökningar och finansierade aktiviteter.</td>
+  <td>Roll för organisation kopplad till ansökningar och finansierade aktiviteter.</td>
 </tr>
 
 <tr>
@@ -6647,7 +6647,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Fysiska personer som är kopplade till en ansökan genom en roll.</td>
+  <td>Fysiska personer som är kopplade till en finansierad aktivitet genom en roll.</td>
 </tr>
 
 <tr>
@@ -6688,7 +6688,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Namn på person.</td>
+  <td>Namn på person. För- och efternamn.</td>
 </tr>
 
 </table>
@@ -6799,7 +6799,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Roller för organisationer och personer som är kopplade till ansökningar och finansierade aktiviteter.</td>
+  <td>Roll för person kopplad till ansökningar och finansierade aktiviteter.</td>
 </tr>
 
 <tr>
@@ -6841,7 +6841,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter.  Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten.</td>
+  <td>Organisation som är arbetsgivare för person kopplad till ansökningar och finansierade aktiviteter. Avser den arbetsgivare som var aktuell när ansökan skickades in till finansiären. För ej beslutade och avslagna ansökningar delas arbetsgivarens namn och organisationsnummer som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.</td>
 </tr>
 
 <tr>
@@ -6956,7 +6956,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.</td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.</td>
 </tr>
 
 </table>
@@ -7256,7 +7256,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Utfall av beslutet.</td>
+  <td>Utfall av beslut.</td>
 </tr>
 
 <tr>
@@ -7304,7 +7304,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Ekonomiska medel som finansiär beslutat ska betalas till en finansierad aktivitet (per finansierad organisation  och per kalenderår för planerad betalning). Avser samtliga organisationer som blir finansierade inom ramen för en finansierad aktivitet.</td>
+  <td>Ekonomiska medel som finansiär beslutat ska betalas till en finansierad aktivitet (per finansierad organisation och per kalenderår för planerad betalning). Avser samtliga organisationer som blir finansierade inom ramen för en finansierad aktivitet.</td>
 </tr>
 
 <tr>
@@ -7419,7 +7419,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Belopp som blivit beslutat ska betalas. Innefattar eventuella senare beslut om att öka eller minska ursprungligt  beviljat belopp, s.k. "nettoeffekt" av samtliga beslut.</td>
+  <td>Belopp som blivit beslutat ska betalas. Innefattar eventuella senare beslut om att öka eller minska ursprungligt beviljat belopp, s.k. "nettoeffekt" av samtliga beslut.</td>
 </tr>
 
 </table>
@@ -7503,7 +7503,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Organisation som finansieras inom ramen för en finansierad aktivitet.</td>
+  <td>Organisation som finansieras inom ramen för en finansierad aktivitet. För ej påbörjade finansierade aktiviteter avses organisationer som ska finansieras. För pågående finansierade aktiviteter avses organisationer som blir finansierade eller har blivit finansierade vid datauttagstillfället. För avslutade finansierade aktiviteter avses organisationer som har blivit finansierade.</td>
 </tr>
 
 <tr>
@@ -7618,7 +7618,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Identitetsbeteckning för organisationer från Bolagsverket.</td>
+  <td>Identitetsbeteckning för organisation från Bolagsverket.</td>
 </tr>
 
 </table>
@@ -7791,7 +7791,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Roller för organisationer som är kopplade till ansökningar och finansierade aktiviteter.</td>
+  <td>Roll för organisation som är kopplade till ansökningar och finansierade aktiviteter.</td>
 </tr>
 
 <tr>
@@ -7840,7 +7840,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Forskningsämnen enligt Standard för svensk indelning av forskningsämnen Standarden har tre nivåer -  en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna är översättningsbara till en internationell standard som används inom OECD.</td>
+  <td>Forskningsämnen enligt Standard för svensk indelning av forskningsämnen. Standarden har tre nivåer - en siffra, tre siffror och fem siffror. De två förstnämnda nivåerna går att översätta till en internationell standard som används inom OECD.</td>
 </tr>
 
 <tr>
@@ -8477,7 +8477,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Publicerad inbjudan till extern person/er eller organisation/er att  till finansiär skicka in förslag på aktivitet som kan finansieras.</td>
+  <td>Publicerad inbjudan till extern person/er eller organisation/er att till finansiär skicka in förslag på aktivitet som kan finansieras. En utlysning kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete. Den kan vara öppen eller enbart för särskilt inbjudna sökande. Till merparten av utlysningarna bjuds flera sökanden in och konkurrensutsättning sker, endast undantagsvis förekommer utlysningar till vilka enbart en (1) sökande har blivit inbjuden. En sökande kan vara en person eller en organisation.</td>
 </tr>
 
 <tr>
@@ -8629,7 +8629,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Titel på utlysning</td>
+  <td>Titel på utlysning.</td>
 </tr>
 
 </table>
@@ -8877,7 +8877,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en  finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.</td>
+  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.</td>
 </tr>
 
 <tr>
@@ -8992,7 +8992,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Identifikationsnummer från administrerande finansiärs ärendehanteringssystem.</td>
+  <td>Identifikationsnummer för program från administrerande finansiärs ärendehanteringssystem.</td>
 </tr>
 
 </table>
@@ -9219,7 +9219,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Titel på utlysning</td>
+  <td>Titel på utlysning.</td>
 </tr>
 
 </table>
@@ -9735,7 +9735,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Datum enligt ISO 8601 när utlysning  stänger och ansökningar inte längre kan skickas in.</td>
+  <td>Datum enligt ISO 8601 när utlysning stänger och ansökningar inte längre kan skickas in.</td>
 </tr>
 
 </table>
@@ -10015,7 +10015,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär,  en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.</td>
+  <td>Programsatsning på forskning, innovation och utveckling. Ett program kan initieras av exempelvis en finansiär, en finansiärs uppdragsgivare, EU eller genom annat internationellt samarbete.</td>
 </tr>
 
 <tr>
@@ -10130,7 +10130,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Identifikationsnummer från administrerande finansiärs ärendehanteringssystem.</td>
+  <td>Identifikationsnummer för program från administrerande finansiärs ärendehanteringssystem.</td>
 </tr>
 
 </table>
@@ -10283,7 +10283,7 @@
 
 <tr>
   <td style="font-weight: bold;">Beskrivning</td>
-  <td>Totalt budgetbelopp för program.</td>
+  <td>Total budget för program.</td>
 </tr>
 
 </table>
