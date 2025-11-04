@@ -36,7 +36,3 @@ Skicka gärna ett meddelande via GitHub Issues eller kontakta någon av deltagar
  - kenth.hermansson@vr.se
  - joar.rehn@vr.se
 
----
-
-📅 **Senast uppdaterad:** Januari 2025  
-📍 **Status:** Pågående – proof of concept och modellutveckling pågår  
