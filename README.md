@@ -22,7 +22,7 @@ Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 
 ## Datadelning enligt standarden
 
  - https://portal.api.vinnova.se
- - (Energimyndighetens datadelning är under utveckling, länk dit kommer snart)
+ - (Energimyndighetens datadelningslösning är under utveckling, länk dit kommer snart)
 
 ## Kontakt
 
