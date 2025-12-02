@@ -19,7 +19,7 @@ This GitHub repository contains documentation of the standard according to versi
 
 ## Data sharing according to the standard
  - https://portal.api.vinnova.se
- - (The Swedish Energy Agency’s data-sharing solution is under development; a link will be provided soon.)
+ - https://www.energimyndigheten.se/forskning-och-innovation/data-om-finansiering-av-forskning-och-innovation/gemensamma-dataprojektet-gdp
    
 ## Contact
 
