@@ -21,7 +21,7 @@ Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 
 
 ## Datadelning enligt standarden
 
- - https://portal.api.vinnova.se
+ - https://gdphub.se
  - https://www.energimyndigheten.se/forskning-och-innovation/data-om-finansiering-av-forskning-och-innovation/gemensamma-dataprojektet-gdp
 
 ## Kontakt
