@@ -18,7 +18,7 @@ This GitHub repository contains documentation of the standard according to versi
  - Each funder describes its own implementation of the standard and of the data quality.
 
 ## Data sharing according to the standard
- - https://portal.api.vinnova.se
+ - https://GDPhub.se
  - https://www.energimyndigheten.se/forskning-och-innovation/data-om-finansiering-av-forskning-och-innovation/gemensamma-dataprojektet-gdp
    
 ## Contact
