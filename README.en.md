@@ -8,7 +8,7 @@
 This GitHub repository contains documentation of the standard according to version 2.0 in the form of:
 
 - [Information model dbdiagram](https://dbdiagram.io/e/68d24e0b7c85fb9961ec9252/68d259f97c85fb9961eedf69)
-- [Information model dbdocs](https://dbdocs.io/rickard.franzen/GDP-version-2.0) (with translations to English)
+- [Information model dbdocs](https://dbdocs.io/rickard.franzen/GDP-version-2.0) (contains translations to English)
 - [Technical specifications for API](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Tekniska%20specifikationer%20f%C3%B6r%20API/)
 
 ## Limitations
