@@ -19,7 +19,7 @@ This GitHub repository contains documentation of the standard according to versi
 
 ## Data sharing according to the standard
  - https://gdphub.se
- - https://www.energimyndigheten.se/forskning-och-innovation/data-om-finansiering-av-forskning-och-innovation/gemensamma-dataprojektet-gdp
+ - https://www.energimyndigheten.se/en/innovations-r--d/the-joint-data-project/
    
 ## Contact
 
