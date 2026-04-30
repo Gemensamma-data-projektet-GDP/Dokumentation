@@ -24,7 +24,7 @@ Detta GitHub-repo innehåller en gemensam dokumentation av standarden enligt ver
  - https://gdphub.se
  - https://www.energimyndigheten.se/forskning-och-innovation/data-om-finansiering-av-forskning-och-innovation/gemensamma-dataprojektet-gdp
 
-## Information om mappning mot stanarden och om saknade data
+## Information om mappning mot standarden och om saknade data
 
  - https://formas.se/om-formas/vad-vi-gor/oppna-data.html
  - https://forte.se/om-oss/om-webbplatsen/oppna-data
