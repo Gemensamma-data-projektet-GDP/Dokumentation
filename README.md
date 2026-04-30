@@ -7,7 +7,7 @@
 
 ## Vad innehåller detta repo?
 
-Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 i form av :
+Detta GitHub-repo innehåller en gemensam dokumentation av standarden enligt version 2.0 i form av :
 
 - [Informationsmodell dbdiagram](https://dbdiagram.io/e/68d24e0b7c85fb9961ec9252/68d259f97c85fb9961eedf69)
 - [Informationsmodell dbdocs](https://dbdocs.io/rickard.franzen/GDP-version-2.0)
@@ -23,6 +23,13 @@ Detta GitHub-repo innehåller en dokumentation av standarden enligt version 2.0 
 
  - https://gdphub.se
  - https://www.energimyndigheten.se/forskning-och-innovation/data-om-finansiering-av-forskning-och-innovation/gemensamma-dataprojektet-gdp
+
+## Information om mappning mot stanarden och om saknade data
+
+ - https://formas.se/om-formas/vad-vi-gor/oppna-data.html
+ - https://forte.se/om-oss/om-webbplatsen/oppna-data
+ - https://www.vr.se/analys/svensk-forskning-i-siffror/sa-kan-du-anvanda-vetenskapsradets-oppna-data-om-finansiering.html
+ - https://www.vinnova.se/om-oss/om-webbplatsen/oppna-data/
 
 ## Kontakt
 
