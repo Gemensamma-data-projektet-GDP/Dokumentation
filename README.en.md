@@ -21,6 +21,13 @@ This GitHub repository contains documentation of the standard according to versi
  - https://gdphub.se
  - https://www.energimyndigheten.se/en/innovations-r--d/the-joint-data-project/
    
+## Information about mapping to the standard and about missing data
+ - https://formas.se/en/start-page/about-formas/what-we-do/open-data.html
+ - https://forte.se/en/about-us/about-the-website/open-data
+ - https://www.vr.se/english/analysis/swedish-research-in-figures/how-to-use-the-swedish-research-councils-open-data-on-funding.html
+ - https://www.vinnova.se/en/about-us/about-the-website/open-data/
+
+
 ## Contact
 
 Want to know more about the project and the data standard? 
