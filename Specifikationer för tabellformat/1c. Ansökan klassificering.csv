@@ -1,6 +1,0 @@
-Entitet:;;GDP.ansokan;GDP. forskningsamne;GDP. forskningsamne;GDP.hallbarhetsmal;GDP.kategoriseringFinansiar;GDP.nyckelord
-Attribut:;;finansiarNamn;namn;kod;namn;namn;namn
-Endpoint:;;Ansökan;Ansökan;Ansökan;Ansökan;Ansökan;Ansökan
-Kolumnnamn:;ansokanID;finansiarNamn;forskningsamnen;forskningsamnenKod;hallbarhetsmal;kategoriseringFinansiar;nyckelord
-Exempelvärden:;987165;Innovationsrådet;Transportteknik och logistik;20105;11 Hållbara städer och samhällen;Fordonsutveckling;NULL
-Exempelvärden:;346729;Innovationsrådet;Transportteknik och logistik;20105;11 Hållbara städer och samhällen;Fordonsutveckling;NULL
