@@ -10,6 +10,7 @@ This GitHub repository contains a joint documentation of the standard according 
 - [Information model dbdiagram](https://dbdiagram.io/e/68d24e0b7c85fb9961ec9252/68d259f97c85fb9961eedf69)
 - [Information model dbdocs](https://dbdocs.io/rickard.franzen/GDP-version-2.0) (contains translations to English)
 - [Technical specifications for API](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Tekniska%20specifikationer%20f%C3%B6r%20API/)
+- [Specifications for tabular format](https://github.com/Gemensamma-data-projektet-GDP/Dokumentation/tree/main/Specifikationer%20f%C3%B6r%20tabellformat)/)
 
 ## Limitations
 
