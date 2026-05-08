@@ -1,0 +1,6 @@
+Entityt:;;gdp.fundedActivity;gdp.organisation;gdp.organisation;gdp.organisation;gdp.organisation;gdp.organisation;gdp.decidedFunding;gdp.decidedFunding;gdp.decidedFunding
+Attribute:;;fundingBodyName;name;corporateIdNumber;type;county;countryCode;legalBasis;year;amount
+Endpoint:;;Funded activity;Funded activity;Funded activity;Funded activity;Funded activity;Funded activity;Funded activity;Funded activity;Funded activity
+Column name:;applicationID;fundingBodyName;fundedOrganisation;fundedOrgCorporateIdNumber;fundedOrgType;fundedOrgCounty;fundedOrgCountryCode;legalBasis;decidedFundingYear;decidedFundingAmount
+Sample value:;987165;Innovationsrådet;Buss Innovation AB;556012-5780;Private business;Stockholms län;SE;Enligt Innovationsrådets instruktion;2026;350000
+Sample value:;987165;Innovationsrådet;Skandinaviens universitet;202100-2931;Universities and colleges;Stockholms län;SE;Enligt Innovationsrådets instruktion;2026;350000
