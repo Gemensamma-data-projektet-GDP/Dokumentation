@@ -12,6 +12,7 @@ Detta GitHub-repo innehåller en gemensam dokumentation av standarden enligt ver
 - [Informationsmodell dbdiagram](https://dbdiagram.io/e/68d24e0b7c85fb9961ec9252/68d259f97c85fb9961eedf69)
 - [Informationsmodell dbdocs](https://dbdocs.io/rickard.franzen/GDP-version-2.0)
 - [Tekniska specifikationer för API](https://github.com/Gemensamma-data-GDP/Dokumentation/blob/main/Tekniska%20specifikationer%20f%C3%B6r%20API/)
+- [Specifikationer för tabellformat](https://github.com/Gemensamma-data-projektet-GDP/Dokumentation/tree/main/Specifikationer%20f%C3%B6r%20tabellformat/)
 
 ## Avgränsningar
 
