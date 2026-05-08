@@ -1,0 +1,14 @@
+"Tabellerna innehåller data enligt version 2.0 av GDP-standarden och kan kopplas ihop med hjälp av kolumnen ansokanID. Data om kommande utlysningar och pågående utlysningar som ännu inte har några ansökningar kopplade till sig är inte inkluderade då redovisningen utgår från ansökningar. Övrigt datainnehåll enligt version 2.0 som inte är inkluderat:
+
+• engelska titlar på utlysningar och ansökningar
+• engelska beskrivningar för utlysningar och ansökningar
+• engelska namn på forskningsämnen och hållbarhetsmål
+• engelska namn på organisationer
+• organisationsnummer för finansiär
+• valutakoder för belopp
+
+Redovisningen i tabellerna är en rad per ansökan i ""Ansökan"" och ""Ansökan klassificering"" samt en rad per person i ""Person"". I ”Beslutad finansiering"" är redovisningen en rad per finansierad organisation och kalenderår för planerad utbetalning. När flera värden förekommer i en och samma cell är värdena separerade med semikolon.
+
+I tabellen ”Ansökan” redovisas organisationer med rollen ”Sökande koordinator” eller ”Koordinator” som koordinatorer. Organisationer med rollen ”Medsökande organisation” eller ”Finansierad organisation” redovisas som medsökande organisationer om de inte har en koordinerande roll.
+
+Sorteringen av tabellen ”Ansökan” är efter diarienummer för ansökan (fallande). Sorteringen av ”Beslutad finansiering” är efter diarienummer för ansökan (fallande), kalenderår för planerad utbetalning (stigande) och namn på finansierad organisation (bokstavsordning). Sorteringen av ”Person” är efter diarienummer för ansökan (fallande) och roll för person (bokstavsordning). Sorteringen av ”Ansökan klassificering” är efter diarienummer för ansökan (fallande)."
