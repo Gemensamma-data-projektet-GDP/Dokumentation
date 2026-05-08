@@ -1,6 +1,0 @@
-Entityt:;;GDP.application;GDP.person;GDP.person;GDP.person;GDP.person;GDP.employer;GDP.employer;GDP.employer;GDP.employer;GDP.employer
-Attribute:;;fundingBodyName;role;name;gender;ORCID;name;corporateIdNumber;type;county;countryCode
-Endpoint:;;Application;Application;Application;Application;Application;Application;Application;Application;Application;Application
-Column name:;applicationID;fundingBodyName;personRole;personName;personGender;orcid;employerName;employerCorporateIdNumber;employerType;employerCounty;employerCountryCode
-Sample value:;987165;Innovationsrådet;AnsvarigPerson;Anders Persson;Man;NULL;NULL;NULL;NULL;NULL;NULL
-Sample value:;346729;Innovationsrådet;SökandeAnsvarigPerson;Not open data;Kvinna;NULL;NULL;NULL;NULL;NULL;NULL
