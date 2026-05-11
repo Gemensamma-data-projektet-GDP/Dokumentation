@@ -5,7 +5,7 @@ The tables contain data according to version 2.0 of the GDP standard and can be 
 • Corporate identity number for funding bodies
 • Currency codes for amounts
 
-The presentation in the tables is one row per application in "Application" and "Application classification" and one row per person in "Person". In "Decided funding", the presentation is one row per funded organization and calendar year for planned payments. When multiple values occur in one and the same cell, the values are separated by semicolons.
+The presentation in the tables is one row per application in "Application" and "Application classification" and one row per person in "Person". In "Decided funding", the presentation is one row per funded organization and calendar year for planned payments. When multiple values occur in one and the same cell, the values are separated by vertical bars (|).
 
 In the table “Application”, organisations with the role “Applicant Coordinator” or “Coordinator” are presented as coordinators. In the same table, organisations with the role “Funded organisation” are presented as co-applicant organisations if they do not have a coordinating role. The columns "programmeBudgetAmount" and "callBudgetAmount" are not summable.
 
