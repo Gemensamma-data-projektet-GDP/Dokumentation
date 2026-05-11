@@ -5,7 +5,7 @@ Tabellerna innehåller data enligt version 2.0 av GDP-standarden och kan kopplas
 • organisationsnummer för finansiär
 • valutakoder för belopp
 
-Redovisningen i tabellerna är en rad per ansökan i "Ansökan" och "Ansökan klassificering" samt en rad per person i "Person". I ”Beslutad finansiering" är redovisningen en rad per finansierad organisation och kalenderår för planerad utbetalning. När flera värden förekommer i en och samma cell är värdena separerade med semikolon.
+Redovisningen i tabellerna är en rad per ansökan i "Ansökan" och "Ansökan klassificering" samt en rad per person i "Person". I ”Beslutad finansiering" är redovisningen en rad per finansierad organisation och kalenderår för planerad utbetalning. När flera värden förekommer i en och samma cell är värdena separerade med vertikalstreck (|).
 
 I tabellen ”Ansökan” redovisas organisationer med rollen ”Sökande koordinator” eller ”Koordinator” som koordinatorer. I samma tabell redovisas organisationer med rollen ”Finansierad organisation” som medsökande organisationer om de inte har en koordinerande roll. Kolumnerna "programBudgetBelopp" och "utlysningBudgetBelopp" är inte summerbara. 
 
