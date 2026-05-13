@@ -1,6 +1,5 @@
 The tables contain data according to version 2.0 of the GDP standard and can be linked using the applicationID column. Data on upcoming calls and ongoing calls that do not yet have any applications linked to them are not included as the presentation is based on applications. Other data content according to version 2.0 that is not included:
 
-• English names of research subjects and sustainability goals
 • English names of organisations
 • Corporate identity number for funding bodies
 • Currency codes for amounts
