@@ -1,6 +1,5 @@
 Tabellerna innehåller data enligt version 2.0 av GDP-standarden och kan kopplas ihop med hjälp av kolumnen ansokanID. Data om kommande utlysningar och pågående utlysningar som ännu inte har några ansökningar kopplade till sig är inte inkluderade då redovisningen utgår från ansökningar. Övrigt datainnehåll enligt version 2.0 som inte är inkluderat:
 
-• engelska namn på forskningsämnen och hållbarhetsmål
 • engelska namn på organisationer
 • organisationsnummer för finansiär
 • valutakoder för belopp
