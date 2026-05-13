@@ -1,6 +1,0 @@
-Entityt:;;GDP.application;GDP.researchSubject;GDP. researchSubject;GDP.sustainabilityGoal;GDP.categorisationFundingBody;GDP.keyword
-Attribute:;;fundingBodyName;name;code;name;name;name
-Endpoint:;;Application;Application;Application;Application;Application;Application
-Column name:;applicationID;fundingBodyName;researchSubjects;researchSubjectsCode;sustainabilityGoal;categorisationFundingBody;keyword
-Sample value:;987165;Innovationsrådet;Transportteknik och logistik;20105;11 Hållbara städer och samhällen;Fordonsutveckling;NULL
-Sample value:;346729;Innovationsrådet;Transportteknik och logistik;20105;11 Hållbara städer och samhällen;Fordonsutveckling;NULL
