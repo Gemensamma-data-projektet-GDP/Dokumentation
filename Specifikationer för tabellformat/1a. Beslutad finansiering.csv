@@ -1,0 +1,6 @@
+Entitet:;;GDP.finansieradAktivitet;GDP.organisation;GDP.organisation;GDP.organisation;GDP.organisation;GDP.organisation;GDP.organisation;GDP.beslutadFinansiering;GDP.beslutadFinansiering;GDP.beslutadFinansiering
+Attribut:;;finansiarNamn;namn;namn;organisationsnummer;typ;lan;landskod;stodgrund;ar;belopp
+Endpoint:;;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet
+Kolumnnamn:;ansokanID;finansiarNamn;organisationRoll;organisationNamn;organisationOrgnummer;organisationTyp;organisationLan;organisationLandskod;stodgrund;beslutadFinansieringAr;beslutadFinansieringBelopp
+Exempelvärden:;987165;Innovationsrådet;Finansierad organisation;Buss Innovation AB;556012-5780;Företag;Stockholms län;SE;Enligt Innovationsrådets instruktion;2026;350000
+Exempelvärden:;987165;Innovationsrådet;Finansierad organisation;Skandinaviens universitet;202100-2931;Universitet och högskolor;Stockholms län;SE;Enligt Innovationsrådets instruktion;2026;350000
