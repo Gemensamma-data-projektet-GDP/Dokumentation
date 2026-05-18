@@ -2,7 +2,7 @@ The tables contain data according to version 2.0 of the GDP standard and can be 
 
 • English names of organisations
 • Corporate identity number for funding bodies
-• Currency codes for amounts
+• Currency codes for amounts (all the amounts ppresented in the files are in SEK)
 
 The presentation in the tables is one row per application in "Application" and "Application classification" and one row per person in "Person". In "Decided funding", the presentation is one row per funded organization and calendar year for planned payments. When multiple values occur in one and the same cell, the values are separated by vertical bars (|).
 
