@@ -2,7 +2,7 @@ Tabellerna innehåller data enligt version 2.0 av GDP-standarden och kan kopplas
 
 • engelska namn på organisationer
 • organisationsnummer för finansiär
-• valutakoder för belopp
+• valutakoder för belopp (alla belopp som redovisas i filerna är SEK)
 
 Redovisningen i tabellerna är en rad per ansökan i "Ansökan" och "Ansökan klassificering" samt en rad per person i "Person". I ”Beslutad finansiering" är redovisningen en rad per finansierad organisation och kalenderår för planerad utbetalning. När flera värden förekommer i en och samma cell är värdena separerade med vertikalstreck (|).
 
