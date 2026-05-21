@@ -2,5 +2,5 @@ Entitet:;;GDP.finansieradAktivitet;GDP.organisation;GDP.organisation;GDP.organis
 Attribut:;;finansiarNamn;namn;namn;organisationsnummer;typ;lan;landskod;stodgrund;ar;belopp
 Endpoint:;;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet;Finansierad aktivitet
 Kolumnnamn:;ansokanID;finansiarNamn;organisationRoll;organisationNamn;organisationOrgnummer;organisationTyp;organisationLan;organisationLandskod;stodgrund;beslutadFinansieringAr;beslutadFinansieringBelopp
-Exempelvärden:;987165;Innovationsrådet;Finansierad organisation;Buss Innovation AB;556012-5780;Företag;Stockholms län;SE;Enligt Innovationsrådets instruktion;2026;350000
-Exempelvärden:;987165;Innovationsrådet;Finansierad organisation;Skandinaviens universitet;202100-2931;Universitet och högskolor;Stockholms län;SE;Enligt Innovationsrådets instruktion;2026;350000
+ExempelvÃ¤rden:;987165;InnovationsrÃ¥det;Finansierad organisation;Buss Innovation AB;556012-5780;FÃ¶retag;Stockholms lÃ¤n;SE;Enligt InnovationsrÃ¥dets instruktion;2026;350000
+ExempelvÃ¤rden:;987165;InnovationsrÃ¥det;Finansierad organisation;Skandinaviens universitet;202100-2931;Universitet och hÃ¶gskolor;Stockholms lÃ¤n;SE;Enligt InnovationsrÃ¥dets instruktion;2026;350000
