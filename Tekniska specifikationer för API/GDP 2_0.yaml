@@ -27,8 +27,14 @@ tags:
   - name: FinansieradeAktiviteter
   - name: Utlysningar
 servers:
-  - url: https://portal.api.vinnova.se/gdp-openapi-dokumentation
-    description: Webbtjänster för GDP.
+  - url: https://api.vinnova.se/gdp_vinnova
+    description: Webbtjänster för GDP Vinnova.
+  - url: https://api.formas.se/gdp_formas
+    description: Webbtjänster för GDP Formas.
+  - url: https://api.forte.se/gdp_forte
+    description: Webbtjänster för GDP Forte.
+  - url: https://api.vr.se/gdp_vr
+    description: Webbtjänster för GDP Vetenskapsrådet.
 paths:
   /metadata:
     get:
@@ -440,9 +446,8 @@ components:
       allOf:
         - $ref: "#/components/schemas/AnsokanBas"
         - type: object
-          description: Beskrivning av aktivitet som extern person eller organisation har skickat in till en utlysning 
-            och söker finansiering för. För ej beslutade och avslagna ansökningar delas ansökningarnas titel och beskrivning,
-            personnamn, ORCID, email, organisationsnamn och organisationsnummer som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten. 
+          description: Beskrivning av aktivitet som extern person eller organisation har skickat in till en utlysning och söker finansiering för. 
+              För ej beslutade och avslagna ansökningar delas beskrivning som ej öppna data. Värdet "Ej öppna data" returneras till datakonsumenten. 
           required:
             - titelEng
             - beskrivning
@@ -496,9 +501,7 @@ components:
                 - $ref: "#/components/schemas/Valutakod"
             organisationer:
               type: array
-              description: Juridiska personer som är kopplade till en ansökan genom en roll. Juridiska personer som är enskilda 
-                näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsidkare är deras personnummer och 
-                delas därför som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.
+              description: Juridiska personer som är kopplade till en ansökan genom en roll.
               items:
                 $ref: "#/components/schemas/Organisation"
               nullable: true
@@ -657,9 +660,7 @@ components:
         organisationer:
           type: array
           nullable: true
-          description: Juridiska personer som är kopplade till en finansierad aktivitet genom en roll. Juridiska personer som är enskilda 
-            näringsidkare är även fysiska personer. Organisationsnumret för enskilda näringsikare är deras personnummer och 
-            delas därför som ej öppna data, värdet "Ej öppna data" returneras till datakonsumenten.
+          description: Juridiska personer som är kopplade till en finansierad aktivitet genom en roll.
           items:
             $ref: "#/components/schemas/Organisation"
         personer:
@@ -865,9 +866,7 @@ components:
         - typ
         - roll
       type: object
-      description: Juridisk person. Juridiska personer som är enskilda näringsidkare är även fysiska personer. 
-        Organisationsnumret för enskilda näringsikare är deras personnummer och delas därför som ej öppna data. 
-        Värdet "Ej öppna data" returneras till datakonsumenten.
+      description: Juridisk person.
       properties:
         namn:
           type: string
@@ -1265,7 +1264,6 @@ components:
       type: string
       description: Typ av organisation.
       enum:
-        - Forskningsinstitut (RISE)
         - Företag
         - Ideella föreningar, stiftelser, fysiska personer mm
         - Offentlig förvaltning
