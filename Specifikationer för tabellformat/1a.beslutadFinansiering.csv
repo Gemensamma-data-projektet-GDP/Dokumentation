@@ -1,5 +1,5 @@
 Entitet:,,		GDP.organisation,	GDP.finansieradAktivitet,	GDP.organisation,	GDP.organisation,	GDP.organisation,	GDP.organisation,	GDP.organisation,	GDP.organisation,	GDP.beslutadFinansiering,	GDP.beslutadFinansiering,	GDP.beslutadFinansiering
-Attribut:,,		typ,	finansiarNamn,	namn,	namn,	organisationsnummer,	typ,	lan,	landskod,	stodgrund,	ar,	belopp,
+Attribut:,,		typ,	finansiarNamn,	namn,	namn,	organisationsnummer,	typ,	lan,	landskod,	stodgrund,	ar,	belopp
 Endpoint:,,		Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet,	Finansierad aktivitet
 Kolumnnamn:,	ansokanID,	organisationRoll,	finansiarNamn,	organisationRoll,	organisationNamn,	organisationOrgnummer,	organisationTyp,	organisationLan,	organisationLandskod,	stodgrund,	beslutadFinansieringAr,	beslutadFinansieringBelopp
 Exempelvärden:,	987165,	FinansieradOrganisation,	Innovationsrådet,	Finansierad organisation,	Buss Innovation AB,	556012-5780,	Företag,	Stockholms län,	SE,	Enligt Innovationsrådets instruktion,	2026,	350000
