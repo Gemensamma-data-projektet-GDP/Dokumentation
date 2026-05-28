@@ -2,10 +2,10 @@ The tables contain data according to version 2.0 of the GDP standard and can be 
 
 • English names of organisations
 • Corporate identity number for funding bodies
-• Currency codes for amounts (all the amounts ppresented in the files are in SEK)
+• Currency codes for amounts (all the amounts presented in the files are in SEK)
 
-The presentation in the tables is one row per application in "Application" and "Application classification" and one row per person in "Person". In "Decided funding", the presentation is one row per funded organization and calendar year for planned payments. When multiple values occur in one and the same cell, the values are separated by vertical bars (|).
+The presentation in the tables is one row per application in "1.application" and "1c.applicationClassification" and one row per person in "1b.person". In "1a.decidedFunding", the presentation is one row per funded organization and calendar year for planned payments. When multiple values occur in one and the same cell, the values are separated by vertical bars (|).
 
-For rejected and not decided applications in the table “Application”, organisations with the role “Applicant Coordinator” are presented as coordinators. For granted applications in the same table, organisations with the role “Funded organisation” are presented as coordinators or co-aplicant organisations. The columns "programmeBudgetAmount" and "callBudgetAmount" are not summable.
+For rejected and not decided applications in the table “1.application”, organisations with the role “ApplicantCoordinator” are presented as coordinators. For granted applications in the same table, organisations with the role “FundedOrganisation” are presented as coordinators or co-applicant organisations. The columns "programmeBudgetAmount" and "callBudgetAmount" are not summable.
 
-The sorting of the table "Application" is by application registration number (descending). The sorting of “Decided funding” is by application registration number (descending), calendar year for planned payment (ascending) and name of funded organisation (alphabetically). The sorting of “Person” is by application registration number (descending) and role for person (alphabetically). The sorting of “Application classification” is by application registration number (descending).
+The sorting of the table "1.application" is by application registration number (descending). The sorting of “1a.decidedFunding” is by application registration number (descending), calendar year for planned payment (ascending) and name of funded organisation (alphabetically). The sorting of “1b.person” is by application registration number (descending) and role for person (alphabetically). The sorting of “1c.applicationClassification” is by application registration number (descending).
