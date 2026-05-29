@@ -1,4 +1,4 @@
-Entitet:,,GDP.finansieradAktivitet,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.beslutadFinansiering,GDP.beslutadFinansiering,GDP.beslutadFinansiering
+Entitet:,,GDP.finansieradAktivitet,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.beslutadFinansiering,GDP.beslutadFinansiering,GDP.beslutadFinansiering
 Attribut:,,finansiarNamn,roll,namn,organisationsnummer,typ,lan,landskod,stodgrund,ar,belopp
 Endpoint:,,Finansierad aktivitet,Finansierad aktivitet,Finansierad aktivitet,Finansierad aktivitet,Finansierad aktivitet,Finansierad aktivitet,Finansierad aktivitet,Finansierad aktivitet,Finansierad aktivitet,Finansierad aktivitet
 Kolumnnamn:,ansokanID,finansiarNamn,organisationRoll,organisationNamn,organisationOrgnummer,organisationTyp,organisationLan,organisationLandskod,stodgrund,beslutadFinansieringAr,beslutadFinansieringBelopp
