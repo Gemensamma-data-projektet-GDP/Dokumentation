@@ -1,4 +1,4 @@
-The tables contain data according to version 2.0 of the GDP standard and can be linked using the applicationID column. Data on upcoming and ongoing calls that do not yet have any applications linked to them are not included as the presentation is based on applications. Other data content according to version 2.0 that is not included:
+The tables contain data according to version 2.0 of the GDP standard and can be linked using the applicationRegistrationNumber column. If tables from different GDP funding bodies are put together the combination of applicationRegistrationNumber and fundingBodyName can be used as id for the applications. Data on upcoming and ongoing calls that do not yet have any applications linked to them are not included as the presentation is based on applications. Other data content according to version 2.0 that is not included:
 
 • English names of organisations
 • Corporate identity number for funding bodies
