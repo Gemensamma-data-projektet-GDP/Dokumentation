@@ -1,6 +1,6 @@
-Entitet:,,GDP.ansokan,GDP.person,GDP.person,GDP.person,GDP.person,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare
-Attribut:,,finansiarNamn,roll,namn,kon,ORCID,namn,organisationsnummer,typ,lan,landskod
-Endpoint:,,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar
-Kolumnnamn:,ansokanID,finansiarNamn,personRoll,personNamn,personKon,orcid,arbetsgivareNamn,arbetsgivareOrgnummer,arbetsgivareTyp,arbetsgivareLan,arbetsgivareLandskod
-Exempelvärden:,987165,Innovationsrådet,AnsvarigPerson,Anders Persson,Man,NULL,NULL,NULL,NULL,NULL,NULL
-Exempelvärden:,346729,Innovationsrådet,SökandeAnsvarigPerson,Lisa Johansson,Kvinna,NULL,NULL,NULL,NULL,NULL,NULL
+Entitet:,GDP.ansokan,GDP.person,GDP.person,GDP.person,GDP.person,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare
+Attribut:,finansiarNamn,roll,namn,kon,ORCID,namn,organisationsnummer,typ,lan,landskod
+Endpoint:,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar
+Kolumnnamn:,finansiarNamn,personRoll,personNamn,personKon,orcid,arbetsgivareNamn,arbetsgivareOrgnummer,arbetsgivareTyp,arbetsgivareLan,arbetsgivareLandskod
+Exempelvärden:,Innovationsrådet,AnsvarigPerson,Anders Persson,Man,NULL,NULL,NULL,NULL,NULL,NULL
+Exempelvärden:,Innovationsrådet,SökandeAnsvarigPerson,Lisa Johansson,Kvinna,NULL,NULL,NULL,NULL,NULL,NULL
