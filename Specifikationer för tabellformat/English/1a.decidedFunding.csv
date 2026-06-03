@@ -1,6 +1,6 @@
-Entityt:,GDP.fundedActivity,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.decidedFunding,GDP.decidedFunding,GDP.decidedFunding
-Attribute:,fundingBodyName,role,name,corporateIdNumber,type,county,countryCode,legalBasis,year,amount
-Endpoint:,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter
-Column name:,fundingBodyName,organisationRole,organisationName,organisationCorporateIdNumber,organisationType,organisationCounty,organisationCountryCode,legalBasis,decidedFundingYear,decidedFundingAmount
-Sample value:,Innovationsrådet,Funded organisation,Buss Innovation AB,556012-5780,Private business,Stockholms län,SE,Enligt Innovationsrådets instruktion,2026,350000
-Sample value:,Innovationsrådet,Funded organisation,Skandinaviens universitet,202100-2931,Universities and colleges,Stockholms län,SE,Enligt Innovationsrådets instruktion,2026,350000
+Entityt:,GDP.fundedActivity,GDP.fundedActivity,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.organisation,GDP.decidedFunding,GDP.decidedFunding,GDP.decidedFunding
+Attribute:,fundingBodyName,registrationNumber,role,name,corporateIdNumber,type,county,countryCode,legalBasis,year,amount
+Endpoint:,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter,FinansieradeAktiviteter
+Column name:,fundingBodyName,applicationRegistrationNumber,organisationRole,organisationName,organisationCorporateIdNumber,organisationType,organisationCounty,organisationCountryCode,legalBasis,decidedFundingYear,decidedFundingAmount
+Sample value:,Innovationsrådet,2026-99997,Funded organisation,Buss Innovation AB,556012-5780,Private business,Stockholms län,SE,Enligt Innovationsrådets instruktion,2026,350000
+Sample value:,Innovationsrådet,2026-99997,Funded organisation,Skandinaviens universitet,202100-2931,Universities and colleges,Stockholms län,SE,Enligt Innovationsrådets instruktion,2026,350000
