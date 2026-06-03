@@ -1,6 +1,6 @@
-Entityt:,GDP.application,GDP.researchSubject,GDP.researchSubject,GDP.researchSubject,GDP.sustainabilityGoal,GDP.sustainabilityGoal,GDP.categorisationFundingBody,GDP.keyword
-Attribute:,fundingBodyName,name,name,code,name,name,name,name
-Endpoint:,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar
-Column name:,fundingBodyName,researchSubjects,researchSubjectsEng,researchSubjectsCode,sustainabilityGoal,sustainabilityGoalEng,categorisationFundingBody,keyword
-Sample value:,Innovationsrådet,Transportteknik och logistik,Transport Systems and Logistic,20105,11 Hållbara städer och samhällen,11 Sustainable cities and communities,Fordonsutveckling,NULL
-Sample value:,Innovationsrådet,Transportteknik och logistik,Transport Systems and Logistic,20105,11 Hållbara städer och samhällen,11 Sustainable cities and communities,Fordonsutveckling,NULL
+Entityt:,GDP.application,GDP.application,GDP.researchSubject,GDP.researchSubject,GDP.researchSubject,GDP.sustainabilityGoal,GDP.sustainabilityGoal,GDP.categorisationFundingBody,GDP.keyword
+Attribute:,fundingBodyName,registrationNumber,name,name,code,name,name,name,name
+Endpoint:,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar
+Column name:,fundingBodyName,applicationRegistrationNumber,researchSubjects,researchSubjectsEng,researchSubjectsCode,sustainabilityGoal,sustainabilityGoalEng,categorisationFundingBody,keyword
+Sample value:,Innovationsrådet,2026-99997,Transportteknik och logistik,Transport Systems and Logistic,20105,11 Hållbara städer och samhällen,11 Sustainable cities and communities,Fordonsutveckling,NULL
+Sample value:,Innovationsrådet,2026-99998,Transportteknik och logistik,Transport Systems and Logistic,20105,11 Hållbara städer och samhällen,11 Sustainable cities and communities,Fordonsutveckling,NULL
