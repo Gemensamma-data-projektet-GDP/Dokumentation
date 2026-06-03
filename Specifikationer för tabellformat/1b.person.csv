@@ -1,6 +1,6 @@
-Entitet:,GDP.ansokan,GDP.person,GDP.person,GDP.person,GDP.person,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare
-Attribut:,finansiarNamn,roll,namn,kon,ORCID,namn,organisationsnummer,typ,lan,landskod
+Entitet:,GDP.ansokan,GDP.ansokan,GDP.person,GDP.person,GDP.person,GDP.person,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare,GDP.arbetsgivare
+Attribut:,finansiarNamn,diarienummer,roll,namn,kon,ORCID,namn,organisationsnummer,typ,lan,landskod
 Endpoint:,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar
-Kolumnnamn:,finansiarNamn,personRoll,personNamn,personKon,orcid,arbetsgivareNamn,arbetsgivareOrgnummer,arbetsgivareTyp,arbetsgivareLan,arbetsgivareLandskod
-Exempelvärden:,Innovationsrådet,AnsvarigPerson,Anders Persson,Man,NULL,NULL,NULL,NULL,NULL,NULL
-Exempelvärden:,Innovationsrådet,SökandeAnsvarigPerson,Lisa Johansson,Kvinna,NULL,NULL,NULL,NULL,NULL,NULL
+Kolumnnamn:,finansiarNamn,ansokanDiarienummer,personRoll,personNamn,personKon,orcid,arbetsgivareNamn,arbetsgivareOrgnummer,arbetsgivareTyp,arbetsgivareLan,arbetsgivareLandskod
+Exempelvärden:,Innovationsrådet,2026-99997,AnsvarigPerson,Anders Persson,Man,NULL,NULL,NULL,NULL,NULL,NULL
+Exempelvärden:,Innovationsrådet,2026-99998,SökandeAnsvarigPerson,Lisa Johansson,Kvinna,NULL,NULL,NULL,NULL,NULL,NULL
