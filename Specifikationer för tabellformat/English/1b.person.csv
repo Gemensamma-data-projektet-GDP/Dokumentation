@@ -1,6 +1,6 @@
-Entityt:,GDP.application,GDP.person,GDP.person,GDP.person,GDP.person,GDP.employer,GDP.employer,GDP.employer,GDP.employer,GDP.employer
-Attribute:,fundingBodyName,role,name,gender,ORCID,name,corporateIdNumber,type,county,countryCode
-Endpoint:,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar
-Column name:,fundingBodyName,personRole,personName,personGender,orcid,employerName,employerCorporateIdNumber,employerType,employerCounty,employerCountryCode
-Sample value:,Innovationsrådet,AnsvarigPerson,Anders Persson,Man,NULL,NULL,NULL,NULL,NULL,NULL
-Sample value:,Innovationsrådet,SökandeAnsvarigPerson,Lisa Johansson,Kvinna,NULL,NULL,NULL,NULL,NULL,NULL
+Entityt:,GDP.application,GDP.application,GDP.person,GDP.person,GDP.person,GDP.person,GDP.employer,GDP.employer,GDP.employer,GDP.employer,GDP.employer
+Attribute:,fundingBodyName,registrationNumber,role,name,gender,ORCID,name,corporateIdNumber,type,county,countryCode
+Endpoint:,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar
+Column name:,fundingBodyName,applicationRegistrationNumber,personRole,personName,personGender,orcid,employerName,employerCorporateIdNumber,employerType,employerCounty,employerCountryCode
+Sample value:,Innovationsrådet,2026-99997,AnsvarigPerson,Anders Persson,Man,NULL,NULL,NULL,NULL,NULL,NULL
+Sample value:,Innovationsrådet,2026-99998,SökandeAnsvarigPerson,Lisa Johansson,Kvinna,NULL,NULL,NULL,NULL,NULL,NULL
