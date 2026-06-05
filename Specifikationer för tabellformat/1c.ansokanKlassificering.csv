@@ -2,5 +2,5 @@ Entitet:,GDP.ansokan,GDP.ansokan,GDP. forskningsamne,GDP. forskningsamne,GDP. fo
 Attribut:,finansiarNamn,diarienummer,namn,namnEng,kod,namn,namn,namn,namn
 Endpoint:,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar,Ansokningar
 Kolumnnamn:,finansiarNamn,ansokanDiarienummer,forskningsamnen,forskningsamnenEng,forskningsamnenKod,hallbarhetsmal,hallbarhetsmalEng,kategoriseringFinansiar,nyckelord
-Exempelvärden:,Innovationsrådet,2026-99997,Transportteknik och logistik,Transport Systems and Logistic,20105,11 Hållbara städer och samhällen,11 Sustainable cities and communities,Fordonsutveckling,NULL
-Exempelvärden:,Innovationsrådet,2026-99998, Transportteknik och logistik,Transport Systems and Logistic,20105,11 Hållbara städer och samhällen,11 Sustainable cities and communities,Fordonsutveckling,NULL
+Exempelvärden:,Innovationsrådet,2026-99998,Transportteknik och logistik,Transport Systems and Logistic,20105,11 Hållbara städer och samhällen,11 Sustainable cities and communities,Fordonsutveckling,NULL
+Exempelvärden:,Innovationsrådet,2026-99997, Transportteknik och logistik,Transport Systems and Logistic,20105,11 Hållbara städer och samhällen,11 Sustainable cities and communities,Fordonsutveckling,NULL
