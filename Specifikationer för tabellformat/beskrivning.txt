@@ -4,7 +4,7 @@ Tabellerna innehåller data enligt version 2.0 av GDP-standarden och kan kopplas
 • organisationsnummer för finansiär
 • valutakoder för belopp (alla belopp som redovisas i filerna är SEK)
 
-Redovisningen i tabellerna är en rad per ansökan i "1.ansökan" och "1c.ansökanKlassificering" samt en rad per person i "1b.person". I ”1a.beslutadFinansiering" är redovisningen en rad per finansierad organisation och kalenderår för planerad utbetalning. När flera värden förekommer i en och samma cell är värdena separerade med vertikalstreck (|).
+Redovisningen i tabellerna är en rad per ansökan i "1.ansökan" och "1c.ansökanKlassificering" samt en rad per person i "1b.person". I ”1a.beslutadFinansiering" är redovisningen en rad per finansierad organisation och kalenderår för planerad utbetalning. När flera värden förekommer i en och samma cell är värdena separerade med vertikalstreck (|). Alla belopp är angivna med fyra decimaler där punkt (.) används som decimaltecken.
 
 För avslagna och ej beslutade ansökningar i tabellen ”1.ansökan” redovisas organisationer med rollen ”SökandeKoordinator” som koordinatorer. För beviljade ansökningar i samma tabell redovisas organisationer med rollen ”FinansieradOrganisation” som koordinatorer eller medsökande organisationer. Kolumnerna "programBudgetBelopp" och "utlysningBudgetBelopp" är inte summerbara. 
 
