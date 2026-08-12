@@ -39,5 +39,4 @@ Feel free to send a message via GitHub Issues or contact one of the members of t
  - peter.carlsson@forte.se
  - anna.ringqvist@formas.se
  - kenth.hermansson@vr.se
- - joar.rehn@vr.se
 
