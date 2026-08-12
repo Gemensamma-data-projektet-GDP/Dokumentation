@@ -15,7 +15,7 @@ This GitHub repository contains a joint documentation of the standard according 
 ## Limitations
 
  - The GDP standard is technology-agnostic; the project does not aim to produce common technical solutions for data sharing.
- - The data covered by the standard is open data.
+ - Data shared in accordance with the standard are open data.
  - Each funder describes its own implementation of the standard and of the data quality.
 
 ## Data sharing according to the standard
