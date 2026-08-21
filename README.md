@@ -7,7 +7,7 @@
 
 ## Vad innehåller detta repo?
 
-Detta GitHub-repo innehåller en gemensam dokumentation av standarden enligt version 2.0 i form av :
+Detta GitHub-repo innehåller en gemensam dokumentation av standarden version 2.0 enligt nedan. Informationsmodellen redovisar det fullständiga datainnehållet och hur data kan organiseras efter uttag från datadelningslösningarna. 
 
 - [Informationsmodell dbdiagram](https://dbdiagram.io/e/68d24e0b7c85fb9961ec9252/68d259f97c85fb9961eedf69)
 - [Informationsmodell dbdocs](https://dbdocs.io/rickard.franzen/GDP-version-2.0)
