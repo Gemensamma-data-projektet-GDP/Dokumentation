@@ -17,7 +17,10 @@ This GitHub repository contains a joint documentation of the standard version 2.
  - Data shared in accordance with the standard are open data.
  - Each funder describes its own implementation of the standard and of the data quality.
 
-## Data sharing according to the standard
+## Ongoing data sharing
+
+The data shared covers approximately 80% of the research and innovation funding disbursed annually in Sweden.
+
  - https://gdphub.se
  - https://www.energimyndigheten.se/en/innovations-r--d/the-joint-data-project/
    
