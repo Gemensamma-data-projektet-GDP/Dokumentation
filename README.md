@@ -19,7 +19,9 @@ Detta GitHub-repo innehåller en gemensam dokumentation av standarden version 2.
 - Data enligt standarden som delas är öppna data.
 - Varje finansiär beskriver sin egen tillämpning av standarden och av datakvalitén.
 
-## Datadelning enligt standarden
+## Pågående datadelning
+
+Data som delas omfattar cirka 80 % av finansieringen till forskning och innovation som årligen blir betalas ut i Sverige.
 
  - https://gdphub.se
  - https://www.energimyndigheten.se/forskning-och-innovation/data-om-finansiering-av-forskning-och-innovation/gemensamma-dataprojektet-gdp
