@@ -19,7 +19,7 @@ This GitHub repository contains a joint documentation of the standard version 2.
 
 ## Ongoing data sharing
 
-The data shared covers approximately 80% of the research and innovation funding disbursed annually in Sweden.
+The data shared covers approximately 80% of the research and innovation funding annually granted in Sweden.
 
  - https://gdphub.se
  - https://www.energimyndigheten.se/en/innovations-r--d/the-joint-data-project/
